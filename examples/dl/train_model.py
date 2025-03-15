@@ -19,6 +19,9 @@ torch.backends.cuda.matmul.allow_tf32 = True  # allow tf32 on matmul
 torch.backends.cudnn.allow_tf32 = True  # allow tf32 on cudnn
 
 
+
+
+
 def train_model():
     print("Loading data")
     train_dataset, val_dataset, test_dataset, list_patients = create_train_val_test_split()

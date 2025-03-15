@@ -101,3 +101,4 @@ class ResidualBlock(nn.Module):
         x += shortcut
 
         return x
+

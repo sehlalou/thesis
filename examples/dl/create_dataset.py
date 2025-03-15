@@ -6,10 +6,13 @@ import pandas as pd
 import torch
 from torch.utils.data import Dataset
 from tqdm import tqdm
+import sys
 
 import config as cfg
-import iridia_af.hyperparameters as hp
-from iridia_af.record import create_record
+
+sys.path.append("/mnt/iridia/sehlalou/thesis/iridia_af")
+import hyperparameters as hp
+from record import create_record
 
 
 def create_dataset_csv():

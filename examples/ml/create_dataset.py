@@ -59,11 +59,16 @@ def get_hrv_metrics(rr_window: np.ndarray):
     frequency_domain_features = hrv.get_frequency_domain_features(rr_window)
     geometrical_features = hrv.get_geometrical_features(rr_window)
     poincare_features = hrv.get_poincare_plot_features(rr_window)
+    non_linear_domain_features = hrv.extract_features.get_csi_cvi_features(rr_window)
+    sample_entropy_feature = hrv.extract_features.get_sampen(rr_window)
 
-    all_features = {**time_domain_features, **frequency_domain_features, **geometrical_features, **poincare_features}
+    all_features = {**time_domain_features, **frequency_domain_features, **geometrical_features, **poincare_features, **non_linear_domain_features, **sample_entropy_feature}
     # remove tinn
     del all_features["tinn"]
     return all_features
+
+
+
 
 
 if __name__ == '__main__':
