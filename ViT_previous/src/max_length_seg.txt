@@ -1,0 +1,40 @@
+
+First method (by detecting R-peaks using neurokit2)
+
+Maximum segment length: 224.86 seconds
+Details:
+record_id                                                    record_069
+file_index                                                            0
+segment               -0.02976034093456853,-0.047430022278669465,-0....
+global_start_index                                             10319121
+global_end_index                                               10364093
+label                                                               NSR
+segment_length                                                    44972
+Name: 12766242, dtype: object
+
+
+
+
+
+Second methods (using RR data provided):
+record_id  file_index  global_start_index  global_end_index label  duration_seconds
+record_068           0             4956312           4966686   NSR            51.870
+record_068           0             4956232           4965684   NSR            47.260
+record_068           0             3499062           3504577   NSR            27.575
+record_068           0             3498894           3504234   NSR            26.700
+record_068           0             3595560           3600332   NSR            23.860
+record_068           0             3595479           3599663   NSR            20.920
+record_068           0             3591603           3595560   NSR            19.785
+record_068           0             3591522           3595479   NSR            19.785
+record_152           0             4266532           4270211   NSR            18.395
+record_152           0             4266402           4270067   NSR            18.325
+record_068           0              845157            848620   NSR            17.315
+record_068           0              328149            331601   NSR            17.260
+record_068           0              845020            847684   NSR            13.320
+record_068           0              329008            331662   NSR            13.270
+record_023           1             7588799           7590840    AF            10.205
+record_101           2             5680214           5682217   NSR            10.015
+record_014           0            14392092          14394094   NSR            10.010
+record_110           1              188798            190800   NSR            10.010
+record_075           0            13344986          13346988   NSR            10.010
+record_050           0             4973662           4975664   NSR            10.010

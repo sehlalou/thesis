@@ -1,0 +1,27 @@
+1. Define the Hyperparameter to tune.
+
+- Windows Size
+- Patch Size: ViTs use patches—optimal patch size impacts feature extraction.
+- EMB_DIM
+- NUM_HEADS
+- NUM_LAYERS
+- MLP_DIM
+
+2. Optimization strategy
+
+- Grid search 
+- Random Search
+- Bayesian Optimization
+- Hyperband/ASHA 
+
+
+=> I chose the Bayesian Optimization for its efficiency (Using Optuna). 
+
+Optuna primarily uses Tree-structured Parzen Estimator (TPE) as its default optimization algorithm for hyperparameter optimization (HPO). 
+TPE is a Bayesian optimization method that models the distribution of the hyperparameters as a probabilistic model, 
+aiming to find the most promising regions of the search space.
+
+Key Characteristics of TPE:
+Bayesian Optimization: TPE is a type of Bayesian optimization, where it builds a probabilistic model of the objective function
+ and uses it to select hyperparameters to try next. 
+It learns from previous evaluations of the objective function to guide the search.

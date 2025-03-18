@@ -1,0 +1,3 @@
+Total segments: 29888247
+AF segments: 7241829
+Fréquence AF: 0.2423

@@ -1,0 +1,29 @@
+Semaine passée (11 mars)
+
+- J'ai perdu énormément de temps à essayer d'extraire les segments RRR.
+     Deux méthodes utilisées: 1. Détection automatique des pics R utilisant NeuroKit2 et
+                              2. Utilisant les fichiers contenant les intervals RR (.h5) 
+
+- Utilisation des fenêtres fixes à l'aide du code de cédric. Pour ça, j'utilise une taille correspondant +- à un segment RRR. => C'est bon en terme de frequency af (0.22) et de labelisation.
+
+- Je défini mon vision transformer, et sur base de ça je l'entraine. 
+
+- Je compare les performances avec celui le DL de cédric => avec une taille de fênetre basse (640) j'ai de perf très moyenne alors que en augmentant (8192) j'obtient des 0.90 + le model explainable.
+
+- Attention maps du modèle (moyen)
+
+
+
+Vendredi 21 mars (TO DO LIST)
+
+- Hyperparameter optimisation for the ViT model. Try to improve the performance of the model.
+- Comparison with transformer model (vanilla)
+- Comparison with ViT taking an image (spectogram) as input
+     - Tried without cleaning the ECG -> 0.9594846553143358 of auroc
+     - Tried with ECG cleaning ->
+     )
+- Apply the two models not on an AF detection task but on an AF identification. 
+
+
+
+

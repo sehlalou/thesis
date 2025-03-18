@@ -1,0 +1,43 @@
+WINDOW_SIZE = 8192
+PATCH_SIZE = (16,16)
+SAMPLING_RATE = 200
+NPERSEG = 128
+NOVERLAP = 64
+RESOLUTION_SPEC = (512,512)
+BATCH_SIZE = 16
+NUM_PROC_WORKERS_DATA = 12
+LEARNING_RATE = 0.0001
+RANDOM_SEED = 42
+EPOCH = 20 
+PATIENCE = 5
+EMB_DIM = 128
+NUM_LAYERS = 4
+NUM_HEADS = 4
+MLP_DIM = 512
+DROPOUT_RATE = 0.1
+LOG_DL_PATH = "/mnt/iridia/sehlalou/thesis/examples/dl/ViT_spec/saved_models"
+DATASET_PATH = "/mnt/iridia/sehlalou/thesis/data/datasets"
+
+
+def get_dict():
+    return {
+        "WINDOW_SIZE": WINDOW_SIZE,
+        "PATCH_SIZE": PATCH_SIZE,
+        "SAMPLING_RATE": SAMPLING_RATE,
+        "NPERSEG": NPERSEG,
+        "NOVERLAP": NOVERLAP,
+        "RESOLUTION_SPEC": RESOLUTION_SPEC,
+        "BATCH_SIZE": BATCH_SIZE,
+        "NUM_PROC_WORKERS": NUM_PROC_WORKERS_DATA,
+        "LEARNING_RATE": LEARNING_RATE,
+        "RANDOM_SEED": RANDOM_SEED,
+        "EPOCH": EPOCH,
+        "PATIENCE": PATIENCE,
+        "EMB_DIM": EMB_DIM,
+        "NUM_LAYERS": NUM_LAYERS,
+        "NUM_HEADS": NUM_HEADS,
+        "MLP_DIM": MLP_DIM,
+        "DROPOUT_RATE": DROPOUT_RATE,
+        "LOG_DL_PATH": LOG_DL_PATH,
+        "DATASET_PATH": DATASET_PATH
+    }
