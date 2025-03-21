@@ -20,99 +20,99 @@ config = ViTModelConfig(
     dropout_rate=hp.DROPOUT_RATE
 )
 
+def save_attention_hook(module, input, output):
+    module.attn_weights = output[1].detach().cpu().numpy()
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = VisionTransformer(config).to(device)
 
 model.load_state_dict(torch.load(
-    "/mnt/iridia/sehlalou/thesis/examples/dl/training_transformer/20250314-022859/model.pt",
+   "/mnt/iridia/sehlalou/thesis/examples/dl/training_transformer/trial_0_20250316-063940/model.pt",
     map_location=device
 ))
 model.eval()
 
-
-def save_attention_hook(module, input, output):
-    """
-    output is (attn_output, attn_weights).
-    We store the attention weights (attn_weights) in an attribute on the module.
-    """
-    module.attn_weights = output[1].detach().cpu().numpy()
-
-# Register the hook on every MultiheadAttention
 for block in model.encoder_layers:
     block.mha.register_forward_hook(save_attention_hook)
 
-
 _, val_dataset, _, _ = create_train_val_test_split()
 
-x_af_correct, y_af_correct = None, None
+samples = {"af_correct": None, "nsr_correct": None, "af_incorrect": None, "nsr_incorrect": None}
 
-# Iterate over the validation dataset batches
+i = 0
 for x_batch, y_batch in val_dataset:
     x_batch = x_batch.to(device)
     y_batch = y_batch.to(device)
 
-    # Run the model inference
     with torch.no_grad():
         logits = model(x_batch)
         predictions = torch.argmax(logits, dim=1)
 
-    # Find AF samples (label 1) that were correctly classified as AF (predicted 1)
-    af_indices = (y_batch == 1).nonzero(as_tuple=True)[0]
-    correct_af_indices = af_indices[predictions[af_indices] == 1]
+    for idx in range(x_batch.size(0)):
+        true_label, pred_label = y_batch[idx].item(), predictions[idx].item()
 
-    if correct_af_indices.numel() > 0:
-        x_af_correct = x_batch[correct_af_indices[0]].unsqueeze(0)  # Keep batch dimension
-        y_af_correct = y_batch[correct_af_indices[0]]
-        print(f"Found a correctly classified AF sample (true label: {y_af_correct.item()}, predicted: {predictions[correct_af_indices[0]].item()})")
+        if true_label == 1 and pred_label == 1 and samples["af_correct"] is None:
+            samples["af_correct"] = x_batch[idx].unsqueeze(0)
+
+        elif true_label == 0 and pred_label == 0 and samples["nsr_correct"] is None:
+            i += 1
+            if i == 1000:
+                samples["nsr_correct"] = x_batch[idx].unsqueeze(0)
+            
+        elif true_label == 1 and pred_label != 1 and samples["af_incorrect"] is None:
+            samples["af_incorrect"] = x_batch[idx].unsqueeze(0)
+        elif true_label == 0 and pred_label != 0 and samples["nsr_incorrect"] is None:
+            samples["nsr_incorrect"] = x_batch[idx].unsqueeze(0)
+
+    if all(sample is not None for sample in samples.values()):
         break
 
-if x_af_correct is None:
-    print("No correctly classified AF sample found!")
-else:
-    print("Proceeding with attention visualization...")
-
-    # Run a forward pass with this specific sample
+def plot_attention(x_sample, title, filename):
+    model.eval()
     with torch.no_grad():
-        _ = model(x_af_correct)
-
-    #############################################
-    # Extract attention and visualize heatmap
-    #############################################
+        _ = model(x_sample)
     attn_weights = model.encoder_layers[0].mha.attn_weights
     attn_cls_to_patches = attn_weights[0, 0, 1:]
-
-    # Convert ECG signal to numpy
-    ecg_signal = x_af_correct[0, 0, :].cpu().numpy()
-
-    # Normalize attention weights for color mapping
+    
+    ecg_signal = x_sample[0, 0, :].cpu().numpy()
+    attn_cls_to_patches = np.power(attn_cls_to_patches, 0.5)
     vmin, vmax = attn_cls_to_patches.min(), attn_cls_to_patches.max()
     norm = mcolors.Normalize(vmin=vmin, vmax=vmax)
-    cmap = plt.cm.Reds  # Using red for attention
-
-    plt.figure(figsize=(12, 6))
+    cmap = plt.cm.Reds
     
-    # Plot the raw ECG signal
-    plt.plot(ecg_signal, color='black', label='ECG')
-
-    # For each patch, shade the background according to attention weight
-    num_patches = len(attn_cls_to_patches)
-    patch_size = config.patch_size
-    for i in range(num_patches):
-        patch_start = i * patch_size
-        patch_end = (i + 1) * patch_size
-        weight = attn_cls_to_patches[i]
-        color = cmap(norm(weight))
-        plt.axvspan(patch_start, patch_end, color=color, alpha=0.5)
-
-    # Add a colorbar to interpret the attention intensity
-    sm = plt.cm.ScalarMappable(norm=norm, cmap=cmap)
-    sm.set_array([])
-    cbar = plt.colorbar(sm)
-    cbar.set_label("Attention Weight (CLS → Patch)")
-
-    plt.xlabel("Time (samples)")
-    plt.ylabel("Amplitude")
-    plt.title("ECG Attention Overlay (Correctly Classified AF)")
-    plt.legend()
-    plt.savefig("/mnt/iridia/sehlalou/thesis/examples/dl/ViT/plots/ecg_attention_correct_AF.png")
+    fig, axs = plt.subplots(2, 1, figsize=(12, 10), sharey=True)
+    half_length = len(ecg_signal) // 2
     
+    for ax, (start, end, half_title) in zip(
+        axs, [(0, half_length, "First half"), (half_length, len(ecg_signal), "Second half")]
+    ):
+        segment = ecg_signal[start:end]
+        ax.plot(np.arange(start, end), segment, color='black', label='ECG')
+        
+        num_patches = len(attn_cls_to_patches)
+        patch_size = config.patch_size
+        for j in range(num_patches):
+            patch_start, patch_end = j * patch_size, (j + 1) * patch_size
+            if patch_end < start or patch_start > end:
+                continue
+            seg_patch_start, seg_patch_end = max(patch_start, start), min(patch_end, end)
+            ax.axvspan(seg_patch_start, seg_patch_end, color=cmap(norm(attn_cls_to_patches[j])), alpha=0.5)
+        
+        ax.set_xlim(start, end)
+        ax.set_xlabel("Time (samples)")
+        ax.set_ylabel("Amplitude")
+        ax.legend()
+        ax.set_title(f"{title} ({half_title})")
+    
+    plt.tight_layout()
+    plt.savefig(filename)
+    plt.close()
+    print(f"Plotted: {filename}")
+
+for key, sample in samples.items():
+    if sample is None:
+        print(f"No sample found for {key}!")
+    else:
+        filename = f"/mnt/iridia/sehlalou/thesis/examples/dl/ViT/first_second_half/ecg_attention_{key}.png"
+        title = f"ECG Attention Overlay ({key.replace('_', ' ').title()})"
+        plot_attention(sample, title, filename)
