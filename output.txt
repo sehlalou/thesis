@@ -1,0 +1,1509 @@
+Found 167 record folders:
+/mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_000, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_001, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_002, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_003, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_004, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_005, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_006, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_007, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_008, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_009, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_010, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_011, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_012, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_013, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_014, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_015, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_016, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_017, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_018, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_019, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_020, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_021, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_022, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_023, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_024, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_025, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_026, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_027, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_028, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_029, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_030, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_031, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_032, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_033, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_034, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_035, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_036, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_037, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_038, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_039, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_040, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_041, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_042, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_043, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_044, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_045, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_046, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_047, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_048, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_049, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_050, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_051, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_052, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_053, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_054, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_055, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_056, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_057, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_058, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_059, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_060, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_061, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_062, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_063, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_064, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_065, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_066, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_067, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_068, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_069, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_070, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_071, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_072, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_073, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_074, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_075, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_076, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_077, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_078, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_079, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_080, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_081, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_082, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_083, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_084, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_085, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_086, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_087, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_088, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_089, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_090, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_091, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_092, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_093, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_094, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_095, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_096, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_097, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_098, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_099, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_100, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_101, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_102, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_103, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_104, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_105, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_106, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_107, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_108, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_109, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_110, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_111, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_112, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_113, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_114, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_115, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_116, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_117, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_118, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_119, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_120, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_121, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_122, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_123, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_124, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_125, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_126, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_127, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_128, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_129, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_130, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_131, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_132, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_133, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_134, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_135, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_136, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_137, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_138, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_139, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_140, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_141, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_142, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_143, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_144, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_145, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_146, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_147, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_148, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_149, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_150, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_151, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_152, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_153, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_154, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_155, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_156, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_157, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_158, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_159, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_160, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_161, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_162, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_163, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_164, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_165, /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_166
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_000
+[record_000] Starting processing of ECG files...
+[record_000] Processing file record_000_ecg_00.h5 (file_index=0) with 17272200 samples in chunks of 172722 samples.
+[record_000] Total segments extracted from all files: 104412
+[record_000] ECG labels loaded from record_000_ecg_labels.csv
+17958 segments annotated with AF
+Duration of annotated AF segments: 26077.04999999987 seconds
+[record_000] Total annotated segments: 104412
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_001
+[record_001] Starting processing of ECG files...
+[record_001] Processing file record_001_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_001] Processing file record_001_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_001] Total segments extracted from all files: 248995
+[record_001] ECG labels loaded from record_001_ecg_labels.csv
+112196 segments annotated with AF
+Duration of annotated AF segments: 112636.38500000173 seconds
+[record_001] Total annotated segments: 248995
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_002
+[record_002] Starting processing of ECG files...
+[record_002] Processing file record_002_ecg_00.h5 (file_index=0) with 15890800 samples in chunks of 158908 samples.
+[record_002] Total segments extracted from all files: 87221
+[record_002] ECG labels loaded from record_002_ecg_labels.csv
+5396 segments annotated with AF
+Duration of annotated AF segments: 8861.59999999996 seconds
+[record_002] Total annotated segments: 87221
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_003
+[record_003] Starting processing of ECG files...
+[record_003] Processing file record_003_ecg_00.h5 (file_index=0) with 15891790 samples in chunks of 158917 samples.
+[record_003] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_003] Total segments extracted from all files: 87300
+[record_003] ECG labels loaded from record_003_ecg_labels.csv
+7098 segments annotated with AF
+Duration of annotated AF segments: 9328.97000000002 seconds
+[record_003] Total annotated segments: 87300
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_004
+[record_004] Starting processing of ECG files...
+[record_004] Processing file record_004_ecg_00.h5 (file_index=0) with 15889800 samples in chunks of 158898 samples.
+[record_004] Total segments extracted from all files: 89125
+[record_004] ECG labels loaded from record_004_ecg_labels.csv
+9275 segments annotated with AF
+Duration of annotated AF segments: 9807.029999999999 seconds
+[record_004] Total annotated segments: 89125
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_005
+[record_005] Starting processing of ECG files...
+[record_005] Processing file record_005_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_005] Total segments extracted from all files: 114537
+[record_005] ECG labels loaded from record_005_ecg_labels.csv
+6085 segments annotated with AF
+Duration of annotated AF segments: 5391.440000000116 seconds
+[record_005] Total annotated segments: 114537
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_006
+[record_006] Starting processing of ECG files...
+[record_006] Processing file record_006_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_006] Processing file record_006_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_006] Processing file record_006_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_006] Processing file record_006_ecg_03.h5 (file_index=3) with 16577192 samples in chunks of 165771 samples.
+[record_006] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_006] Total segments extracted from all files: 428176
+[record_006] ECG labels loaded from record_006_ecg_labels.csv
+82412 segments annotated with AF
+Duration of annotated AF segments: 86809.32000000137 seconds
+[record_006] Total annotated segments: 428176
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_007
+[record_007] Starting processing of ECG files...
+[record_007] Processing file record_007_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_007] Processing file record_007_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_007] Processing file record_007_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_007] Processing file record_007_ecg_03.h5 (file_index=3) with 6449483 samples in chunks of 64494 samples.
+[record_007] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_007] Total segments extracted from all files: 332609
+[record_007] ECG labels loaded from record_007_ecg_labels.csv
+107288 segments annotated with AF
+Duration of annotated AF segments: 158004.3050000011 seconds
+[record_007] Total annotated segments: 332609
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_008
+[record_008] Starting processing of ECG files...
+[record_008] Processing file record_008_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_008] Processing file record_008_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_008] Total segments extracted from all files: 282110
+[record_008] ECG labels loaded from record_008_ecg_labels.csv
+0 segments annotated with AF
+Duration of annotated AF segments: 0 seconds
+[record_008] Total annotated segments: 282110
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_009
+[record_009] Starting processing of ECG files...
+[record_009] Processing file record_009_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_009] Processing file record_009_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_009] Processing file record_009_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_009] Processing file record_009_ecg_03.h5 (file_index=3) with 13428261 samples in chunks of 134282 samples.
+[record_009] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_009] Total segments extracted from all files: 461199
+[record_009] ECG labels loaded from record_009_ecg_labels.csv
+0 segments annotated with AF
+Duration of annotated AF segments: 0 seconds
+[record_009] Total annotated segments: 461199
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_010
+[record_010] Starting processing of ECG files...
+[record_010] Processing file record_010_ecg_00.h5 (file_index=0) with 17272600 samples in chunks of 172726 samples.
+[record_010] Total segments extracted from all files: 87798
+[record_010] ECG labels loaded from record_010_ecg_labels.csv
+4494 segments annotated with AF
+Duration of annotated AF segments: 4391.220000000002 seconds
+[record_010] Total annotated segments: 87798
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_011
+[record_011] Starting processing of ECG files...
+[record_011] Processing file record_011_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_011] Processing file record_011_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_011] Total segments extracted from all files: 187394
+[record_011] ECG labels loaded from record_011_ecg_labels.csv
+26864 segments annotated with AF
+Duration of annotated AF segments: 31030.92999999978 seconds
+[record_011] Total annotated segments: 187394
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_012
+[record_012] Starting processing of ECG files...
+[record_012] Processing file record_012_ecg_00.h5 (file_index=0) with 17272600 samples in chunks of 172726 samples.
+[record_012] Total segments extracted from all files: 121907
+[record_012] ECG labels loaded from record_012_ecg_labels.csv
+64669 segments annotated with AF
+Duration of annotated AF segments: 69989.7049999999 seconds
+[record_012] Total annotated segments: 121907
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_013
+[record_013] Starting processing of ECG files...
+[record_013] Processing file record_013_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_013] Processing file record_013_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_013] Processing file record_013_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_013] Total segments extracted from all files: 346346
+[record_013] ECG labels loaded from record_013_ecg_labels.csv
+0 segments annotated with AF
+Duration of annotated AF segments: 0 seconds
+[record_013] Total annotated segments: 346346
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_014
+[record_014] Starting processing of ECG files...
+[record_014] Processing file record_014_ecg_00.h5 (file_index=0) with 17272000 samples in chunks of 172720 samples.
+[record_014] Total segments extracted from all files: 94189
+[record_014] ECG labels loaded from record_014_ecg_labels.csv
+15530 segments annotated with AF
+Duration of annotated AF segments: 19144.030000000123 seconds
+[record_014] Total annotated segments: 94189
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_015
+[record_015] Starting processing of ECG files...
+[record_015] Processing file record_015_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_015] Total segments extracted from all files: 115179
+[record_015] ECG labels loaded from record_015_ecg_labels.csv
+24298 segments annotated with AF
+Duration of annotated AF segments: 26704.56499999996 seconds
+[record_015] Total annotated segments: 115179
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_016
+[record_016] Starting processing of ECG files...
+[record_016] Processing file record_016_ecg_00.h5 (file_index=0) with 17272000 samples in chunks of 172720 samples.
+[record_016] Total segments extracted from all files: 123490
+[record_016] ECG labels loaded from record_016_ecg_labels.csv
+23376 segments annotated with AF
+Duration of annotated AF segments: 25012.245000000094 seconds
+[record_016] Total annotated segments: 123490
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_017
+[record_017] Starting processing of ECG files...
+[record_017] Processing file record_017_ecg_00.h5 (file_index=0) with 17272200 samples in chunks of 172722 samples.
+[record_017] Total segments extracted from all files: 154789
+[record_017] ECG labels loaded from record_017_ecg_labels.csv
+148413 segments annotated with AF
+Duration of annotated AF segments: 161820.3249999994 seconds
+[record_017] Total annotated segments: 154789
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_018
+[record_018] Starting processing of ECG files...
+[record_018] Processing file record_018_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_018] Total segments extracted from all files: 90098
+[record_018] ECG labels loaded from record_018_ecg_labels.csv
+4935 segments annotated with AF
+Duration of annotated AF segments: 5159.1150000000025 seconds
+[record_018] Total annotated segments: 90098
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_019
+[record_019] Starting processing of ECG files...
+[record_019] Processing file record_019_ecg_00.h5 (file_index=0) with 16622530 samples in chunks of 166225 samples.
+[record_019] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_019] Total segments extracted from all files: 82804
+[record_019] ECG labels loaded from record_019_ecg_labels.csv
+17251 segments annotated with AF
+Duration of annotated AF segments: 21392.23000000013 seconds
+[record_019] Total annotated segments: 82804
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_020
+[record_020] Starting processing of ECG files...
+[record_020] Processing file record_020_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_020] Processing file record_020_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_020] Processing file record_020_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_020] Processing file record_020_ecg_03.h5 (file_index=3) with 13753866 samples in chunks of 137538 samples.
+[record_020] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_020] Total segments extracted from all files: 318203
+[record_020] ECG labels loaded from record_020_ecg_labels.csv
+0 segments annotated with AF
+Duration of annotated AF segments: 0 seconds
+[record_020] Total annotated segments: 318203
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_021
+[record_021] Starting processing of ECG files...
+[record_021] Processing file record_021_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_021] Total segments extracted from all files: 97008
+[record_021] ECG labels loaded from record_021_ecg_labels.csv
+19970 segments annotated with AF
+Duration of annotated AF segments: 25214.93000000003 seconds
+[record_021] Total annotated segments: 97008
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_022
+[record_022] Starting processing of ECG files...
+[record_022] Processing file record_022_ecg_00.h5 (file_index=0) with 14818250 samples in chunks of 148182 samples.
+[record_022] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_022] Total segments extracted from all files: 123942
+[record_022] ECG labels loaded from record_022_ecg_labels.csv
+75599 segments annotated with AF
+Duration of annotated AF segments: 71411.11999999965 seconds
+[record_022] Total annotated segments: 123942
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_023
+[record_023] Starting processing of ECG files...
+[record_023] Processing file record_023_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_023] Processing file record_023_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_023] Total segments extracted from all files: 184765
+[record_023] ECG labels loaded from record_023_ecg_labels.csv
+66703 segments annotated with AF
+Duration of annotated AF segments: 94226.84499999977 seconds
+[record_023] Total annotated segments: 184765
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_024
+[record_024] Starting processing of ECG files...
+[record_024] Processing file record_024_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_024] Processing file record_024_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_024] Total segments extracted from all files: 174941
+[record_024] ECG labels loaded from record_024_ecg_labels.csv
+8229 segments annotated with AF
+Duration of annotated AF segments: 8925.41500000003 seconds
+[record_024] Total annotated segments: 174941
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_025
+[record_025] Starting processing of ECG files...
+[record_025] Processing file record_025_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_025] Processing file record_025_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_025] Processing file record_025_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_025] Processing file record_025_ecg_03.h5 (file_index=3) with 17273800 samples in chunks of 172738 samples.
+[record_025] Total segments extracted from all files: 388295
+[record_025] ECG labels loaded from record_025_ecg_labels.csv
+33476 segments annotated with AF
+Duration of annotated AF segments: 41080.105 seconds
+[record_025] Total annotated segments: 388295
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_026
+[record_026] Starting processing of ECG files...
+[record_026] Processing file record_026_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_026] Processing file record_026_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_026] Processing file record_026_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_026] Total segments extracted from all files: 345645
+[record_026] ECG labels loaded from record_026_ecg_labels.csv
+43198 segments annotated with AF
+Duration of annotated AF segments: 49644.68500000012 seconds
+[record_026] Total annotated segments: 345645
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_027
+[record_027] Starting processing of ECG files...
+[record_027] Processing file record_027_ecg_00.h5 (file_index=0) with 17273400 samples in chunks of 172734 samples.
+[record_027] Total segments extracted from all files: 74106
+[record_027] ECG labels loaded from record_027_ecg_labels.csv
+904 segments annotated with AF
+Duration of annotated AF segments: 1406.3900000000017 seconds
+[record_027] Total annotated segments: 74106
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_028
+[record_028] Starting processing of ECG files...
+[record_028] Processing file record_028_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_028] Processing file record_028_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_028] Processing file record_028_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_028] Processing file record_028_ecg_03.h5 (file_index=3) with 5755792 samples in chunks of 57557 samples.
+[record_028] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_028] Total segments extracted from all files: 369766
+[record_028] ECG labels loaded from record_028_ecg_labels.csv
+42120 segments annotated with AF
+Duration of annotated AF segments: 35492.25000000005 seconds
+[record_028] Total annotated segments: 369766
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_029
+[record_029] Starting processing of ECG files...
+[record_029] Processing file record_029_ecg_00.h5 (file_index=0) with 17272400 samples in chunks of 172724 samples.
+[record_029] Total segments extracted from all files: 116181
+[record_029] ECG labels loaded from record_029_ecg_labels.csv
+6865 segments annotated with AF
+Duration of annotated AF segments: 6195.235000000005 seconds
+[record_029] Total annotated segments: 116181
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_030
+[record_030] Starting processing of ECG files...
+[record_030] Processing file record_030_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_030] Total segments extracted from all files: 85461
+[record_030] ECG labels loaded from record_030_ecg_labels.csv
+7621 segments annotated with AF
+Duration of annotated AF segments: 10638.68500000002 seconds
+[record_030] Total annotated segments: 85461
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_031
+[record_031] Starting processing of ECG files...
+[record_031] Processing file record_031_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_031] Processing file record_031_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_031] Total segments extracted from all files: 184246
+[record_031] ECG labels loaded from record_031_ecg_labels.csv
+59977 segments annotated with AF
+Duration of annotated AF segments: 96952.61000000057 seconds
+[record_031] Total annotated segments: 184246
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_032
+[record_032] Starting processing of ECG files...
+[record_032] Processing file record_032_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_032] Processing file record_032_ecg_01.h5 (file_index=1) with 15835469 samples in chunks of 158354 samples.
+[record_032] Error processing chunk in file index 1: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_032] Total segments extracted from all files: 170437
+[record_032] ECG labels loaded from record_032_ecg_labels.csv
+33885 segments annotated with AF
+Duration of annotated AF segments: 48462.860000000226 seconds
+[record_032] Total annotated segments: 170437
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_033
+[record_033] Starting processing of ECG files...
+[record_033] Processing file record_033_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_033] Total segments extracted from all files: 110287
+[record_033] ECG labels loaded from record_033_ecg_labels.csv
+24566 segments annotated with AF
+Duration of annotated AF segments: 27186.84500000005 seconds
+[record_033] Total annotated segments: 110287
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_034
+[record_034] Starting processing of ECG files...
+[record_034] Processing file record_034_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_034] Processing file record_034_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_034] Processing file record_034_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_034] Total segments extracted from all files: 280399
+[record_034] ECG labels loaded from record_034_ecg_labels.csv
+35387 segments annotated with AF
+Duration of annotated AF segments: 54075.5149999998 seconds
+[record_034] Total annotated segments: 280399
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_035
+[record_035] Starting processing of ECG files...
+[record_035] Processing file record_035_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_035] Processing file record_035_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_035] Processing file record_035_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_035] Processing file record_035_ecg_03.h5 (file_index=3) with 11467831 samples in chunks of 114678 samples.
+[record_035] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_035] Total segments extracted from all files: 453885
+[record_035] ECG labels loaded from record_035_ecg_labels.csv
+116604 segments annotated with AF
+Duration of annotated AF segments: 129577.62000000027 seconds
+[record_035] Total annotated segments: 453885
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_036
+[record_036] Starting processing of ECG files...
+[record_036] Processing file record_036_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_036] Processing file record_036_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_036] Processing file record_036_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_036] Processing file record_036_ecg_03.h5 (file_index=3) with 124746 samples in chunks of 1247 samples.
+[record_036] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_036] Total segments extracted from all files: 277214
+[record_036] ECG labels loaded from record_036_ecg_labels.csv
+14434 segments annotated with AF
+Duration of annotated AF segments: 17785.070000000094 seconds
+[record_036] Total annotated segments: 277214
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_037
+[record_037] Starting processing of ECG files...
+[record_037] Processing file record_037_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_037] Total segments extracted from all files: 164472
+[record_037] ECG labels loaded from record_037_ecg_labels.csv
+157122 segments annotated with AF
+Duration of annotated AF segments: 160417.21500000262 seconds
+[record_037] Total annotated segments: 164472
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_038
+[record_038] Starting processing of ECG files...
+[record_038] Processing file record_038_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_038] Total segments extracted from all files: 145050
+[record_038] ECG labels loaded from record_038_ecg_labels.csv
+95965 segments annotated with AF
+Duration of annotated AF segments: 96601.68500000064 seconds
+[record_038] Total annotated segments: 145050
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_039
+[record_039] Starting processing of ECG files...
+[record_039] Processing file record_039_ecg_00.h5 (file_index=0) with 17272400 samples in chunks of 172724 samples.
+[record_039] Total segments extracted from all files: 115298
+[record_039] ECG labels loaded from record_039_ecg_labels.csv
+24381 segments annotated with AF
+Duration of annotated AF segments: 25881.059999999896 seconds
+[record_039] Total annotated segments: 115298
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_040
+[record_040] Starting processing of ECG files...
+[record_040] Processing file record_040_ecg_00.h5 (file_index=0) with 17272400 samples in chunks of 172724 samples.
+[record_040] Total segments extracted from all files: 156577
+[record_040] ECG labels loaded from record_040_ecg_labels.csv
+96308 segments annotated with AF
+Duration of annotated AF segments: 79746.53499999386 seconds
+[record_040] Total annotated segments: 156577
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_041
+[record_041] Starting processing of ECG files...
+[record_041] Processing file record_041_ecg_00.h5 (file_index=0) with 16726523 samples in chunks of 167265 samples.
+[record_041] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_041] Total segments extracted from all files: 119566
+[record_041] ECG labels loaded from record_041_ecg_labels.csv
+3523 segments annotated with AF
+Duration of annotated AF segments: 2955.775000000004 seconds
+[record_041] Total annotated segments: 119566
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_042
+[record_042] Starting processing of ECG files...
+[record_042] Processing file record_042_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_042] Processing file record_042_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_042] Total segments extracted from all files: 140949
+[record_042] ECG labels loaded from record_042_ecg_labels.csv
+7418 segments annotated with AF
+Duration of annotated AF segments: 10952.284999999983 seconds
+[record_042] Total annotated segments: 140949
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_043
+[record_043] Starting processing of ECG files...
+[record_043] Processing file record_043_ecg_00.h5 (file_index=0) with 17272400 samples in chunks of 172724 samples.
+[record_043] Total segments extracted from all files: 143070
+[record_043] ECG labels loaded from record_043_ecg_labels.csv
+125401 segments annotated with AF
+Duration of annotated AF segments: 135899.40999999864 seconds
+[record_043] Total annotated segments: 143070
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_044
+[record_044] Starting processing of ECG files...
+[record_044] Processing file record_044_ecg_00.h5 (file_index=0) with 17273400 samples in chunks of 172734 samples.
+[record_044] Total segments extracted from all files: 130729
+[record_044] ECG labels loaded from record_044_ecg_labels.csv
+3480 segments annotated with AF
+Duration of annotated AF segments: 4471.799999999989 seconds
+[record_044] Total annotated segments: 130729
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_045
+[record_045] Starting processing of ECG files...
+[record_045] Processing file record_045_ecg_00.h5 (file_index=0) with 17245582 samples in chunks of 172455 samples.
+[record_045] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_045] Total segments extracted from all files: 115646
+[record_045] ECG labels loaded from record_045_ecg_labels.csv
+39849 segments annotated with AF
+Duration of annotated AF segments: 38025.795000000224 seconds
+[record_045] Total annotated segments: 115646
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_046
+[record_046] Starting processing of ECG files...
+[record_046] Processing file record_046_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_046] Processing file record_046_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_046] Processing file record_046_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_046] Total segments extracted from all files: 321141
+[record_046] ECG labels loaded from record_046_ecg_labels.csv
+8431 segments annotated with AF
+Duration of annotated AF segments: 8240.189999999997 seconds
+[record_046] Total annotated segments: 321141
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_047
+[record_047] Starting processing of ECG files...
+[record_047] Processing file record_047_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_047] Processing file record_047_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_047] Total segments extracted from all files: 256454
+[record_047] ECG labels loaded from record_047_ecg_labels.csv
+77954 segments annotated with AF
+Duration of annotated AF segments: 80754.0050000004 seconds
+[record_047] Total annotated segments: 256454
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_048
+[record_048] Starting processing of ECG files...
+[record_048] Processing file record_048_ecg_00.h5 (file_index=0) with 17272800 samples in chunks of 172728 samples.
+[record_048] Total segments extracted from all files: 108691
+[record_048] ECG labels loaded from record_048_ecg_labels.csv
+17553 segments annotated with AF
+Duration of annotated AF segments: 19433.004999999976 seconds
+[record_048] Total annotated segments: 108691
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_049
+[record_049] Starting processing of ECG files...
+[record_049] Processing file record_049_ecg_00.h5 (file_index=0) with 17272600 samples in chunks of 172726 samples.
+[record_049] Total segments extracted from all files: 116101
+[record_049] ECG labels loaded from record_049_ecg_labels.csv
+8424 segments annotated with AF
+Duration of annotated AF segments: 10000.680000000004 seconds
+[record_049] Total annotated segments: 116101
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_050
+[record_050] Starting processing of ECG files...
+[record_050] Processing file record_050_ecg_00.h5 (file_index=0) with 15888400 samples in chunks of 158884 samples.
+[record_050] Total segments extracted from all files: 112965
+[record_050] ECG labels loaded from record_050_ecg_labels.csv
+22803 segments annotated with AF
+Duration of annotated AF segments: 20207.545000000067 seconds
+[record_050] Total annotated segments: 112965
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_051
+[record_051] Starting processing of ECG files...
+[record_051] Processing file record_051_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_051] Processing file record_051_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_051] Processing file record_051_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_051] Total segments extracted from all files: 263566
+[record_051] ECG labels loaded from record_051_ecg_labels.csv
+68204 segments annotated with AF
+Duration of annotated AF segments: 117081.17000000017 seconds
+[record_051] Total annotated segments: 263566
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_052
+[record_052] Starting processing of ECG files...
+[record_052] Processing file record_052_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_052] Processing file record_052_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_052] Total segments extracted from all files: 162039
+[record_052] ECG labels loaded from record_052_ecg_labels.csv
+11271 segments annotated with AF
+Duration of annotated AF segments: 16063.155000000092 seconds
+[record_052] Total annotated segments: 162039
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_053
+[record_053] Starting processing of ECG files...
+[record_053] Processing file record_053_ecg_00.h5 (file_index=0) with 17272600 samples in chunks of 172726 samples.
+[record_053] Total segments extracted from all files: 103575
+[record_053] ECG labels loaded from record_053_ecg_labels.csv
+14105 segments annotated with AF
+Duration of annotated AF segments: 22330.20000000009 seconds
+[record_053] Total annotated segments: 103575
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_054
+[record_054] Starting processing of ECG files...
+[record_054] Processing file record_054_ecg_00.h5 (file_index=0) with 17272800 samples in chunks of 172728 samples.
+[record_054] Total segments extracted from all files: 147212
+[record_054] ECG labels loaded from record_054_ecg_labels.csv
+89286 segments annotated with AF
+Duration of annotated AF segments: 82380.1100000003 seconds
+[record_054] Total annotated segments: 147212
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_055
+[record_055] Starting processing of ECG files...
+[record_055] Processing file record_055_ecg_00.h5 (file_index=0) with 14275713 samples in chunks of 142757 samples.
+[record_055] Error processing chunk in file index 0: The length of the input vector x must be greater than padlen, which is 18.
+[record_055] Total segments extracted from all files: 97933
+[record_055] ECG labels loaded from record_055_ecg_labels.csv
+36526 segments annotated with AF
+Duration of annotated AF segments: 34343.62499999995 seconds
+[record_055] Total annotated segments: 97933
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_056
+[record_056] Starting processing of ECG files...
+[record_056] Processing file record_056_ecg_00.h5 (file_index=0) with 14665273 samples in chunks of 146652 samples.
+[record_056] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_056] Total segments extracted from all files: 103402
+[record_056] ECG labels loaded from record_056_ecg_labels.csv
+5382 segments annotated with AF
+Duration of annotated AF segments: 6275.960000000021 seconds
+[record_056] Total annotated segments: 103402
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_057
+[record_057] Starting processing of ECG files...
+[record_057] Processing file record_057_ecg_00.h5 (file_index=0) with 17165200 samples in chunks of 171652 samples.
+[record_057] Total segments extracted from all files: 98436
+[record_057] ECG labels loaded from record_057_ecg_labels.csv
+54593 segments annotated with AF
+Duration of annotated AF segments: 82021.76999999945 seconds
+[record_057] Total annotated segments: 98436
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_058
+[record_058] Starting processing of ECG files...
+[record_058] Processing file record_058_ecg_00.h5 (file_index=0) with 17272000 samples in chunks of 172720 samples.
+[record_058] Total segments extracted from all files: 101592
+[record_058] ECG labels loaded from record_058_ecg_labels.csv
+27624 segments annotated with AF
+Duration of annotated AF segments: 31042.320000000836 seconds
+[record_058] Total annotated segments: 101592
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_059
+[record_059] Starting processing of ECG files...
+[record_059] Processing file record_059_ecg_00.h5 (file_index=0) with 17272200 samples in chunks of 172722 samples.
+[record_059] Total segments extracted from all files: 103891
+[record_059] ECG labels loaded from record_059_ecg_labels.csv
+15438 segments annotated with AF
+Duration of annotated AF segments: 20832.55500000008 seconds
+[record_059] Total annotated segments: 103891
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_060
+[record_060] Starting processing of ECG files...
+[record_060] Processing file record_060_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_060] Processing file record_060_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_060] Processing file record_060_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_060] Total segments extracted from all files: 276734
+[record_060] ECG labels loaded from record_060_ecg_labels.csv
+41043 segments annotated with AF
+Duration of annotated AF segments: 69610.40499999974 seconds
+[record_060] Total annotated segments: 276734
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_061
+[record_061] Starting processing of ECG files...
+[record_061] Processing file record_061_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_061] Total segments extracted from all files: 96566
+[record_061] ECG labels loaded from record_061_ecg_labels.csv
+64105 segments annotated with AF
+Duration of annotated AF segments: 102497.48500000066 seconds
+[record_061] Total annotated segments: 96566
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_062
+[record_062] Starting processing of ECG files...
+[record_062] Processing file record_062_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_062] Processing file record_062_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_062] Total segments extracted from all files: 222186
+[record_062] ECG labels loaded from record_062_ecg_labels.csv
+66864 segments annotated with AF
+Duration of annotated AF segments: 91973.95500000152 seconds
+[record_062] Total annotated segments: 222186
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_063
+[record_063] Starting processing of ECG files...
+[record_063] Processing file record_063_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_063] Processing file record_063_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_063] Processing file record_063_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_063] Processing file record_063_ecg_03.h5 (file_index=3) with 17273800 samples in chunks of 172738 samples.
+[record_063] Total segments extracted from all files: 399946
+[record_063] ECG labels loaded from record_063_ecg_labels.csv
+107019 segments annotated with AF
+Duration of annotated AF segments: 128552.36500000299 seconds
+[record_063] Total annotated segments: 399946
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_064
+[record_064] Starting processing of ECG files...
+[record_064] Processing file record_064_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_064] Processing file record_064_ecg_01.h5 (file_index=1) with 16701770 samples in chunks of 167017 samples.
+[record_064] Error processing chunk in file index 1: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_064] Total segments extracted from all files: 223350
+[record_064] ECG labels loaded from record_064_ecg_labels.csv
+40233 segments annotated with AF
+Duration of annotated AF segments: 39899.83999999974 seconds
+[record_064] Total annotated segments: 223350
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_065
+[record_065] Starting processing of ECG files...
+[record_065] Processing file record_065_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_065] Processing file record_065_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_065] Total segments extracted from all files: 244513
+[record_065] ECG labels loaded from record_065_ecg_labels.csv
+135067 segments annotated with AF
+Duration of annotated AF segments: 174045.98499999993 seconds
+[record_065] Total annotated segments: 244513
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_066
+[record_066] Starting processing of ECG files...
+[record_066] Processing file record_066_ecg_00.h5 (file_index=0) with 16542800 samples in chunks of 165428 samples.
+[record_066] Total segments extracted from all files: 101119
+[record_066] ECG labels loaded from record_066_ecg_labels.csv
+22260 segments annotated with AF
+Duration of annotated AF segments: 23356.980000000065 seconds
+[record_066] Total annotated segments: 101119
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_067
+[record_067] Starting processing of ECG files...
+[record_067] Processing file record_067_ecg_00.h5 (file_index=0) with 17273200 samples in chunks of 172732 samples.
+[record_067] Total segments extracted from all files: 91568
+[record_067] ECG labels loaded from record_067_ecg_labels.csv
+23658 segments annotated with AF
+Duration of annotated AF segments: 25624.814999999755 seconds
+[record_067] Total annotated segments: 91568
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_068
+[record_068] Starting processing of ECG files...
+[record_068] Processing file record_068_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_068] Processing file record_068_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_068] Processing file record_068_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_068] Processing file record_068_ecg_03.h5 (file_index=3) with 17023892 samples in chunks of 170238 samples.
+[record_068] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_068] Total segments extracted from all files: 341135
+[record_068] ECG labels loaded from record_068_ecg_labels.csv
+34738 segments annotated with AF
+Duration of annotated AF segments: 34085.72499999982 seconds
+[record_068] Total annotated segments: 341135
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_069
+[record_069] Starting processing of ECG files...
+[record_069] Processing file record_069_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_069] Processing file record_069_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_069] Processing file record_069_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_069] Total segments extracted from all files: 281390
+[record_069] ECG labels loaded from record_069_ecg_labels.csv
+107389 segments annotated with AF
+Duration of annotated AF segments: 155579.35000000068 seconds
+[record_069] Total annotated segments: 281390
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_070
+[record_070] Starting processing of ECG files...
+[record_070] Processing file record_070_ecg_00.h5 (file_index=0) with 17272000 samples in chunks of 172720 samples.
+[record_070] Total segments extracted from all files: 112048
+[record_070] ECG labels loaded from record_070_ecg_labels.csv
+38554 segments annotated with AF
+Duration of annotated AF segments: 34929.60000000024 seconds
+[record_070] Total annotated segments: 112048
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_071
+[record_071] Starting processing of ECG files...
+[record_071] Processing file record_071_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_071] Processing file record_071_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_071] Processing file record_071_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_071] Total segments extracted from all files: 462305
+[record_071] ECG labels loaded from record_071_ecg_labels.csv
+56049 segments annotated with AF
+Duration of annotated AF segments: 53787.73999999981 seconds
+[record_071] Total annotated segments: 462305
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_072
+[record_072] Starting processing of ECG files...
+[record_072] Processing file record_072_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_072] Processing file record_072_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_072] Processing file record_072_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_072] Processing file record_072_ecg_03.h5 (file_index=3) with 16577192 samples in chunks of 165771 samples.
+[record_072] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_072] Total segments extracted from all files: 449048
+[record_072] ECG labels loaded from record_072_ecg_labels.csv
+0 segments annotated with AF
+Duration of annotated AF segments: 0 seconds
+[record_072] Total annotated segments: 449048
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_073
+[record_073] Starting processing of ECG files...
+[record_073] Processing file record_073_ecg_00.h5 (file_index=0) with 16709991 samples in chunks of 167099 samples.
+[record_073] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_073] Total segments extracted from all files: 93227
+[record_073] ECG labels loaded from record_073_ecg_labels.csv
+7967 segments annotated with AF
+Duration of annotated AF segments: 10026.39 seconds
+[record_073] Total annotated segments: 93227
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_074
+[record_074] Starting processing of ECG files...
+[record_074] Processing file record_074_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_074] Processing file record_074_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_074] Total segments extracted from all files: 183596
+[record_074] ECG labels loaded from record_074_ecg_labels.csv
+32889 segments annotated with AF
+Duration of annotated AF segments: 42479.16499999975 seconds
+[record_074] Total annotated segments: 183596
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_075
+[record_075] Starting processing of ECG files...
+[record_075] Processing file record_075_ecg_00.h5 (file_index=0) with 14717862 samples in chunks of 147178 samples.
+[record_075] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_075] Total segments extracted from all files: 101126
+[record_075] ECG labels loaded from record_075_ecg_labels.csv
+78743 segments annotated with AF
+Duration of annotated AF segments: 107585.00499999977 seconds
+[record_075] Total annotated segments: 101126
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_076
+[record_076] Starting processing of ECG files...
+[record_076] Processing file record_076_ecg_00.h5 (file_index=0) with 17272200 samples in chunks of 172722 samples.
+[record_076] Total segments extracted from all files: 116915
+[record_076] ECG labels loaded from record_076_ecg_labels.csv
+4272 segments annotated with AF
+Duration of annotated AF segments: 5287.125000000021 seconds
+[record_076] Total annotated segments: 116915
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_077
+[record_077] Starting processing of ECG files...
+[record_077] Processing file record_077_ecg_00.h5 (file_index=0) with 17272800 samples in chunks of 172728 samples.
+[record_077] Total segments extracted from all files: 112393
+[record_077] ECG labels loaded from record_077_ecg_labels.csv
+14545 segments annotated with AF
+Duration of annotated AF segments: 21688.64000000006 seconds
+[record_077] Total annotated segments: 112393
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_078
+[record_078] Starting processing of ECG files...
+[record_078] Processing file record_078_ecg_00.h5 (file_index=0) with 15321055 samples in chunks of 153210 samples.
+[record_078] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_078] Total segments extracted from all files: 91346
+[record_078] ECG labels loaded from record_078_ecg_labels.csv
+35542 segments annotated with AF
+Duration of annotated AF segments: 48428.79499999982 seconds
+[record_078] Total annotated segments: 91346
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_079
+[record_079] Starting processing of ECG files...
+[record_079] Processing file record_079_ecg_00.h5 (file_index=0) with 15943118 samples in chunks of 159431 samples.
+[record_079] Error processing chunk in file index 0: The length of the input vector x must be greater than padlen, which is 18.
+[record_079] Total segments extracted from all files: 93260
+[record_079] ECG labels loaded from record_079_ecg_labels.csv
+2435 segments annotated with AF
+Duration of annotated AF segments: 4672.48499999999 seconds
+[record_079] Total annotated segments: 93260
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_080
+[record_080] Starting processing of ECG files...
+[record_080] Processing file record_080_ecg_00.h5 (file_index=0) with 15402949 samples in chunks of 154029 samples.
+[record_080] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_080] Total segments extracted from all files: 90998
+[record_080] ECG labels loaded from record_080_ecg_labels.csv
+13273 segments annotated with AF
+Duration of annotated AF segments: 15384.780000000042 seconds
+[record_080] Total annotated segments: 90998
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_081
+[record_081] Starting processing of ECG files...
+[record_081] Processing file record_081_ecg_00.h5 (file_index=0) with 16638979 samples in chunks of 166389 samples.
+[record_081] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_081] Total segments extracted from all files: 94453
+[record_081] ECG labels loaded from record_081_ecg_labels.csv
+30513 segments annotated with AF
+Duration of annotated AF segments: 53676.210000000414 seconds
+[record_081] Total annotated segments: 94453
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_082
+[record_082] Starting processing of ECG files...
+[record_082] Processing file record_082_ecg_00.h5 (file_index=0) with 17032407 samples in chunks of 170324 samples.
+[record_082] Error processing chunk in file index 0: The length of the input vector x must be greater than padlen, which is 18.
+[record_082] Total segments extracted from all files: 101634
+[record_082] ECG labels loaded from record_082_ecg_labels.csv
+1803 segments annotated with AF
+Duration of annotated AF segments: 1650.699999999998 seconds
+[record_082] Total annotated segments: 101634
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_083
+[record_083] Starting processing of ECG files...
+[record_083] Processing file record_083_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_083] Processing file record_083_ecg_01.h5 (file_index=1) with 17222017 samples in chunks of 172220 samples.
+[record_083] Error processing chunk in file index 1: The length of the input vector x must be greater than padlen, which is 18.
+[record_083] Total segments extracted from all files: 200913
+[record_083] ECG labels loaded from record_083_ecg_labels.csv
+1939 segments annotated with AF
+Duration of annotated AF segments: 2536.9550000000027 seconds
+[record_083] Total annotated segments: 200913
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_084
+[record_084] Starting processing of ECG files...
+[record_084] Processing file record_084_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_084] Processing file record_084_ecg_01.h5 (file_index=1) with 2805473 samples in chunks of 28054 samples.
+[record_084] Error processing chunk in file index 1: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_084] Total segments extracted from all files: 128205
+[record_084] ECG labels loaded from record_084_ecg_labels.csv
+12297 segments annotated with AF
+Duration of annotated AF segments: 21190.630000000034 seconds
+[record_084] Total annotated segments: 128205
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_085
+[record_085] Starting processing of ECG files...
+[record_085] Processing file record_085_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_085] Processing file record_085_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_085] Processing file record_085_ecg_02.h5 (file_index=2) with 17195188 samples in chunks of 171951 samples.
+[record_085] Error processing chunk in file index 2: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_085] Total segments extracted from all files: 338866
+[record_085] ECG labels loaded from record_085_ecg_labels.csv
+97871 segments annotated with AF
+Duration of annotated AF segments: 110395.7049999998 seconds
+[record_085] Total annotated segments: 338866
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_086
+[record_086] Starting processing of ECG files...
+[record_086] Processing file record_086_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_086] Processing file record_086_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_086] Processing file record_086_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_086] Processing file record_086_ecg_03.h5 (file_index=3) with 3886537 samples in chunks of 38865 samples.
+[record_086] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_086] Total segments extracted from all files: 293457
+[record_086] ECG labels loaded from record_086_ecg_labels.csv
+79852 segments annotated with AF
+Duration of annotated AF segments: 106037.06999999932 seconds
+[record_086] Total annotated segments: 293457
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_087
+[record_087] Starting processing of ECG files...
+[record_087] Processing file record_087_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_087] Processing file record_087_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_087] Processing file record_087_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_087] Processing file record_087_ecg_03.h5 (file_index=3) with 17273800 samples in chunks of 172738 samples.
+[record_087] Total segments extracted from all files: 516644
+[record_087] ECG labels loaded from record_087_ecg_labels.csv
+61363 segments annotated with AF
+Duration of annotated AF segments: 61053.4850000001 seconds
+[record_087] Total annotated segments: 516644
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_088
+[record_088] Starting processing of ECG files...
+[record_088] Processing file record_088_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_088] Processing file record_088_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_088] Processing file record_088_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_088] Total segments extracted from all files: 331596
+[record_088] ECG labels loaded from record_088_ecg_labels.csv
+149285 segments annotated with AF
+Duration of annotated AF segments: 147764.8450000018 seconds
+[record_088] Total annotated segments: 331596
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_089
+[record_089] Starting processing of ECG files...
+[record_089] Processing file record_089_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_089] Total segments extracted from all files: 118050
+[record_089] ECG labels loaded from record_089_ecg_labels.csv
+59487 segments annotated with AF
+Duration of annotated AF segments: 64421.11500000057 seconds
+[record_089] Total annotated segments: 118050
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_090
+[record_090] Starting processing of ECG files...
+[record_090] Processing file record_090_ecg_00.h5 (file_index=0) with 17272000 samples in chunks of 172720 samples.
+[record_090] Total segments extracted from all files: 97442
+[record_090] ECG labels loaded from record_090_ecg_labels.csv
+29370 segments annotated with AF
+Duration of annotated AF segments: 41861.18499999978 seconds
+[record_090] Total annotated segments: 97442
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_091
+[record_091] Starting processing of ECG files...
+[record_091] Processing file record_091_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_091] Processing file record_091_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_091] Processing file record_091_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_091] Processing file record_091_ecg_03.h5 (file_index=3) with 16510556 samples in chunks of 165105 samples.
+[record_091] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_091] Total segments extracted from all files: 337805
+[record_091] ECG labels loaded from record_091_ecg_labels.csv
+82176 segments annotated with AF
+Duration of annotated AF segments: 142637.32999999978 seconds
+[record_091] Total annotated segments: 337805
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_092
+[record_092] Starting processing of ECG files...
+[record_092] Processing file record_092_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_092] Processing file record_092_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_092] Processing file record_092_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_092] Processing file record_092_ecg_03.h5 (file_index=3) with 17273800 samples in chunks of 172738 samples.
+[record_092] Total segments extracted from all files: 349611
+[record_092] ECG labels loaded from record_092_ecg_labels.csv
+48274 segments annotated with AF
+Duration of annotated AF segments: 68643.94500000027 seconds
+[record_092] Total annotated segments: 349611
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_093
+[record_093] Starting processing of ECG files...
+[record_093] Processing file record_093_ecg_00.h5 (file_index=0) with 17271800 samples in chunks of 172718 samples.
+[record_093] Total segments extracted from all files: 102730
+[record_093] ECG labels loaded from record_093_ecg_labels.csv
+2278 segments annotated with AF
+Duration of annotated AF segments: 2613.919999999997 seconds
+[record_093] Total annotated segments: 102730
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_094
+[record_094] Starting processing of ECG files...
+[record_094] Processing file record_094_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_094] Total segments extracted from all files: 102231
+[record_094] ECG labels loaded from record_094_ecg_labels.csv
+22024 segments annotated with AF
+Duration of annotated AF segments: 27932.450000000114 seconds
+[record_094] Total annotated segments: 102231
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_095
+[record_095] Starting processing of ECG files...
+[record_095] Processing file record_095_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_095] Processing file record_095_ecg_01.h5 (file_index=1) with 7208007 samples in chunks of 72080 samples.
+[record_095] Error processing chunk in file index 1: The length of the input vector x must be greater than padlen, which is 18.
+[record_095] Total segments extracted from all files: 148265
+[record_095] ECG labels loaded from record_095_ecg_labels.csv
+20745 segments annotated with AF
+Duration of annotated AF segments: 28278.069999999872 seconds
+[record_095] Total annotated segments: 148265
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_096
+[record_096] Starting processing of ECG files...
+[record_096] Processing file record_096_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_096] Total segments extracted from all files: 116539
+[record_096] ECG labels loaded from record_096_ecg_labels.csv
+7880 segments annotated with AF
+Duration of annotated AF segments: 7719.5550000000185 seconds
+[record_096] Total annotated segments: 116539
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_097
+[record_097] Starting processing of ECG files...
+[record_097] Processing file record_097_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_097] Total segments extracted from all files: 110074
+[record_097] ECG labels loaded from record_097_ecg_labels.csv
+9356 segments annotated with AF
+Duration of annotated AF segments: 10730.76 seconds
+[record_097] Total annotated segments: 110074
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_098
+[record_098] Starting processing of ECG files...
+[record_098] Processing file record_098_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_098] Total segments extracted from all files: 109219
+[record_098] ECG labels loaded from record_098_ecg_labels.csv
+24597 segments annotated with AF
+Duration of annotated AF segments: 21255.19499999786 seconds
+[record_098] Total annotated segments: 109219
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_099
+[record_099] Starting processing of ECG files...
+[record_099] Processing file record_099_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_099] Processing file record_099_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_099] Total segments extracted from all files: 173609
+[record_099] ECG labels loaded from record_099_ecg_labels.csv
+2901 segments annotated with AF
+Duration of annotated AF segments: 3831.760000000015 seconds
+[record_099] Total annotated segments: 173609
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_100
+[record_100] Starting processing of ECG files...
+[record_100] Processing file record_100_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_100] Total segments extracted from all files: 65646
+[record_100] ECG labels loaded from record_100_ecg_labels.csv
+25537 segments annotated with AF
+Duration of annotated AF segments: 60531.77500000033 seconds
+[record_100] Total annotated segments: 65646
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_101
+[record_101] Starting processing of ECG files...
+[record_101] Processing file record_101_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_101] Processing file record_101_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_101] Processing file record_101_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_101] Total segments extracted from all files: 249759
+[record_101] ECG labels loaded from record_101_ecg_labels.csv
+37931 segments annotated with AF
+Duration of annotated AF segments: 57526.74500000042 seconds
+[record_101] Total annotated segments: 249759
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_102
+[record_102] Starting processing of ECG files...
+[record_102] Processing file record_102_ecg_00.h5 (file_index=0) with 17271800 samples in chunks of 172718 samples.
+[record_102] Total segments extracted from all files: 149442
+[record_102] ECG labels loaded from record_102_ecg_labels.csv
+6539 segments annotated with AF
+Duration of annotated AF segments: 6538.774999999989 seconds
+[record_102] Total annotated segments: 149442
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_103
+[record_103] Starting processing of ECG files...
+[record_103] Processing file record_103_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_103] Total segments extracted from all files: 89901
+[record_103] ECG labels loaded from record_103_ecg_labels.csv
+7302 segments annotated with AF
+Duration of annotated AF segments: 8790.159999999993 seconds
+[record_103] Total annotated segments: 89901
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_104
+[record_104] Starting processing of ECG files...
+[record_104] Processing file record_104_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_104] Total segments extracted from all files: 90767
+[record_104] ECG labels loaded from record_104_ecg_labels.csv
+23891 segments annotated with AF
+Duration of annotated AF segments: 32121.28500000012 seconds
+[record_104] Total annotated segments: 90767
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_105
+[record_105] Starting processing of ECG files...
+[record_105] Processing file record_105_ecg_00.h5 (file_index=0) with 17272800 samples in chunks of 172728 samples.
+[record_105] Total segments extracted from all files: 90117
+[record_105] ECG labels loaded from record_105_ecg_labels.csv
+11043 segments annotated with AF
+Duration of annotated AF segments: 15151.030000000024 seconds
+[record_105] Total annotated segments: 90117
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_106
+[record_106] Starting processing of ECG files...
+[record_106] Processing file record_106_ecg_00.h5 (file_index=0) with 17273000 samples in chunks of 172730 samples.
+[record_106] Total segments extracted from all files: 93787
+[record_106] ECG labels loaded from record_106_ecg_labels.csv
+3951 segments annotated with AF
+Duration of annotated AF segments: 4621.21999999999 seconds
+[record_106] Total annotated segments: 93787
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_107
+[record_107] Starting processing of ECG files...
+[record_107] Processing file record_107_ecg_00.h5 (file_index=0) with 17039635 samples in chunks of 170396 samples.
+[record_107] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_107] Total segments extracted from all files: 75551
+[record_107] ECG labels loaded from record_107_ecg_labels.csv
+53513 segments annotated with AF
+Duration of annotated AF segments: 122932.04499999993 seconds
+[record_107] Total annotated segments: 75551
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_108
+[record_108] Starting processing of ECG files...
+[record_108] Processing file record_108_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_108] Total segments extracted from all files: 114694
+[record_108] ECG labels loaded from record_108_ecg_labels.csv
+110551 segments annotated with AF
+Duration of annotated AF segments: 161520.4999999994 seconds
+[record_108] Total annotated segments: 114694
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_109
+[record_109] Starting processing of ECG files...
+[record_109] Processing file record_109_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_109] Processing file record_109_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_109] Processing file record_109_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_109] Processing file record_109_ecg_03.h5 (file_index=3) with 17273800 samples in chunks of 172738 samples.
+[record_109] Total segments extracted from all files: 336380
+[record_109] ECG labels loaded from record_109_ecg_labels.csv
+44637 segments annotated with AF
+Duration of annotated AF segments: 76519.63000000024 seconds
+[record_109] Total annotated segments: 336380
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_110
+[record_110] Starting processing of ECG files...
+[record_110] Processing file record_110_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_110] Processing file record_110_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_110] Processing file record_110_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_110] Total segments extracted from all files: 357967
+[record_110] ECG labels loaded from record_110_ecg_labels.csv
+135727 segments annotated with AF
+Duration of annotated AF segments: 163586.99999999872 seconds
+[record_110] Total annotated segments: 357967
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_111
+[record_111] Starting processing of ECG files...
+[record_111] Processing file record_111_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_111] Processing file record_111_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_111] Processing file record_111_ecg_02.h5 (file_index=2) with 13620660 samples in chunks of 136206 samples.
+[record_111] Error processing chunk in file index 2: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_111] Total segments extracted from all files: 314795
+[record_111] ECG labels loaded from record_111_ecg_labels.csv
+56912 segments annotated with AF
+Duration of annotated AF segments: 63823.374999997206 seconds
+[record_111] Total annotated segments: 314795
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_112
+[record_112] Starting processing of ECG files...
+[record_112] Processing file record_112_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_112] Total segments extracted from all files: 101512
+[record_112] ECG labels loaded from record_112_ecg_labels.csv
+72078 segments annotated with AF
+Duration of annotated AF segments: 113699.11499999929 seconds
+[record_112] Total annotated segments: 101512
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_113
+[record_113] Starting processing of ECG files...
+[record_113] Processing file record_113_ecg_00.h5 (file_index=0) with 17273400 samples in chunks of 172734 samples.
+[record_113] Total segments extracted from all files: 108949
+[record_113] ECG labels loaded from record_113_ecg_labels.csv
+54439 segments annotated with AF
+Duration of annotated AF segments: 59386.63499999983 seconds
+[record_113] Total annotated segments: 108949
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_114
+[record_114] Starting processing of ECG files...
+[record_114] Processing file record_114_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_114] Total segments extracted from all files: 116620
+[record_114] ECG labels loaded from record_114_ecg_labels.csv
+17133 segments annotated with AF
+Duration of annotated AF segments: 18769.384999999937 seconds
+[record_114] Total annotated segments: 116620
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_115
+[record_115] Starting processing of ECG files...
+[record_115] Processing file record_115_ecg_00.h5 (file_index=0) with 17272800 samples in chunks of 172728 samples.
+[record_115] Total segments extracted from all files: 105566
+[record_115] ECG labels loaded from record_115_ecg_labels.csv
+8033 segments annotated with AF
+Duration of annotated AF segments: 9014.655000000008 seconds
+[record_115] Total annotated segments: 105566
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_116
+[record_116] Starting processing of ECG files...
+[record_116] Processing file record_116_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_116] Processing file record_116_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_116] Processing file record_116_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_116] Processing file record_116_ecg_03.h5 (file_index=3) with 17273800 samples in chunks of 172738 samples.
+[record_116] Total segments extracted from all files: 555766
+[record_116] ECG labels loaded from record_116_ecg_labels.csv
+219171 segments annotated with AF
+Duration of annotated AF segments: 235645.2800000048 seconds
+[record_116] Total annotated segments: 555766
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_117
+[record_117] Starting processing of ECG files...
+[record_117] Processing file record_117_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_117] Total segments extracted from all files: 88438
+[record_117] ECG labels loaded from record_117_ecg_labels.csv
+24203 segments annotated with AF
+Duration of annotated AF segments: 28417.894999999782 seconds
+[record_117] Total annotated segments: 88438
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_118
+[record_118] Starting processing of ECG files...
+[record_118] Processing file record_118_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_118] Total segments extracted from all files: 137735
+[record_118] ECG labels loaded from record_118_ecg_labels.csv
+89055 segments annotated with AF
+Duration of annotated AF segments: 83727.25000000016 seconds
+[record_118] Total annotated segments: 137735
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_119
+[record_119] Starting processing of ECG files...
+[record_119] Processing file record_119_ecg_00.h5 (file_index=0) with 17272600 samples in chunks of 172726 samples.
+[record_119] Total segments extracted from all files: 101468
+[record_119] ECG labels loaded from record_119_ecg_labels.csv
+1400 segments annotated with AF
+Duration of annotated AF segments: 1279.9299999999882 seconds
+[record_119] Total annotated segments: 101468
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_120
+[record_120] Starting processing of ECG files...
+[record_120] Processing file record_120_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_120] Processing file record_120_ecg_01.h5 (file_index=1) with 15274766 samples in chunks of 152747 samples.
+[record_120] Error processing chunk in file index 1: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_120] Total segments extracted from all files: 234139
+[record_120] ECG labels loaded from record_120_ecg_labels.csv
+34831 segments annotated with AF
+Duration of annotated AF segments: 36765.755000000296 seconds
+[record_120] Total annotated segments: 234139
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_121
+[record_121] Starting processing of ECG files...
+[record_121] Processing file record_121_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_121] Processing file record_121_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_121] Processing file record_121_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_121] Processing file record_121_ecg_03.h5 (file_index=3) with 17273800 samples in chunks of 172738 samples.
+[record_121] Total segments extracted from all files: 449306
+[record_121] ECG labels loaded from record_121_ecg_labels.csv
+20117 segments annotated with AF
+Duration of annotated AF segments: 29350.184999999863 seconds
+[record_121] Total annotated segments: 449306
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_122
+[record_122] Starting processing of ECG files...
+[record_122] Processing file record_122_ecg_00.h5 (file_index=0) with 17272400 samples in chunks of 172724 samples.
+[record_122] Total segments extracted from all files: 147841
+[record_122] ECG labels loaded from record_122_ecg_labels.csv
+134472 segments annotated with AF
+Duration of annotated AF segments: 144927.05500000133 seconds
+[record_122] Total annotated segments: 147841
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_123
+[record_123] Starting processing of ECG files...
+[record_123] Processing file record_123_ecg_00.h5 (file_index=0) with 15887600 samples in chunks of 158876 samples.
+[record_123] Total segments extracted from all files: 87972
+[record_123] ECG labels loaded from record_123_ecg_labels.csv
+423 segments annotated with AF
+Duration of annotated AF segments: 803.3250000000002 seconds
+[record_123] Total annotated segments: 87972
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_124
+[record_124] Starting processing of ECG files...
+[record_124] Processing file record_124_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_124] Processing file record_124_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_124] Processing file record_124_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_124] Processing file record_124_ecg_03.h5 (file_index=3) with 15564340 samples in chunks of 155643 samples.
+[record_124] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_124] Total segments extracted from all files: 428065
+[record_124] ECG labels loaded from record_124_ecg_labels.csv
+103200 segments annotated with AF
+Duration of annotated AF segments: 153945.35500000033 seconds
+[record_124] Total annotated segments: 428065
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_125
+[record_125] Starting processing of ECG files...
+[record_125] Processing file record_125_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_125] Processing file record_125_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_125] Processing file record_125_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_125] Total segments extracted from all files: 291051
+[record_125] ECG labels loaded from record_125_ecg_labels.csv
+96411 segments annotated with AF
+Duration of annotated AF segments: 139163.2499999996 seconds
+[record_125] Total annotated segments: 291051
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_126
+[record_126] Starting processing of ECG files...
+[record_126] Processing file record_126_ecg_00.h5 (file_index=0) with 17272800 samples in chunks of 172728 samples.
+[record_126] Total segments extracted from all files: 112948
+[record_126] ECG labels loaded from record_126_ecg_labels.csv
+55992 segments annotated with AF
+Duration of annotated AF segments: 78736.46499999939 seconds
+[record_126] Total annotated segments: 112948
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_127
+[record_127] Starting processing of ECG files...
+[record_127] Processing file record_127_ecg_00.h5 (file_index=0) with 15890200 samples in chunks of 158902 samples.
+[record_127] Total segments extracted from all files: 97778
+[record_127] ECG labels loaded from record_127_ecg_labels.csv
+25460 segments annotated with AF
+Duration of annotated AF segments: 30897.10500000008 seconds
+[record_127] Total annotated segments: 97778
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_128
+[record_128] Starting processing of ECG files...
+[record_128] Processing file record_128_ecg_00.h5 (file_index=0) with 15635266 samples in chunks of 156352 samples.
+[record_128] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_128] Total segments extracted from all files: 78512
+[record_128] ECG labels loaded from record_128_ecg_labels.csv
+9157 segments annotated with AF
+Duration of annotated AF segments: 11458.400000000029 seconds
+[record_128] Total annotated segments: 78512
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_129
+[record_129] Starting processing of ECG files...
+[record_129] Processing file record_129_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_129] Total segments extracted from all files: 63696
+[record_129] ECG labels loaded from record_129_ecg_labels.csv
+11768 segments annotated with AF
+Duration of annotated AF segments: 30131.795000000126 seconds
+[record_129] Total annotated segments: 63696
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_130
+[record_130] Starting processing of ECG files...
+[record_130] Processing file record_130_ecg_00.h5 (file_index=0) with 17272200 samples in chunks of 172722 samples.
+[record_130] Total segments extracted from all files: 123587
+[record_130] ECG labels loaded from record_130_ecg_labels.csv
+11634 segments annotated with AF
+Duration of annotated AF segments: 12991.739999999985 seconds
+[record_130] Total annotated segments: 123587
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_131
+[record_131] Starting processing of ECG files...
+[record_131] Processing file record_131_ecg_00.h5 (file_index=0) with 17272400 samples in chunks of 172724 samples.
+[record_131] Total segments extracted from all files: 114998
+[record_131] ECG labels loaded from record_131_ecg_labels.csv
+41005 segments annotated with AF
+Duration of annotated AF segments: 51567.21000000012 seconds
+[record_131] Total annotated segments: 114998
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_132
+[record_132] Starting processing of ECG files...
+[record_132] Processing file record_132_ecg_00.h5 (file_index=0) with 14451200 samples in chunks of 144512 samples.
+[record_132] Total segments extracted from all files: 90037
+[record_132] ECG labels loaded from record_132_ecg_labels.csv
+11305 segments annotated with AF
+Duration of annotated AF segments: 15894.579999999989 seconds
+[record_132] Total annotated segments: 90037
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_133
+[record_133] Starting processing of ECG files...
+[record_133] Processing file record_133_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_133] Processing file record_133_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_133] Processing file record_133_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_133] Total segments extracted from all files: 351531
+[record_133] ECG labels loaded from record_133_ecg_labels.csv
+166038 segments annotated with AF
+Duration of annotated AF segments: 176618.61499990756 seconds
+[record_133] Total annotated segments: 351531
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_134
+[record_134] Starting processing of ECG files...
+[record_134] Processing file record_134_ecg_00.h5 (file_index=0) with 17273000 samples in chunks of 172730 samples.
+[record_134] Total segments extracted from all files: 120532
+[record_134] ECG labels loaded from record_134_ecg_labels.csv
+95726 segments annotated with AF
+Duration of annotated AF segments: 130692.05499999967 seconds
+[record_134] Total annotated segments: 120532
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_135
+[record_135] Starting processing of ECG files...
+[record_135] Processing file record_135_ecg_00.h5 (file_index=0) with 17272800 samples in chunks of 172728 samples.
+[record_135] Total segments extracted from all files: 97693
+[record_135] ECG labels loaded from record_135_ecg_labels.csv
+26759 segments annotated with AF
+Duration of annotated AF segments: 35582.73000000021 seconds
+[record_135] Total annotated segments: 97693
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_136
+[record_136] Starting processing of ECG files...
+[record_136] Processing file record_136_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_136] Processing file record_136_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_136] Processing file record_136_ecg_02.h5 (file_index=2) with 14794482 samples in chunks of 147944 samples.
+[record_136] Error processing chunk in file index 2: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_136] Total segments extracted from all files: 301050
+[record_136] ECG labels loaded from record_136_ecg_labels.csv
+26369 segments annotated with AF
+Duration of annotated AF segments: 30300.180000000055 seconds
+[record_136] Total annotated segments: 301050
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_137
+[record_137] Starting processing of ECG files...
+[record_137] Processing file record_137_ecg_00.h5 (file_index=0) with 16641712 samples in chunks of 166417 samples.
+[record_137] Error processing chunk in file index 0: The length of the input vector x must be greater than padlen, which is 18.
+[record_137] Total segments extracted from all files: 116092
+[record_137] ECG labels loaded from record_137_ecg_labels.csv
+42507 segments annotated with AF
+Duration of annotated AF segments: 44388.62999999977 seconds
+[record_137] Total annotated segments: 116092
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_138
+[record_138] Starting processing of ECG files...
+[record_138] Processing file record_138_ecg_00.h5 (file_index=0) with 17272200 samples in chunks of 172722 samples.
+[record_138] Total segments extracted from all files: 80305
+[record_138] ECG labels loaded from record_138_ecg_labels.csv
+527 segments annotated with AF
+Duration of annotated AF segments: 528.7349999999999 seconds
+[record_138] Total annotated segments: 80305
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_139
+[record_139] Starting processing of ECG files...
+[record_139] Processing file record_139_ecg_00.h5 (file_index=0) with 15893400 samples in chunks of 158934 samples.
+[record_139] Total segments extracted from all files: 83908
+[record_139] ECG labels loaded from record_139_ecg_labels.csv
+1066 segments annotated with AF
+Duration of annotated AF segments: 1518.645000000003 seconds
+[record_139] Total annotated segments: 83908
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_140
+[record_140] Starting processing of ECG files...
+[record_140] Processing file record_140_ecg_00.h5 (file_index=0) with 15889400 samples in chunks of 158894 samples.
+[record_140] Total segments extracted from all files: 106912
+[record_140] ECG labels loaded from record_140_ecg_labels.csv
+55738 segments annotated with AF
+Duration of annotated AF segments: 62087.345 seconds
+[record_140] Total annotated segments: 106912
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_141
+[record_141] Starting processing of ECG files...
+[record_141] Processing file record_141_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_141] Total segments extracted from all files: 81020
+[record_141] ECG labels loaded from record_141_ecg_labels.csv
+28785 segments annotated with AF
+Duration of annotated AF segments: 43526.70999999998 seconds
+[record_141] Total annotated segments: 81020
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_142
+[record_142] Starting processing of ECG files...
+[record_142] Processing file record_142_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_142] Processing file record_142_ecg_01.h5 (file_index=1) with 7660357 samples in chunks of 76603 samples.
+[record_142] Error processing chunk in file index 1: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_142] Total segments extracted from all files: 148125
+[record_142] ECG labels loaded from record_142_ecg_labels.csv
+6925 segments annotated with AF
+Duration of annotated AF segments: 8551.59000000003 seconds
+[record_142] Total annotated segments: 148125
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_143
+[record_143] Starting processing of ECG files...
+[record_143] Processing file record_143_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_143] Processing file record_143_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_143] Total segments extracted from all files: 215292
+[record_143] ECG labels loaded from record_143_ecg_labels.csv
+75376 segments annotated with AF
+Duration of annotated AF segments: 119463.13499999944 seconds
+[record_143] Total annotated segments: 215292
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_144
+[record_144] Starting processing of ECG files...
+[record_144] Processing file record_144_ecg_00.h5 (file_index=0) with 17272000 samples in chunks of 172720 samples.
+[record_144] Total segments extracted from all files: 113207
+[record_144] ECG labels loaded from record_144_ecg_labels.csv
+20821 segments annotated with AF
+Duration of annotated AF segments: 17396.224999999842 seconds
+[record_144] Total annotated segments: 113207
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_145
+[record_145] Starting processing of ECG files...
+[record_145] Processing file record_145_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_145] Total segments extracted from all files: 127984
+[record_145] ECG labels loaded from record_145_ecg_labels.csv
+66093 segments annotated with AF
+Duration of annotated AF segments: 80391.24500000058 seconds
+[record_145] Total annotated segments: 127984
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_146
+[record_146] Starting processing of ECG files...
+[record_146] Processing file record_146_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_146] Total segments extracted from all files: 120516
+[record_146] ECG labels loaded from record_146_ecg_labels.csv
+44974 segments annotated with AF
+Duration of annotated AF segments: 47658.169999999576 seconds
+[record_146] Total annotated segments: 120516
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_147
+[record_147] Starting processing of ECG files...
+[record_147] Processing file record_147_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_147] Total segments extracted from all files: 108953
+[record_147] ECG labels loaded from record_147_ecg_labels.csv
+40477 segments annotated with AF
+Duration of annotated AF segments: 49731.72999999993 seconds
+[record_147] Total annotated segments: 108953
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_148
+[record_148] Starting processing of ECG files...
+[record_148] Processing file record_148_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_148] Processing file record_148_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_148] Total segments extracted from all files: 196384
+[record_148] ECG labels loaded from record_148_ecg_labels.csv
+14790 segments annotated with AF
+Duration of annotated AF segments: 18524.159999999967 seconds
+[record_148] Total annotated segments: 196384
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_149
+[record_149] Starting processing of ECG files...
+[record_149] Processing file record_149_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_149] Total segments extracted from all files: 108100
+[record_149] ECG labels loaded from record_149_ecg_labels.csv
+19758 segments annotated with AF
+Duration of annotated AF segments: 23583.31999999995 seconds
+[record_149] Total annotated segments: 108100
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_150
+[record_150] Starting processing of ECG files...
+[record_150] Processing file record_150_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_150] Processing file record_150_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_150] Processing file record_150_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_150] Processing file record_150_ecg_03.h5 (file_index=3) with 1072781 samples in chunks of 10727 samples.
+[record_150] Error processing chunk in file index 3: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_150] Total segments extracted from all files: 427507
+[record_150] ECG labels loaded from record_150_ecg_labels.csv
+15904 segments annotated with AF
+Duration of annotated AF segments: 14945.159999999894 seconds
+[record_150] Total annotated segments: 427507
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_151
+[record_151] Starting processing of ECG files...
+[record_151] Processing file record_151_ecg_00.h5 (file_index=0) with 17125800 samples in chunks of 171258 samples.
+[record_151] Error processing chunk in file index 0: index 9 is out of bounds for axis 0 with size 9
+[record_151] Total segments extracted from all files: 89445
+[record_151] ECG labels loaded from record_151_ecg_labels.csv
+27471 segments annotated with AF
+Duration of annotated AF segments: 29648.79999999992 seconds
+[record_151] Total annotated segments: 89445
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_152
+[record_152] Starting processing of ECG files...
+[record_152] Processing file record_152_ecg_00.h5 (file_index=0) with 15963917 samples in chunks of 159639 samples.
+[record_152] Error processing chunk in file index 0: The length of the input vector x must be greater than padlen, which is 18.
+[record_152] Total segments extracted from all files: 92617
+[record_152] ECG labels loaded from record_152_ecg_labels.csv
+63372 segments annotated with AF
+Duration of annotated AF segments: 112487.53500000016 seconds
+[record_152] Total annotated segments: 92617
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_153
+[record_153] Starting processing of ECG files...
+[record_153] Processing file record_153_ecg_00.h5 (file_index=0) with 17163400 samples in chunks of 171634 samples.
+[record_153] Total segments extracted from all files: 101088
+[record_153] ECG labels loaded from record_153_ecg_labels.csv
+4193 segments annotated with AF
+Duration of annotated AF segments: 5659.9600000000055 seconds
+[record_153] Total annotated segments: 101088
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_154
+[record_154] Starting processing of ECG files...
+[record_154] Processing file record_154_ecg_00.h5 (file_index=0) with 15536925 samples in chunks of 155369 samples.
+[record_154] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_154] Total segments extracted from all files: 92797
+[record_154] ECG labels loaded from record_154_ecg_labels.csv
+46071 segments annotated with AF
+Duration of annotated AF segments: 68851.74500000023 seconds
+[record_154] Total annotated segments: 92797
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_155
+[record_155] Starting processing of ECG files...
+[record_155] Processing file record_155_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_155] Processing file record_155_ecg_01.h5 (file_index=1) with 17211240 samples in chunks of 172112 samples.
+[record_155] Error processing chunk in file index 1: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_155] Total segments extracted from all files: 257764
+[record_155] ECG labels loaded from record_155_ecg_labels.csv
+92949 segments annotated with AF
+Duration of annotated AF segments: 99250.87500000096 seconds
+[record_155] Total annotated segments: 257764
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_156
+[record_156] Starting processing of ECG files...
+[record_156] Processing file record_156_ecg_00.h5 (file_index=0) with 16802453 samples in chunks of 168024 samples.
+[record_156] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_156] Total segments extracted from all files: 133522
+[record_156] ECG labels loaded from record_156_ecg_labels.csv
+94479 segments annotated with AF
+Duration of annotated AF segments: 90663.89500000031 seconds
+[record_156] Total annotated segments: 133522
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_157
+[record_157] Starting processing of ECG files...
+[record_157] Processing file record_157_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_157] Processing file record_157_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_157] Total segments extracted from all files: 199341
+[record_157] ECG labels loaded from record_157_ecg_labels.csv
+69622 segments annotated with AF
+Duration of annotated AF segments: 100157.72499999884 seconds
+[record_157] Total annotated segments: 199341
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_158
+[record_158] Starting processing of ECG files...
+[record_158] Processing file record_158_ecg_00.h5 (file_index=0) with 16753546 samples in chunks of 167535 samples.
+[record_158] Error processing chunk in file index 0: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_158] Total segments extracted from all files: 110430
+[record_158] ECG labels loaded from record_158_ecg_labels.csv
+2136 segments annotated with AF
+Duration of annotated AF segments: 2295.5649999999996 seconds
+[record_158] Total annotated segments: 110430
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_159
+[record_159] Starting processing of ECG files...
+[record_159] Processing file record_159_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_159] Total segments extracted from all files: 128936
+[record_159] ECG labels loaded from record_159_ecg_labels.csv
+119999 segments annotated with AF
+Duration of annotated AF segments: 154560.21499999973 seconds
+[record_159] Total annotated segments: 128936
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_160
+[record_160] Starting processing of ECG files...
+[record_160] Processing file record_160_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_160] Processing file record_160_ecg_01.h5 (file_index=1) with 15308741 samples in chunks of 153087 samples.
+[record_160] Error processing chunk in file index 1: NeuroKit error: signal_smooth(): 'size' should be between 1 and length of the signal.
+[record_160] Total segments extracted from all files: 208397
+[record_160] ECG labels loaded from record_160_ecg_labels.csv
+68652 segments annotated with AF
+Duration of annotated AF segments: 79122.23500000038 seconds
+[record_160] Total annotated segments: 208397
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_161
+[record_161] Starting processing of ECG files...
+[record_161] Processing file record_161_ecg_00.h5 (file_index=0) with 17273000 samples in chunks of 172730 samples.
+[record_161] Total segments extracted from all files: 108794
+[record_161] ECG labels loaded from record_161_ecg_labels.csv
+25563 segments annotated with AF
+Duration of annotated AF segments: 27641.850000000162 seconds
+[record_161] Total annotated segments: 108794
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_162
+[record_162] Starting processing of ECG files...
+[record_162] Processing file record_162_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_162] Total segments extracted from all files: 103152
+[record_162] ECG labels loaded from record_162_ecg_labels.csv
+46991 segments annotated with AF
+Duration of annotated AF segments: 67462.08499999988 seconds
+[record_162] Total annotated segments: 103152
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_163
+[record_163] Starting processing of ECG files...
+[record_163] Processing file record_163_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_163] Processing file record_163_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_163] Processing file record_163_ecg_02.h5 (file_index=2) with 17273800 samples in chunks of 172738 samples.
+[record_163] Processing file record_163_ecg_03.h5 (file_index=3) with 17273800 samples in chunks of 172738 samples.
+[record_163] Total segments extracted from all files: 461897
+[record_163] ECG labels loaded from record_163_ecg_labels.csv
+250598 segments annotated with AF
+Duration of annotated AF segments: 321043.8600000037 seconds
+[record_163] Total annotated segments: 461897
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_164
+[record_164] Starting processing of ECG files...
+[record_164] Processing file record_164_ecg_00.h5 (file_index=0) with 17272200 samples in chunks of 172722 samples.
+[record_164] Total segments extracted from all files: 108009
+[record_164] ECG labels loaded from record_164_ecg_labels.csv
+3617 segments annotated with AF
+Duration of annotated AF segments: 4097.524999999983 seconds
+[record_164] Total annotated segments: 108009
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_165
+[record_165] Starting processing of ECG files...
+[record_165] Processing file record_165_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_165] Processing file record_165_ecg_01.h5 (file_index=1) with 17273800 samples in chunks of 172738 samples.
+[record_165] Total segments extracted from all files: 231089
+[record_165] ECG labels loaded from record_165_ecg_labels.csv
+69889 segments annotated with AF
+Duration of annotated AF segments: 80631.85500000008 seconds
+[record_165] Total annotated segments: 231089
+Processing folder: /mnt/iridia/sehlalou/thesis/database/iridia-af-records-v1.0.1/record_166
+[record_166] Starting processing of ECG files...
+[record_166] Processing file record_166_ecg_00.h5 (file_index=0) with 17273800 samples in chunks of 172738 samples.
+[record_166] Processing file record_166_ecg_01.h5 (file_index=1) with 13392201 samples in chunks of 133922 samples.
+[record_166] Error processing chunk in file index 1: The length of the input vector x must be greater than padlen, which is 18.
+[record_166] Total segments extracted from all files: 212142
+[record_166] ECG labels loaded from record_166_ecg_labels.csv
+0 segments annotated with AF
+Duration of annotated AF segments: 0 seconds
+[record_166] Total annotated segments: 212142
+All segments from 167 records saved to rrr_segments_all.csv

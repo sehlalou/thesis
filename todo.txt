@@ -1,0 +1,88 @@
+Semaine passée (11 mars)
+
+- J'ai perdu énormément de temps à essayer d'extraire les segments RRR.
+     Deux méthodes utilisées: 1. Détection automatique des pics R utilisant NeuroKit2 et
+                              2. Utilisant les fichiers contenant les intervals RR (.h5) 
+
+- Utilisation des fenêtres fixes à l'aide du code de cédric. Pour ça, j'utilise une taille correspondant +- à un segment RRR. => C'est bon en terme de frequency af (0.22) et de labelisation.
+
+- Je défini mon vision transformer, et sur base de ça je l'entraine. 
+
+- Je compare les performances avec celui le DL de cédric => avec une taille de fênetre basse (640) j'ai de perf très moyenne alors que en augmentant (8192) j'obtient des 0.90 + le model explainable.
+
+- Attention maps du modèle (moyen)
+
+
+
+Vendredi 21 mars (TO DO LIST)
+
+- Hyperparameter optimisation for the ViT model. Try to improve the performance of the model.
+- Comparison with transformer model (vanilla)     
+- Comparison with ViT taking an image (spectogram) as input
+     - Tried without cleaning the ECG -> 0.9594846553143358 of auroc
+     - Tried with ECG cleaning -> 0.9594289535239902
+
+- Apply the two models not on an AF detection task but on an AF identification. 
+
+
+
+Demain:
+- Vérifier performance du specto (avec preprocess) et la comparer au modèle sans preprocess => si ca améliore alors ajouter preprocess aux autres modèles
+Au final sans preprocess:
+roc_auc,accuracy,sensitivity,specificity,f1_score
+0.9594846553143358,0.9102305627760519,0.8044072543005734,0.946178717235834,0.8695522943569832
+
+Au final: 
+
+roc_auc,accuracy,sensitivity,specificity,f1_score
+0.9594289535239902,0.9064984467127369,0.7961894919322576,0.9439703742292034,0.86380488054184
+
+
+=> On dirait que l'ajout du préprocessing au modèle Specto n'a pas significativement amélioré ses performances. Tous les scores ont légèrement diminué après le préprocessing,
+ ce qui indique qu’il ne semble pas apporter de valeur ajoutée au modèle Specto. 
+ Il ne serait donc pas pertinent de l’ajouter aux autres modèles.
+
+
+- compariason model vit avec specto et avec raw ecg 
+
+Pour l'instant avec specto:
+roc_auc,accuracy,sensitivity,specificity,f1_score
+0.9594846553143358,0.9102305627760519,0.8044072543005734,0.946178717235834,0.8695522943569832, 435
+
+Pour l'instant avec raw ecg:
+roc_auc,accuracy,sensitivity,specificity,f1_score,training_time_minutes,training_time_seconds
+0.9634398129061115,0.9068764578614651,0.9297748123436197,0.8991075167800427,0.9141840449532573,143,29
+
+Le modèle Raw ECG a une meilleure performance globale en termes de ROC AUC et F1-score, indiquant qu’il équilibre mieux précision et rappel.
+Le Spectrogramme a une meilleure spécificité (+4.7%) mais une sensibilité bien plus basse (-12.5%), ce qui signifie qu’il détecte moins bien les cas positifs.
+
+- Afficher les attentions maps des ViT (specto, ecg)
+
+- Avancer sur le clustering (diminuer la reconstruction loss, essayer de visualiser, ajouter d'autre métrique liéé au ecg pr la reconstruction loss,
+et tester avec d'autre algo de clustering (hors que K-means) )
+
+
+
+Vendredi 28 mars 2025 (TO DO LIST)
+
+Train the simple transformer to provide a comparison with the ViT.
+
+Spectrogram enhancement: Try continuous wavelet transform (CWT) instead of STFT for better frequency-time representation.
+
+Fed the two leads (currently only using the first lead) as input to the model.
+
+Try a hybrid model (CNN + ViT) for AF detection or a pretrained ViT + fine tuning on the dataset.
+
+Experiment the model on AF onset forecast or AF identification (to discuss)
+This interpretable model can give important insights about the predictions
+
+Deliver the chapter on unsupervised learning for AF detection and AF sub-types findings
+Sample 100 records of correctly AF,  misclassified AF, correctly NSR, misclassified NSR (send to Cédric) and prepare the meeting with Dr. Jean-Marie Grégoire
+
+
+
+
+
+
+
+

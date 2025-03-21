@@ -1,0 +1,12 @@
+WINDOW_SIZE = 8192          
+EMB_DIM = 128                # Dimension of the CNN feature vector (latent space)
+BATCH_SIZE = 32
+LEARNING_RATE = 0.0001         # For autoencoder training
+EPOCHS = 20       
+PATIENCE = 5           
+NUM_PROC_WORKERS = 12         
+NUM_CLUSTERS = 2            
+RANDOM_SEED = 42
+POWERLINE_FREQ = 50
+DATASET_PATH = "/mnt/iridia/sehlalou/thesis/data/datasets"
+LOG_DL_PATH = "/mnt/iridia/sehlalou/thesis/examples/dl/clustering/saved_models"

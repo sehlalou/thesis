@@ -1,3 +1,9 @@
-.venv
-data
-__pycache__
+data/
+.venv/
+iridia_af/__pycache__/
+examples/dl/__pycache__/
+rrr_segment187GB.csv
+examples/dl/clustering/saved_models/20250319-004932_cnn_autoencoder_kmeans/cnn_autoencoder.pt
+examples/dl/clustering/saved_models/20250319-004932_cnn_autoencoder_kmeans/extracted_features.npz
+*.pt
+*.npz

@@ -1,0 +1,19 @@
+CNN (AUTOENCODER) + KMEANS 
+
+
+Goal: detect the AF and NSR in a unsupervised manner.
+
+Final Checklist: Is the Autoencoder Learning Well?
+✅ Reconstructed ECG signals should match the original signals closely.
+✅ Reconstruction loss (MSE) should decrease over time and remain low.
+✅ Latent features (t-SNE plot) should form clear clusters instead of being random.
+
+🚀 If the model fails any of these checks, you can:
+
+Increase/decrease the latent dimension (cfg.EMB_DIM).
+
+Add Batch Normalization to stabilize training.
+
+Improve data preprocessing (e.g., normalize ECG signals).
+
+Let me know if you need help improving the results! 😊
