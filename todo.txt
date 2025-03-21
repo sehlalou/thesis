@@ -17,15 +17,24 @@ Semaine passée (11 mars)
 Vendredi 21 mars (TO DO LIST)
 
 - Hyperparameter optimisation for the ViT model. Try to improve the performance of the model.
+<<<<<<< HEAD
 - Comparison with transformer model (vanilla)     
 - Comparison with ViT taking an image (spectogram) as input
      - Tried without cleaning the ECG -> 0.9594846553143358 of auroc
      - Tried with ECG cleaning -> 0.9594289535239902
 
+=======
+- Comparison with transformer model (vanilla)
+- Comparison with ViT taking an image (spectogram) as input
+     - Tried without cleaning the ECG -> 0.9594846553143358 of auroc
+     - Tried with ECG cleaning ->
+     )
+>>>>>>> 0aabc604e5a8afc3b8dd0234252e42ca0dcae082
 - Apply the two models not on an AF detection task but on an AF identification. 
 
 
 
+<<<<<<< HEAD
 Demain:
 - Vérifier performance du specto (avec preprocess) et la comparer au modèle sans preprocess => si ca améliore alors ajouter preprocess aux autres modèles
 Au final sans preprocess:
@@ -85,4 +94,6 @@ Sample 100 records of correctly AF,  misclassified AF, correctly NSR, misclassif
 
 
 
+=======
+>>>>>>> 0aabc604e5a8afc3b8dd0234252e42ca0dcae082
 

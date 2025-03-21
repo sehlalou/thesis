@@ -39,7 +39,10 @@ def get_dict():
         "NUM_HEADS": NUM_HEADS,
         "MLP_DIM": MLP_DIM,
         "DROPOUT_RATE": DROPOUT_RATE,
+<<<<<<< HEAD
         "POWERLINE_FREQ": POWERLINE_FREQ,
+=======
+>>>>>>> 0aabc604e5a8afc3b8dd0234252e42ca0dcae082
         "LOG_DL_PATH": LOG_DL_PATH,
         "DATASET_PATH": DATASET_PATH
     }

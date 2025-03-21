@@ -2,8 +2,12 @@ data/
 .venv/
 iridia_af/__pycache__/
 examples/dl/__pycache__/
+<<<<<<< HEAD
 rrr_segment187GB.csv
 examples/dl/clustering/saved_models/20250319-004932_cnn_autoencoder_kmeans/cnn_autoencoder.pt
 examples/dl/clustering/saved_models/20250319-004932_cnn_autoencoder_kmeans/extracted_features.npz
 *.pt
 *.npz
+=======
+rrr_segment187GB.csv
+>>>>>>> 0aabc604e5a8afc3b8dd0234252e42ca0dcae082
