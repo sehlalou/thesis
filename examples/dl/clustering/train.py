@@ -17,31 +17,6 @@ from scipy.optimize import linear_sum_assignment
 
 import joblib
 
-def clustering_accuracy(y_true, y_pred):
-    """
-    Compute clustering accuracy. The function finds the best mapping between cluster labels and ground truth labels.
-    
-    Args:
-        y_true: numpy array of shape (n_samples,), ground truth labels.
-        y_pred: numpy array of shape (n_samples,), predicted cluster labels.
-    
-    Returns:
-        accuracy: Clustering accuracy.
-    """
-    y_true = y_true.astype(np.int64)
-    assert y_pred.size == y_true.size
-    # Build contingency matrix
-    D = max(y_pred.max(), y_true.max()) + 1
-    contingency_matrix = np.zeros((D, D), dtype=np.int64)
-    for i in range(y_pred.size):
-        contingency_matrix[y_pred[i], y_true[i]] += 1
-    # Solve the linear assignment problem (Hungarian algorithm)
-    # We subtract the matrix from its maximum because the algorithm minimizes cost.
-    row_ind, col_ind = linear_sum_assignment(contingency_matrix.max() - contingency_matrix)
-    total_correct = contingency_matrix[row_ind, col_ind].sum()
-    accuracy = total_correct / y_pred.size
-    return accuracy
-
 
 class ECGWindowDataset(Dataset):
     def __init__(self, df):
@@ -54,11 +29,6 @@ class ECGWindowDataset(Dataset):
         dw = self.df.iloc[idx]
         with h5py.File(dw.file, "r") as f:
             key = list(f.keys())[0]
-
-            #start_index = dw.start_index
-            #if start_index < 6000:
-            #    start_index = 6000
-
             ecg_data = f[key][dw.start_index:dw.end_index, 0]
       
         ecg_data = clean_signal(np.array(ecg_data), fs=200) 
@@ -72,6 +42,7 @@ def get_device():
 def create_data_loaders():
     dataset_csv = Path(cfg.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
     df = pd.read_csv(dataset_csv)
+   
     patients = df["patient_id"].unique()
     train_val_patients, test_patients = train_test_split(patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
     train_patients, val_patients = train_test_split(train_val_patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
@@ -115,10 +86,15 @@ def train_autoencoder(model, train_loader, val_loader, device):
     patience_counter = 0
     best_model = None
 
+    # Lists to store metrics for each epoch
+    epochs_list = []
+    train_loss_list = []
+    val_loss_list = []
+
     for epoch in range(cfg.EPOCHS):
         model.train()
         train_losses = []
-        for batch_idx, (x, _) in enumerate(tqdm(train_loader)):
+        for batch_idx, (x, _) in enumerate(tqdm(train_loader, desc=f"Epoch {epoch+1}/{cfg.EPOCHS}")):
             x = x.to(device)  # x shape: (batch, WINDOW_SIZE)
             reconstruction, _ = model(x)
             reconstruction = reconstruction.squeeze(1)
@@ -144,6 +120,11 @@ def train_autoencoder(model, train_loader, val_loader, device):
         avg_val_loss = np.mean(val_losses)
         print(f"Epoch {epoch+1}/{cfg.EPOCHS}: Train Loss = {avg_train_loss:.6f}, Val Loss = {avg_val_loss:.6f}")
 
+        # Save metrics for this epoch
+        epochs_list.append(epoch + 1)
+        train_loss_list.append(avg_train_loss)
+        val_loss_list.append(avg_val_loss)
+
         # Early stopping mechanism
         if avg_val_loss < best_val_loss:
             best_val_loss = avg_val_loss
@@ -156,8 +137,15 @@ def train_autoencoder(model, train_loader, val_loader, device):
                 model.load_state_dict(best_model)
                 break
 
+    # Return the model along with the collected metrics
+    metrics = {
+        "epoch": epochs_list,
+        "train_loss": train_loss_list,
+        "val_loss": val_loss_list
+    }
+    return model, metrics
+
 def extract_features(model, data_loader, device, save_path):
-    print("Save path of features extracted :", save_path)
     model.eval()
     features_all = []
     labels_all = []
@@ -176,7 +164,111 @@ def extract_features(model, data_loader, device, save_path):
     print("Features saved successfully!")
     return features_all, labels_all
 
+def load_trained_model(model_path, device):
+    model = CNNAutoencoder(input_length=cfg.WINDOW_SIZE, emb_dim=cfg.EMB_DIM)
+    model.load_state_dict(torch.load(model_path, map_location=device))  
+    model.to(device)  # Move model to GPU/CPU
+    model.eval() 
+    print("Model loaded successfully!")
+    return model
 
+def create_full_dataloader():
+    """Create a dataloader for the entire dataset (train + val + test)"""
+    dataset_csv = Path(cfg.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
+    df = pd.read_csv(dataset_csv)
+    
+    full_dataset = ECGWindowDataset(df)
+    full_loader = DataLoader(full_dataset,
+                             batch_size=cfg.BATCH_SIZE,
+                             shuffle=False,  # No need to shuffle for feature extraction
+                             num_workers=cfg.NUM_PROC_WORKERS,
+                             pin_memory=True)
+
+    return full_loader
+
+def evaluate_autoencoder(model, test_loader, device):
+    criterion = torch.nn.MSELoss()
+    model.eval()
+    test_losses = []
+    with torch.no_grad():
+        for x, _ in test_loader:
+            x = x.to(device)
+            reconstruction, _ = model(x)
+            reconstruction = reconstruction.squeeze(1)
+            loss = criterion(reconstruction, x)
+            test_losses.append(loss.item())
+    avg_test_loss = np.mean(test_losses)
+    print(f"Test Loss: {avg_test_loss:.6f}")
+    return avg_test_loss
+
+def main():
+    start_time = time.time()
+    train_loader, val_loader, test_loader, list_patients = create_data_loaders()
+    full_loader = create_full_dataloader()  # dataloader for the whole dataset
+
+    device = get_device()
+    print(f"Using device: {device}")
+    
+    print(f"Create CNN autoencoder with window size of {cfg.WINDOW_SIZE} and emb dim of {cfg.EMB_DIM}")
+    model = CNNAutoencoder(input_length=cfg.WINDOW_SIZE, emb_dim=cfg.EMB_DIM).to(device)
+    
+    # Train the autoencoder using reconstruction (MSE)
+    print("Training CNN autoencoder with reconstruction loss...")
+    model, metrics = train_autoencoder(model, train_loader, val_loader, device)
+    
+    # Evaluate the autoencoder performance on the test set
+    print("Evaluating autoencoder performance on test data...")
+    test_loss = evaluate_autoencoder(model, test_loader, device)
+    
+    folder = Path(cfg.LOG_DL_PATH, f"cnn_{cfg.EMB_DIM}_{cfg.WINDOW_SIZE}")
+    folder.mkdir(parents=True, exist_ok=True)
+    model_path = Path(folder, "cnn_autoencoder.pt")
+    torch.save(model.state_dict(), model_path)
+    
+    # Extract features (latent representations) from the whole dataset.
+    print("Extracting features from whole data...")
+    features_save_path = str(folder) + "/extracted_features.npz"
+    full_features, full_labels = extract_features(model, full_loader, device, features_save_path)
+
+    # Save performance metrics in metrics.csv
+    # Create a dataframe with the epoch metrics, then append the test loss as an extra row.
+    df_metrics = pd.DataFrame({
+        "epoch": metrics["epoch"],
+        "train_loss": metrics["train_loss"],
+        "val_loss": metrics["val_loss"]
+    })
+    # Append a row for the test loss (epoch field is set to 'test')
+    df_test = pd.DataFrame({
+        "epoch": ["test"],
+        "train_loss": [None],
+        "val_loss": [test_loss]
+    })
+    df_metrics = pd.concat([df_metrics, df_test], ignore_index=True)
+    metrics_csv_path = Path(folder, "metrics.csv")
+    df_metrics.to_csv(metrics_csv_path, index=False)
+    print(f"Performance metrics saved to {metrics_csv_path}")
+
+    # Save hyperparameters in hyperparameters.csv
+    hyperparams = {
+        "window_size": cfg.WINDOW_SIZE,
+        "emb_dim": cfg.EMB_DIM,
+        "epochs": cfg.EPOCHS,
+        "learning_rate": cfg.LEARNING_RATE,
+        "patience": cfg.PATIENCE,
+        "batch_size": cfg.BATCH_SIZE,
+        "num_proc_workers": cfg.NUM_PROC_WORKERS,
+        "random_seed": cfg.RANDOM_SEED
+    }
+    df_hyperparams = pd.DataFrame(list(hyperparams.items()), columns=["parameter", "value"])
+    hyperparams_csv_path = Path(folder, "hyperparameters.csv")
+    df_hyperparams.to_csv(hyperparams_csv_path, index=False)
+    print(f"Hyperparameters saved to {hyperparams_csv_path}")
+
+    print_elapsed_time(start_time)
+
+if __name__ == "__main__":
+    torch.manual_seed(cfg.RANDOM_SEED)
+    main()
 
 # def plot_ecg_reconstruction(model, data_loader, device):
 #     model.eval()
@@ -203,97 +295,3 @@ def extract_features(model, data_loader, device, save_path):
 #             print("Plot reconstructed done ! ")
 #             break  # Only visualize one batch
 
-
-def load_trained_model(model_path, device):
-    model = CNNAutoencoder(input_length=cfg.WINDOW_SIZE, emb_dim=cfg.EMB_DIM)
-    model.load_state_dict(torch.load(model_path, map_location=device))  
-    model.to(device)  # Move model to GPU/CPU
-    model.eval() 
-    print("Model loaded successfully!")
-    return model
-
-def create_full_dataloader():
-    """Create a dataloader for the entire dataset (train + val + test)"""
-    dataset_csv = Path(cfg.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
-    df = pd.read_csv(dataset_csv)
-
-    full_dataset = ECGWindowDataset(df)
-    full_loader = DataLoader(full_dataset,
-                             batch_size=cfg.BATCH_SIZE,
-                             shuffle=False,  # No need to shuffle for feature extraction
-                             num_workers=cfg.NUM_PROC_WORKERS,
-                             pin_memory=True)
-
-    return full_loader
-
-
-def evaluate_autoencoder(model, test_loader, device):
-    criterion = torch.nn.MSELoss()
-    model.eval()
-    test_losses = []
-    with torch.no_grad():
-        for x, _ in test_loader:
-            x = x.to(device)
-            reconstruction, _ = model(x)
-            reconstruction = reconstruction.squeeze(1)
-            loss = criterion(reconstruction, x)
-            test_losses.append(loss.item())
-    avg_test_loss = np.mean(test_losses)
-    print(f"Test Loss: {avg_test_loss:.6f}")
-    return avg_test_loss
-
-def main():
-    start_time = time.time()
-    train_loader, val_loader, test_loader, list_patients = create_data_loaders()
-    full_loader = create_full_dataloader() # dataloader for the whole dataset
-
-    device = get_device()
-    print(f"Using device: {device}")
-    
-    model = CNNAutoencoder(input_length=cfg.WINDOW_SIZE, emb_dim=cfg.EMB_DIM).to(device)
-    
-    # Train the autoencoder using reconstruction (MSE) loss.x   
-    print("Training CNN autoencoder with reconstruction loss...")
-    train_autoencoder(model, train_loader, val_loader, device)
-    
-    #model = load_trained_model("/mnt/iridia/sehlalou/thesis/examples/dl/clustering/saved_models/20250319-004932_cnn_autoencoder_kmeans/cnn_autoencoder.pt", device)
-
-    #print("Plot ECG reconstruction on test set to see if the autoencoder generalizes well")
-    #_reconstruction(model, test_loader, device)
-
-    # Evaluate the autoencoder performance on the test set
-    print("Evaluating autoencoder performance on test data...")
-    evaluate_autoencoder(model, test_loader, device)
-    
-
-    # Evaluate clustering performance using metrics.
-    #ari = adjusted_rand_score(train_labels, cluster_labels)
-    #nmi = normalized_mutual_info_score(train_labels, cluster_labels)
-    #print(f"Training clustering performance: ARI = {ari:.4f}, NMI = {nmi:.4f}")
-    
-    timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    folder = Path(cfg.LOG_DL_PATH, f"{timestamp}_cnn_autoencoder_kmeans")
-    folder.mkdir(parents=True, exist_ok=True)
-    model_path = Path(folder, "cnn_autoencoder.pt")
-    torch.save(model.state_dict(), model_path)
-    
-
-    # Extract features (latent representations) from the whole dataset.
-    print("Extracting features from whole data...")
-    full_features, full_labels = extract_features(model, full_loader, device, str(model_path) + "/extracted_features.png")
-
-    
-    # Evaluate on test data.
-    #print("Extracting features from test data...")
-    #test_features, test_labels = extract_features(model, test_loader, device)
-    #test_cluster_labels = kmeans_model.predict(test_features)
-    #ari_test = adjusted_rand_score(test_labels, test_cluster_labels)
-    #nmi_test = normalized_mutual_info_score(test_labels, test_cluster_labels)
-    #acc_test = clustering_accuracy(test_labels, test_cluster_labels)
-    #print(f"Test clustering performance: ARI = {ari_test:.4f}, NMI = {nmi_test:.4f}, ACC = {acc_test:.4f}")
-    
-    #print_elapsed_time(start_time)
-
-if __name__ == "__main__":
-    torch.manual_seed(cfg.RANDOM_SEED)
-    main()

@@ -1,4 +1,4 @@
-WINDOW_SIZE = 8192          
+WINDOW_SIZE = 640         
 EMB_DIM = 128                # Dimension of the CNN feature vector (latent space)
 BATCH_SIZE = 32
 LEARNING_RATE = 0.0001         # For autoencoder training

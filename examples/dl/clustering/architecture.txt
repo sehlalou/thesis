@@ -1,19 +1,56 @@
-CNN (AUTOENCODER) + KMEANS 
+Autoencoder's structure:
 
+1D convolutional autoencoder designed for sequence based-input (in this case ECG windows).
+It follows the standard autoencoder structure consisting of encoder, latent space and decoder.
+
+The model is fully convolutional, utilizing 1D convolutional layers in the encoder and transposed convolutional layers in the decoder.
+
+Encoder architecture: Three 1D convolutional layers, followed by a fully connected layer to obtain the latent representation.
+Each convolutional layer applies 1D convolution, batch normalization and ReLU activation.
+After passing through convolutional layers, the feature map is flattened and passed through a fully connected layer to obtain the latent vector.
+
+Decoder architecture: 
+    - A fully connected layer to reshape the latent representation back to the convolutional feature map size.
+    - Three transposed convolutional layers to reconstruct the original input.
+    - Fully Connected Layer
+
+---------------------------------------------------------
 
 Goal: detect the AF and NSR in a unsupervised manner.
+----------------------------------------------------------
 
-Final Checklist: Is the Autoencoder Learning Well?
-✅ Reconstructed ECG signals should match the original signals closely.
-✅ Reconstruction loss (MSE) should decrease over time and remain low.
-✅ Latent features (t-SNE plot) should form clear clusters instead of being random.
+Before applying clustering, I must train the autoencoder so that it reconstructs ECG signals well. To ensure that:
 
-🚀 If the model fails any of these checks, you can:
+- Reconstruction loss: MSE should be low
+- Reconsutructions plots: Visualize original vs. reconstructed ECG for different arrhythmias
+  The vizualization aims to check if reconstructions preserve key patterns (P-wave, QRS, T-wave),
+   then the model is learning well.
 
-Increase/decrease the latent dimension (cfg.EMB_DIM).
 
-Add Batch Normalization to stabilize training.
+How to train the autoencoder:
+1. Train the autoencoder on the train set.
 
-Improve data preprocessing (e.g., normalize ECG signals).
+2. Monitor validation loss to avoid overfitting (use early stopping).
 
-Let me know if you need help improving the results! 😊
+3. Evaluate reconstruction loss on the test set.
+
+4. Extract features from the trained encoder for clustering.
+
+5. Evaluate the latent space quality trough:
+   -  Reconstruction loss 
+   -  latent space variance
+   -  t-SNE / UMAP Visualization (Separation is better)
+   -  Explained Variance Ratio (PCA)
+
+5. Perform clustering on test features and compare discovered clusters with known arrhythmia labels (if available).
+
+
+
+How to fine tune the parameters (window size and emb dim). Here is my rigoros approach:
+
+1. Start with a baseline: WINDOW_SIZE = 1024, emb_dim = 128
+2. Tune WINDOW_SIZE: Test different window sizes from 640 to 12288.
+3. Evaluate the model performance for each. 
+4. After identifying the best WINDOW_SIZE, vary the latent space size (emb_dim)
+5. Evaluate how performance changes with each latent space size.
+6. Select the best one combinaison (ON MSE). 
