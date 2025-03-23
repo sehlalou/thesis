@@ -11,3 +11,4 @@ examples/dl/clustering/saved_models/20250319-004932_cnn_autoencoder_kmeans/cnn_a
 examples/dl/clustering/saved_models/20250319-004932_cnn_autoencoder_kmeans/extracted_features.npz
 *.pt
 *.npz
+examples/dl/clustering/saved_models/

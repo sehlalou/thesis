@@ -1,17 +1,18 @@
-WINDOW_SIZE = 8192
+WINDOW_SIZE = 1024
 EMB_DIM = 128
-NUM_LAYERS = 4
+NUM_LAYERS = 6
 NUM_HEADS = 4
-MLP_DIM = 512
-DROPOUT_RATE = 0.1
+MLP_DIM = 128
+DROPOUT_RATE = 0.45
 RANDOM_SEED = 42
-EPOCH = 20
-PATIENCE = 5
-BATCH_SIZE = 16
+EPOCH = 5
+PATIENCE = 3
+BATCH_SIZE = 8
 LEARNING_RATE = 0.0001
 NUM_PROC_WORKERS_DATA = 12
 LOG_DL_PATH = "/mnt/iridia/sehlalou/thesis/examples/dl/transformer/saved_models"
 DATASET_PATH = "/mnt/iridia/sehlalou/thesis/data/datasets"
+
 
 def get_dict():
     return {

@@ -77,7 +77,8 @@ Experiment the model on AF onset forecast or AF identification (to discuss)
 This interpretable model can give important insights about the predictions
 
 Deliver the chapter on unsupervised learning for AF detection and AF sub-types findings
-Sample 100 records of correctly AF,  misclassified AF, correctly NSR, misclassified NSR (send to Cédric) and prepare the meeting with Dr. Jean-Marie Grégoire
+- Sample 100 records of correctly AF,  misclassified AF, correctly NSR, misclassified NSR => DONE.
+- Prepare the meeting with Dr. Jean-Marie Grégoire 
 
 
 

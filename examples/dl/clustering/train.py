@@ -243,7 +243,7 @@ def main():
     
     # Extract features (latent representations) from the whole dataset.
     print("Extracting features from whole data...")
-    features_save_path = str(folder) + "/extracted_features.npz"
+    features_save_path = str(folder) + "/extracted_features.h5"
     extract_features(model, full_loader, device, features_save_path)
 
     # Save performance metrics in metrics.csv

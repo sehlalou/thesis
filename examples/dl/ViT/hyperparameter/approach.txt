@@ -25,3 +25,280 @@ Key Characteristics of TPE:
 Bayesian Optimization: TPE is a type of Bayesian optimization, where it builds a probabilistic model of the objective function
  and uses it to select hyperparameters to try next. 
 It learns from previous evaluations of the objective function to guide the search.
+
+
+
+
+
+Detailed Scientific Methodology of the Script
+This script implements a deep learning pipeline for ECG classification using a Vision Transformer (ViT) model. The methodology follows data preprocessing, model training, hyperparameter optimization, and final evaluation, ensuring a structured and scientifically sound approach.
+
+1. Data Preprocessing and Handling
+1.1 Dataset Loading (DetectionDataset class)
+The dataset consists of ECG signals stored in HDF5 (.h5) files.
+
+A .csv file provides metadata, including:
+
+File path
+
+Start and end indices (segment of ECG signal)
+
+Label (classification target)
+
+The dataset class (DetectionDataset) implements:
+
+__getitem__: Reads the corresponding ECG segment from the .h5 file and converts it to a PyTorch tensor.
+
+__len__: Returns the dataset size.
+
+Scientific Justification
+Why HDF5?
+
+Efficient for large-scale time-series data storage.
+
+Enables quick random access to specific data segments.
+
+Why convert to PyTorch tensors?
+
+Enables GPU acceleration during training.
+
+1.2 Train-Validation-Test Splitting (create_train_val_test_split function)
+The script splits the dataset into:
+
+Training set (64%) – used for learning.
+
+Validation set (16%) – used for hyperparameter tuning.
+
+Test set (20%) – used for final evaluation.
+
+Ensures patient-level split to prevent data leakage.
+
+Scientific Justification
+Why patient-level splitting?
+
+Prevents the model from memorizing individual ECG patterns instead of learning generalized features.
+
+Why 64-16-20% split?
+
+Standard in medical AI to balance training and evaluation.
+
+2. Model Architecture & Configuration
+2.1 Vision Transformer Model
+Vision Transformer (ViT) is designed for image analysis, but here it processes 1D ECG signals as a sequence of patches.
+
+The model is configured with:
+
+Window size (window_size) – Length of ECG sequence.
+
+Patch size (patch_size) – Subdivision of ECG signals.
+
+Embedding dimensions (emb_dim) – Defines feature space size.
+
+Number of transformer layers (num_layers) – Controls model depth.
+
+Attention heads (num_heads) – Number of multi-head self-attention layers.
+
+MLP size (mlp_dim) – Size of the feedforward network inside the Transformer.
+
+Dropout (dropout_rate) – Prevents overfitting.
+
+2.2 Selecting Window Size and Patch Size
+Precomputed valid (window_size, patch_size) pairs
+
+Ensures patches align perfectly within each window.
+
+Scientific Justification
+Why Transformer for ECG?
+
+Transformers excel at long-range dependencies, making them well-suited for ECG signals with complex temporal patterns.
+
+Why different window & patch sizes?
+
+To experiment with different segmentations and find the optimal configuration.
+
+3. Model Training Pipeline
+3.1 Hardware Acceleration (get_device function)
+Automatically detects:
+
+CUDA (NVIDIA GPU)
+
+MPS (Apple Silicon)
+
+CPU (fallback option)
+
+Scientific Justification
+Why GPU acceleration?
+
+Transformers require massive parallel computation.
+
+CUDA/MPS speeds up matrix operations.
+
+Why empty CUDA cache?
+
+Prevents memory fragmentation, ensuring efficient GPU usage.
+
+3.2 Training Loop (objective function)
+Forward pass – Model processes ECG data.
+
+Loss computation – Uses cross-entropy loss (for binary classification).
+
+Backpropagation – Computes gradients.
+
+Weight updates – Uses AdamW optimizer (weight decay prevents overfitting).
+
+3.3 Model Evaluation (estimate_loss and estimate_metrics functions)
+Validation Loss (estimate_loss):
+
+Measures how well the model generalizes.
+
+Performance Metrics (estimate_metrics):
+
+ROC-AUC Score – Evaluates classification ability.
+
+Confusion Matrix – Provides class-wise performance.
+
+Accuracy, Sensitivity, Specificity, F1-score.
+
+Scientific Justification
+Why ROC-AUC?
+
+Better than accuracy for imbalanced datasets.
+
+Why confusion matrix?
+
+Identifies false positives/negatives, crucial for medical AI.
+
+3.4 Early Stopping
+Tracks validation loss over epochs.
+
+Stops training if no improvement after PATIENCE epochs.
+
+Scientific Justification
+Why early stopping?
+
+Prevents overfitting.
+
+Saves computational resources.
+
+4. Hyperparameter Optimization with Optuna
+4.1 Bayesian Optimization
+Optuna searches for the best hyperparameters to maximize ROC-AUC.
+
+Trials involve:
+
+Selecting window & patch size.
+
+Adjusting embedding dimensions.
+
+Varying transformer depth.
+
+Tuning dropout rate.
+
+Prunes unpromising trials to save time.
+
+4.2 Trial Execution
+Each trial:
+
+Trains a model.
+
+Evaluates validation ROC-AUC.
+
+Stores the best configuration.
+
+Scientific Justification
+Why Optuna?
+
+Bayesian optimization is more efficient than grid search.
+
+Why prune trials?
+
+Saves computation on poor-performing hyperparameters.
+
+5. Model Testing & Final Evaluation
+Loads the best model and evaluates it on the test set.
+
+Reports final metrics (ROC-AUC, accuracy, etc.).
+
+Saves model & results in a structured directory.
+
+6. Execution Flow (__main__)
+Creates an Optuna study.
+
+Runs 1000 trials (or stops after 14 days).
+
+Reports best hyperparameters and ROC-AUC.
+
+Scientific Contributions of This Methodology
+This script represents cutting-edge deep learning applied to ECG classification:
+
+✅ Efficient Data Processing
+Uses HDF5 for large-scale ECG storage.
+
+Ensures patient-level splitting to avoid overfitting.
+
+✅ State-of-the-Art Model Selection
+Adapts Vision Transformer (ViT) for time-series ECG analysis.
+
+Implements patch-based representation to improve feature extraction.
+
+✅ Optimized Hyperparameter Search
+Optuna + Bayesian Optimization finds the best configuration.
+
+Trial pruning improves efficiency.
+
+✅ Robust Evaluation Metrics
+ROC-AUC, F1-score, and confusion matrix provide a full diagnostic.
+
+✅ Scalability & Reproducibility
+GPU-accelerated training for scalability.
+
+Automatic model saving & logging ensures reproducibility.
+
+Conclusion
+This script provides a scientifically rigorous pipeline for ECG classification using deep learning and hyperparameter optimization. By combining Vision Transformers, Bayesian optimization, and GPU acceleration, it ensures high accuracy, efficiency, and reproducibility in medical AI research. 🚀
+
+
+
+Au total 2 semaines de calcul mais uniquement 10 trials fait car en réalité optuna prune. 
+Certains trials s'arrêtent dès la première époque à cause du pruning (élagage) implémenté par Optuna. 
+Optuna utilise une technique appelée pruning (élagage précoce) pour éviter de gaspiller du temps sur des essais non prometteurs. 
+Lorsqu'un trial montre des performances médiocres dès les premières époques, il est interrompu afin de libérer des ressources pour d'autres combinaisons d'hyperparamètres plus prometteuses.
+
+Mécanisme du Pruning dans Optuna
+Au début du trial
+
+Optuna initialise un ensemble d'hyperparamètres (window_size, patch_size, dropout, etc.).
+
+Le modèle commence à s'entraîner sur les données.
+
+Pendant l'entraînement
+
+À chaque époque, Optuna observe la validation loss et le ROC-AUC.
+
+Après quelques époques (souvent 1 ou 2), si la performance est nettement inférieure aux autres essais précédents, le trial est arrêté prématurément.
+
+Décision de pruning
+
+Optuna compare les résultats actuels avec ceux des trials précédents.
+
+Si un seuil de sous-performance est atteint, Optuna stoppe ce trial pour économiser du temps de calcul.
+
+Un trial peut être jugé comme sous-optimal dès la première époque pour plusieurs raisons :
+
+1️⃣ Mauvais choix d’hyperparamètres
+Patch size trop grand → Perte d’informations importantes.
+
+Dropout trop élevé → Le modèle n'apprend rien.
+
+MLP ou emb_dim trop petits → Capacité d’apprentissage insuffisante.
+
+2️⃣ Problèmes de convergence
+Learning rate trop élevé → Le modèle diverge immédiatement.
+
+Nombre de têtes d’attention mal adapté → Mauvaise extraction des features.
+
+3️⃣ Overfitting immédiat
+Si un modèle mémorise trop vite les données de l'entraînement mais échoue en validation, il peut être arrêté pour éviter une perte de temps.
+
+
+

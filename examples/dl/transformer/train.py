@@ -132,10 +132,19 @@ def train_model():
     pd.DataFrame(list_patients).to_csv(Path(folder, "list_patients.csv"))
     df_hp = pd.DataFrame(cfg.get_dict(), index=[0])
     df_hp.to_csv(Path(folder, "hyperparameters.csv"))
+    
+    # Compute and add training time to metrics
+    elapsed_time = time.time() - start_time
+    elapsed_minutes = elapsed_time // 60
+    elapsed_seconds = elapsed_time % 60
+    training_time_str = f"{int(elapsed_minutes)} minutes and {int(elapsed_seconds)} seconds"
+    metrics["training_time"] = training_time_str
+
     df_metrics = pd.DataFrame(metrics, index=[0])
     df_metrics.to_csv(Path(folder, "metrics.csv"))
     
-    print_elapsed_time(start_time)      
+    print(f"Total training time: {training_time_str}")
+   
 
 
 @torch.no_grad()
@@ -202,7 +211,7 @@ def create_train_val_test_split():
     dataset_path = Path(cfg.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
     df = pd.read_csv(dataset_path)
     # Optionally crop to a subset of rows
-    # df = df[:300000]
+    #df = df[:40000]
     patients = df["patient_id"].unique()
 
     train_val_patients, test_patients = train_test_split(patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
@@ -243,4 +252,5 @@ def print_elapsed_time(start_time):
 
 
 if __name__ == "__main__":
+    torch.cuda.empty_cache()
     train_model()

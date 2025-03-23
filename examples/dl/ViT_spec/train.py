@@ -15,7 +15,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 from model import ViTSpecModelConfig, VisionTransformerSpectrogram
-from spectrogram import preprocess_ecg_to_spectrogram, clean_signal
+from spectrogram import preprocess_ecg_to_spectrogram, clean_signal, preprocess_ecg_to_wavelet_spectrogram
 import config as cfg
 
 class DetectionSpectrogramDataset(Dataset):
@@ -33,10 +33,10 @@ class DetectionSpectrogramDataset(Dataset):
             ecg_data = f[key][dw.start_index:dw.end_index, 0]
         ecg_data = np.array(ecg_data)
         ecg_data = clean_signal(ecg_data, fs=cfg.SAMPLING_RATE)  # Clean ECG
-        spec_img, _, _ = preprocess_ecg_to_spectrogram(ecg_data, fs=cfg.SAMPLING_RATE, 
-                                                       nperseg= cfg.NPERSEG, 
-                                                       noverlap= cfg.NOVERLAP, 
-                                                       output_shape=cfg.RESOLUTION_SPEC)
+        if cfg.USE_WAVELET:
+            spec_img, _, _ = preprocess_ecg_to_wavelet_spectrogram(ecg_data, fs=cfg.SAMPLING_RATE,output_shape=cfg.RESOLUTION_SPEC)
+        else:
+            spec_img, _, _ = preprocess_ecg_to_spectrogram(ecg_data, fs=cfg.SAMPLING_RATE, nperseg= cfg.NPERSEG, noverlap= cfg.NOVERLAP, output_shape=cfg.RESOLUTION_SPEC)
         spec_tensor = torch.tensor(spec_img, dtype=torch.float32)
         label = torch.tensor(dw.label, dtype=torch.long)
         return spec_tensor, label
@@ -79,6 +79,8 @@ def train_model():
     min_val_loss_epoch = 0
     best_model = None
 
+    epoch_metrics = []
+
     for epoch in range(cfg.EPOCH):
         model.train()
         train_losses = []
@@ -109,9 +111,21 @@ def train_model():
         train_loss = np.mean(train_losses)
         val_loss = estimate_loss(model, device, val_dataset, criterion)
         metrics = estimate_metrics(model, val_dataset, device)
+        
+
         print(f"Epoch {epoch + 1}: train loss {train_loss:.4f}, val loss {val_loss:.4f}")
         print(f"Epoch {epoch + 1}: train accuracy {train_accuracy:.4f}, val accuracy {metrics['accuracy']:.4f}")
         print(f"Epoch {epoch + 1}: train roc_auc {metrics['roc_auc']:.4f}, val roc_auc {metrics['roc_auc']:.4f}")
+
+         # Save epoch metrics to the list
+        epoch_metrics.append({
+            "epoch": epoch + 1,
+            "train_loss": train_loss,
+            "val_loss": val_loss,
+            "train_accuracy": train_accuracy,
+            "val_accuracy": metrics["accuracy"],
+            "val_roc_auc": metrics["roc_auc"]
+        })
 
         # Early stopping
         if val_loss < min_val_loss:
@@ -136,6 +150,10 @@ def train_model():
     print(f"Test specificity: {metrics['specificity']:.4f}")
     print(f"Test f1_score: {metrics['f1_score']:.4f}")
 
+
+    total_training_time = time.time() - start_time
+    metrics["training_time"] = total_training_time
+
     # Save model and training details
     timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     folder = Path(cfg.LOG_DL_PATH, f"{timestamp}")
@@ -154,6 +172,10 @@ def train_model():
     df_metrics = pd.DataFrame(metrics, index=[0])
     df_metrics.to_csv(Path(folder, "metrics.csv"))
     
+    # Save per-epoch metrics for training and validation
+    df_epoch_metrics = pd.DataFrame(epoch_metrics)
+    df_epoch_metrics.to_csv(Path(folder, "epoch_metrics.csv"), index=False)
+
     print_elapsed_time(start_time)
 
 
@@ -221,7 +243,6 @@ def configure_optimizers(model):
 def create_train_val_test_split():
     dataset_path = Path(cfg.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
     df = pd.read_csv(dataset_path)
-
     patients = df["patient_id"].unique()
 
     train_val_patients, test_patients = train_test_split(patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
