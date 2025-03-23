@@ -1,5 +1,9 @@
 data/
 .venv/
+correct_AF/
+correct_NSR/
+misclassified_AF/
+misclassified_NSR/
 iridia_af/__pycache__/
 examples/dl/__pycache__/
 rrr_segment187GB.csv

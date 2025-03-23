@@ -212,8 +212,7 @@ def configure_optimizers(model):
 def create_train_val_test_split():
     dataset_path = Path(hp.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
     df = pd.read_csv(dataset_path)
-    # Optionally crop to a subset of rows
-    #df = df[:300000]
+   
     patients = df["patient_id"].unique()
 
     train_val_patients, test_patients = train_test_split(patients, test_size=0.2, random_state=cfg.RANDOM_SEED)

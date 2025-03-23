@@ -3,8 +3,9 @@ EPOCH = 20 # test with 50 for transformer based models
 PATIENCE = 5
 BATCH_SIZE = 8
 LEARNING_RATE = 0.0001
-NUM_PROC_WORKERS_DATA = 12
+NUM_PROC_WORKERS = 12
 RANDOM_SEED = 42
+DATASET_PATH = "/mnt/iridia/sehlalou/thesis/data/datasets"
 
 def get_dict():
     return {

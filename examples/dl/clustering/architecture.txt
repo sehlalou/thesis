@@ -15,7 +15,6 @@ Decoder architecture:
     - Fully Connected Layer
 
 ---------------------------------------------------------
-
 Goal: detect the AF and NSR in a unsupervised manner.
 ----------------------------------------------------------
 
@@ -37,7 +36,9 @@ How to train the autoencoder:
 4. Extract features from the trained encoder for clustering.
 
 5. Evaluate the latent space quality trough:
-   -  Reconstruction loss 
+   -  Reconstruction loss (normalize the test loss per sample with TEST_MSE / WINDOW_SIZE)
+   -  Compare models with similar compression ratios (WINDOW_SIZE / emb_dim).
+   -  Check training dynamics: If one model memorizes the data too well (training loss → 0), it might not generalize.
    -  latent space variance
    -  t-SNE / UMAP Visualization (Separation is better)
    -  Explained Variance Ratio (PCA)

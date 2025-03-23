@@ -40,37 +40,39 @@ def get_device():
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def create_data_loaders():
-    dataset_csv = Path(cfg.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
-    df = pd.read_csv(dataset_csv)
-   
+    dataset_path = Path(cfg.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
+    df = pd.read_csv(dataset_path)
     patients = df["patient_id"].unique()
+
     train_val_patients, test_patients = train_test_split(patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
     train_patients, val_patients = train_test_split(train_val_patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
 
     train_df = df[df["patient_id"].isin(train_patients)]
-    val_df = df[df["patient_id"].isin(val_patients)]
-    test_df = df[df["patient_id"].isin(test_patients)]
-    
     train_dataset = ECGWindowDataset(train_df)
+    train_dataset_loader = torch.utils.data.DataLoader(train_dataset,
+                                                       batch_size=cfg.BATCH_SIZE,
+                                                       shuffle=True,
+                                                       num_workers=cfg.NUM_PROC_WORKERS,
+                                                       pin_memory=True)
+
+    val_df = df[df["patient_id"].isin(val_patients)]
     val_dataset = ECGWindowDataset(val_df)
+    val_dataset_loader = torch.utils.data.DataLoader(val_dataset,
+                                                     batch_size=cfg.BATCH_SIZE,
+                                                     shuffle=False,
+                                                     num_workers=cfg.NUM_PROC_WORKERS,
+                                                     pin_memory=True)
+
+    test_df = df[df["patient_id"].isin(test_patients)]
     test_dataset = ECGWindowDataset(test_df)
-    
-    train_loader = DataLoader(train_dataset,
-                              batch_size=cfg.BATCH_SIZE,
-                              shuffle=True,
-                              num_workers=cfg.NUM_PROC_WORKERS,
-                              pin_memory=True)
-    val_loader = DataLoader(val_dataset,
-                            batch_size=cfg.BATCH_SIZE,
-                            shuffle=False,
-                            num_workers=cfg.NUM_PROC_WORKERS,
-                            pin_memory=True)
-    test_loader = DataLoader(test_dataset,
-                             batch_size=cfg.BATCH_SIZE,
-                             shuffle=False,
-                             num_workers=cfg.NUM_PROC_WORKERS,
-                             pin_memory=True)
-    return train_loader, val_loader, test_loader, [train_patients, val_patients, test_patients]
+    test_dataset_loader = torch.utils.data.DataLoader(test_dataset,
+                                                      batch_size=cfg.BATCH_SIZE,
+                                                      shuffle=False,
+                                                      num_workers=cfg.NUM_PROC_WORKERS,
+                                                      pin_memory=True)
+
+    return train_dataset_loader, val_dataset_loader, test_dataset_loader, [train_patients, val_patients, test_patients]
+
 
 def print_elapsed_time(start_time):
     elapsed_time = time.time() - start_time
@@ -145,24 +147,38 @@ def train_autoencoder(model, train_loader, val_loader, device):
     }
     return model, metrics
 
+
 def extract_features(model, data_loader, device, save_path):
     model.eval()
-    features_all = []
-    labels_all = []
-    with torch.no_grad():
-        for batch_idx, (x, labels) in enumerate(tqdm(data_loader, desc="Extracting features")):
-            x = x.to(device)
-            # Only extract the latent features from the encoder.
-            _, latent = model(x)
-            features_all.append(latent.cpu().numpy())
-            labels_all.append(labels.cpu().numpy())
-    features_all = np.concatenate(features_all, axis=0)
-    labels_all = np.concatenate(labels_all, axis=0)
+    
+    # Open the HDF5 file in write mode (create it if it doesn't exist)
+    with h5py.File(save_path, 'w') as f:
+        # Create datasets in the HDF5 file for features and labels (empty initially)
+        feature_dataset = f.create_dataset('features', (0, cfg.EMB_DIM), maxshape=(None, cfg.EMB_DIM), dtype=np.float32)
+        label_dataset = f.create_dataset('labels', (0,), maxshape=(None,), dtype=np.int64)
 
-    # Assuming features_all and labels_all are NumPy arrays
-    np.savez(save_path, features=features_all, labels=labels_all)
+        with torch.no_grad():
+            for batch_idx, (x, labels) in enumerate(tqdm(data_loader, desc="Extracting features")):
+                x = x.to(device)
+                _, latent = model(x)  # Extract the latent features
+                
+                # Convert features to numpy array
+                latent_np = latent.cpu().numpy()
+                labels_np = labels.cpu().numpy()
+                
+                # Get the current size of the datasets
+                current_size_features = feature_dataset.shape[0]
+                current_size_labels = label_dataset.shape[0]
+
+                # Resize the datasets to accommodate the new batch of data
+                feature_dataset.resize((current_size_features + latent_np.shape[0], cfg.EMB_DIM))
+                label_dataset.resize((current_size_labels + labels_np.shape[0],))
+
+                # Append the new data to the datasets
+                feature_dataset[current_size_features:current_size_features + latent_np.shape[0]] = latent_np
+                label_dataset[current_size_labels:current_size_labels + labels_np.shape[0]] = labels_np
+
     print("Features saved successfully!")
-    return features_all, labels_all
 
 def load_trained_model(model_path, device):
     model = CNNAutoencoder(input_length=cfg.WINDOW_SIZE, emb_dim=cfg.EMB_DIM)
@@ -228,7 +244,7 @@ def main():
     # Extract features (latent representations) from the whole dataset.
     print("Extracting features from whole data...")
     features_save_path = str(folder) + "/extracted_features.npz"
-    full_features, full_labels = extract_features(model, full_loader, device, features_save_path)
+    extract_features(model, full_loader, device, features_save_path)
 
     # Save performance metrics in metrics.csv
     # Create a dataframe with the epoch metrics, then append the test loss as an extra row.

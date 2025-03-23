@@ -1,6 +1,2 @@
-<<<<<<< HEAD
 0,roc_auc,accuracy,sensitivity,specificity,f1_score,training_time_minutes,training_time_seconds
-=======
-,roc_auc,accuracy,sensitivity,specificity,f1_score,training_time_minutes,training_time_seconds
->>>>>>> 0aabc604e5a8afc3b8dd0234252e42ca0dcae082
 0,0.9634398129061115,0.9068764578614651,0.9297748123436197,0.8991075167800427,0.9141840449532573,143,29
