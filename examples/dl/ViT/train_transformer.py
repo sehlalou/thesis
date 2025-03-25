@@ -16,7 +16,7 @@ from tqdm import tqdm
 
 import config as cfg
 import config_trans as hp 
-from model_transformer import VisionTransformer, ViTModelConfig
+from model_transformer import VisionTransformer, ViTModelConfig, CNN_ViT_Hybrid
 
 # Set random seed and allow TF32 when available
 torch.manual_seed(cfg.RANDOM_SEED)
@@ -37,6 +37,8 @@ class DetectionDataset(Dataset):
             key = list(f.keys())[0]
             ecg_data = f[key][dw.start_index:dw.end_index, 0]
         ecg_data = torch.tensor(ecg_data, dtype=torch.float32)
+        # Transpose to get shape (channels, length)
+        #ecg_data = ecg_data.transpose(0, 1) # FOR double lead
         ecg_data = ecg_data.unsqueeze(0)
         label = torch.tensor(dw.label, dtype=torch.long)
         return ecg_data, label
@@ -74,6 +76,7 @@ def train_model():
     min_val_loss_epoch = 0
     best_model = None
 
+    epoch_metrics = []
     for epoch in range(cfg.EPOCH):
         model.train()
         train_losses = []
@@ -102,13 +105,22 @@ def train_model():
         train_accuracy = correct / total
 
         
-
         train_loss = np.mean(train_losses)
         val_loss = estimate_loss(model, device, val_dataset, criterion)
         metrics = estimate_metrics(model, val_dataset, device)
         print(f"Epoch {epoch + 1}: train loss {train_loss:.4f}, val loss {val_loss:.4f}")
         print(f"Epoch {epoch + 1}: train accuracy {train_accuracy:.4f}, val accuracy {metrics['accuracy']:.4f}")
         print(f"Epoch {epoch + 1}: train roc_auc {metrics['roc_auc']:.4f}, val roc_auc {metrics['roc_auc']:.4f}")
+
+         # Save epoch metrics to the list
+        epoch_metrics.append({
+            "epoch": epoch + 1,
+            "train_loss": train_loss,
+            "val_loss": val_loss,
+            "train_accuracy": train_accuracy,
+            "val_accuracy": metrics["accuracy"],
+            "val_roc_auc": metrics["roc_auc"]
+        })
 
         # Early stopping logic
         if val_loss < min_val_loss:
@@ -122,6 +134,8 @@ def train_model():
             print(f"Early stopping at epoch {epoch + 1}")
             model.load_state_dict(best_model)
             break
+        
+    
 
     test_loss = estimate_loss(model, device, test_dataset, criterion)
     metrics = estimate_metrics(model, test_dataset, device)
@@ -132,9 +146,12 @@ def train_model():
     print(f"Test specificity {metrics['specificity']:.4f}")
     print(f"Test f1_score {metrics['f1_score']:.4f}")
 
+    total_training_time = time.time() - start_time
+    metrics["training_time"] = total_training_time
+
     # Save model and training details
     timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    folder = Path(hp.LOG_DL_PATH, f"{timestamp}")
+    folder = Path(hp.LOG_DL_PATH, f"ident_{timestamp}")
     print(f"Saving model to {folder.absolute()}")
     folder.mkdir(parents=True, exist_ok=True)
     torch.save(model.state_dict(), Path(folder, "model.pt"))
@@ -144,7 +161,11 @@ def train_model():
     df_metrics = pd.DataFrame(metrics, index=[0])
     df_metrics.to_csv(Path(folder, "metrics.csv"))
     
-    #plot_metrics(train_losses, val_losses, train_accuracies, val_accuracies, range(cfg.EPOCH), folder)
+    
+
+    # Save per-epoch metrics for training and validation
+    df_epoch_metrics = pd.DataFrame(epoch_metrics)
+    df_epoch_metrics.to_csv(Path(folder, "epoch_metrics.csv"), index=False)
 
     print_elapsed_time(start_time)      
 
@@ -210,11 +231,16 @@ def configure_optimizers(model):
 
 
 def create_train_val_test_split():
-    dataset_path = Path(hp.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
-    df = pd.read_csv(dataset_path)
-   
-    patients = df["patient_id"].unique()
+    if cfg.DETECTION:
+        dataset_path = Path(hp.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
+        print("Detection task")
+    else:
+        dataset_path = Path(hp.DATASET_PATH, f"/mnt/iridia/sehlalou/thesis/data/datasets/dataset_identification_ecg_{cfg.WINDOW_SIZE}_{cfg.LOOK_A_HEAD}.csv")
+        print("Identification task")
 
+    df = pd.read_csv(dataset_path)
+
+    patients = df["patient_id"].unique()
     train_val_patients, test_patients = train_test_split(patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
     train_patients, val_patients = train_test_split(train_val_patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
 
@@ -223,7 +249,7 @@ def create_train_val_test_split():
     train_dataset_loader = torch.utils.data.DataLoader(train_dataset,
                                                        batch_size=cfg.BATCH_SIZE,
                                                        shuffle=True,
-                                                       num_workers=cfg.NUM_PROC_WORKERS_DATA,
+                                                       num_workers=cfg.NUM_PROC_WORKERS,
                                                        pin_memory=True)
 
     val_df = df[df["patient_id"].isin(val_patients)]
@@ -231,7 +257,7 @@ def create_train_val_test_split():
     val_dataset_loader = torch.utils.data.DataLoader(val_dataset,
                                                      batch_size=cfg.BATCH_SIZE,
                                                      shuffle=False,
-                                                     num_workers=cfg.NUM_PROC_WORKERS_DATA,
+                                                     num_workers=cfg.NUM_PROC_WORKERS,
                                                      pin_memory=True)
 
     test_df = df[df["patient_id"].isin(test_patients)]
@@ -239,7 +265,7 @@ def create_train_val_test_split():
     test_dataset_loader = torch.utils.data.DataLoader(test_dataset,
                                                       batch_size=cfg.BATCH_SIZE,
                                                       shuffle=False,
-                                                      num_workers=cfg.NUM_PROC_WORKERS_DATA,
+                                                      num_workers=cfg.NUM_PROC_WORKERS,
                                                       pin_memory=True)
 
     return train_dataset_loader, val_dataset_loader, test_dataset_loader, [train_patients, val_patients, test_patients]

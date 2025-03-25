@@ -1,0 +1,8 @@
+Best k based on silhouette score: 2 with a score of 0.3776
+K-Means ground truth evaluation metrics:
+  silhouette: 0.37758017929008264
+  davies_bouldin: 1.0901920728193335
+  calinski_harabasz: 195952.73561148546
+  dunn: 0.0009676279142739419
+  adjusted_rand: 0.35458155485701515
+  normalized_mutual_info: 0.34130407950067543

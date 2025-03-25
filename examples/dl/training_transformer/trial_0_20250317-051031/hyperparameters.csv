@@ -1,2 +1,0 @@
-,window_patch_pair,emb_head_pair,num_layers,mlp_dim,dropout_rate
-0,"(4096, 32)","(128, 4)",4,512,0.2

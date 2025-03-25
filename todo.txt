@@ -43,7 +43,7 @@ roc_auc,accuracy,sensitivity,specificity,f1_score
  Il ne serait donc pas pertinent de l’ajouter aux autres modèles.
 
 
-- compariason model vit avec specto et avec raw ecg 
+- compariason model vit avec specto et avec raw ecg => Done
 
 Pour l'instant avec specto:
 roc_auc,accuracy,sensitivity,specificity,f1_score
@@ -56,7 +56,7 @@ roc_auc,accuracy,sensitivity,specificity,f1_score,training_time_minutes,training
 Le modèle Raw ECG a une meilleure performance globale en termes de ROC AUC et F1-score, indiquant qu’il équilibre mieux précision et rappel.
 Le Spectrogramme a une meilleure spécificité (+4.7%) mais une sensibilité bien plus basse (-12.5%), ce qui signifie qu’il détecte moins bien les cas positifs.
 
-- Afficher les attentions maps des ViT (specto, ecg)
+- Afficher les attentions maps des ViT (specto, ecg) => Done (sauf specto c normal c dur a visualiser)
 
 - Avancer sur le clustering (diminuer la reconstruction loss, essayer de visualiser, ajouter d'autre métrique liéé au ecg pr la reconstruction loss,
 et tester avec d'autre algo de clustering (hors que K-means) )
@@ -65,21 +65,20 @@ et tester avec d'autre algo de clustering (hors que K-means) )
 
 Vendredi 28 mars 2025 (TO DO LIST)
 
-Train the simple transformer to provide a comparison with the ViT.
+- Train the simple transformer to provide a comparison with the ViT. => Done
 
-Spectrogram enhancement: Try continuous wavelet transform (CWT) instead of STFT for better frequency-time representation.
+- Spectrogram enhancement: Try continuous wavelet transform (CWT) instead of STFT for better frequency-time representation. => Done
+ 
+- Fed the two leads (currently only using the first lead) as input to the model. => Done
 
-Fed the two leads (currently only using the first lead) as input to the model.
-
-Try a hybrid model (CNN + ViT) for AF detection or a pretrained ViT + fine tuning on the dataset.
+- Try a hybrid model (CNN + ViT) for AF detection  =>  Done
 
 Experiment the model on AF onset forecast or AF identification (to discuss)
 This interpretable model can give important insights about the predictions
-
 Deliver the chapter on unsupervised learning for AF detection and AF sub-types findings
-- Sample 100 records of correctly AF,  misclassified AF, correctly NSR, misclassified NSR => DONE.
-- Prepare the meeting with Dr. Jean-Marie Grégoire 
 
+- Sample 100 records of correctly AF,  misclassified AF, correctly NSR, misclassified NSR => DONE.
+- Prepare the meeting with Dr. Jean-Marie Grégoire => DONE. 
 
 
 

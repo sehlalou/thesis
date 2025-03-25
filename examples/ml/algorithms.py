@@ -14,6 +14,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans, DBSCAN
 import hdbscan
 from sklearn.neighbors import NearestNeighbors
+from scipy.spatial.distance import cdist
 
 # =============================================================================
 # Visualization Functions
@@ -119,29 +120,89 @@ def compute_calinski_harabasz(features, labels):
         return np.nan
     return calinski_harabasz_score(features[mask], labels[mask])
 
-def compute_dunn_index(features, labels):
+
+
+def compute_dunn_index_chunked(features, labels, chunk_size=1000):
+    """
+    Compute the Dunn index using incremental (chunked) computation of pairwise distances
+    to reduce memory consumption.
+    
+    Parameters:
+      features (np.ndarray): Feature matrix.
+      labels (np.ndarray): Cluster labels for each feature.
+      chunk_size (int): Number of samples per chunk.
+    
+    Returns:
+      float: The Dunn index, or np.nan if not defined.
+    """
     unique_labels = np.unique(labels)
     unique_labels = unique_labels[unique_labels != -1]  # Exclude noise
     if len(unique_labels) < 2:
         return np.nan
-    clusters = [features[labels == cluster] for cluster in unique_labels]
 
-    inter_dists = []
-    for i in range(len(clusters)):
-        for j in range(i + 1, len(clusters)):
-            dist = np.linalg.norm(clusters[i][:, None] - clusters[j], axis=2)
-            inter_dists.append(np.min(dist))
-    min_inter = np.min(inter_dists)
+    # Organize the clusters
+    clusters = {cluster: features[labels == cluster] for cluster in unique_labels}
 
-    intra_dists = []
-    for cluster in clusters:
-        if len(cluster) > 1:
-            dist = np.linalg.norm(cluster[:, None] - cluster, axis=2)
-            intra_dists.append(np.max(dist))
-        else:
-            intra_dists.append(0)
-    max_intra = np.max(intra_dists)
+    # Helper generator to yield chunks of an array
+    def chunks(arr, size):
+        for i in range(0, arr.shape[0], size):
+            yield arr[i:i + size]
+
+    # Incrementally compute the minimum inter-cluster distance
+    min_inter = np.inf
+    cluster_keys = list(clusters.keys())
+    for i in range(len(cluster_keys)):
+        for j in range(i + 1, len(cluster_keys)):
+            cluster_i = clusters[cluster_keys[i]]
+            cluster_j = clusters[cluster_keys[j]]
+            current_min = np.inf
+            # Iterate over chunks of cluster_i
+            for chunk_i in chunks(cluster_i, chunk_size):
+                # Iterate over chunks of cluster_j
+                for chunk_j in chunks(cluster_j, chunk_size):
+                    # Compute the distances for this pair of chunks
+                    distances = cdist(chunk_i, chunk_j)
+                    chunk_min = np.min(distances)
+                    if chunk_min < current_min:
+                        current_min = chunk_min
+                    # Early exit if zero distance is found
+                    if current_min == 0:
+                        break
+                if current_min == 0:
+                    break
+            if current_min < min_inter:
+                min_inter = current_min
+
+    # Incrementally compute the maximum intra-cluster distance
+    max_intra = 0
+    for key in cluster_keys:
+        cluster_data = clusters[key]
+        n_points = cluster_data.shape[0]
+        if n_points < 2:
+            continue
+        cluster_max = 0
+        # Use two nested loops to iterate over pairs of chunks.
+        # We loop over indices in a way to avoid redundant calculations.
+        for i, chunk_i in enumerate(list(chunks(cluster_data, chunk_size))):
+            for j, chunk_j in enumerate(list(chunks(cluster_data, chunk_size))):
+                # To avoid repeating symmetric calculations, compute only when j >= i
+                if j < i:
+                    continue
+                distances = cdist(chunk_i, chunk_j)
+                if i == j:
+                    # For the same chunk, ignore the diagonal zeros by taking the max of the upper triangle.
+                    tri_upper = np.triu(distances, k=1)
+                    local_max = np.max(tri_upper)
+                else:
+                    local_max = np.max(distances)
+                if local_max > cluster_max:
+                    cluster_max = local_max
+                # Early exit if we find a very high value (not strictly necessary)
+            if cluster_max > max_intra:
+                max_intra = cluster_max
+
     return np.nan if max_intra == 0 else min_inter / max_intra
+
 
 def evaluate_clustering(features, labels, ground_truth=None):
     """
@@ -160,7 +221,7 @@ def evaluate_clustering(features, labels, ground_truth=None):
         results["silhouette"] = silhouette_score(features, labels)
         results["davies_bouldin"] = compute_davies_bouldin(features, labels)
         results["calinski_harabasz"] = compute_calinski_harabasz(features, labels)
-        results["dunn"] = compute_dunn_index(features, labels)
+        results["dunn"] = compute_dunn_index_chunked(features, labels)
     
     # Evaluate against ground truth if provided
     if ground_truth is not None:
@@ -200,8 +261,9 @@ def optimize_min_pts(features, candidate_epsilon, min_pts_range):
     print("Optimizing min_pts over the given range...")
     best_min_pts, best_score, best_labels = None, -1, None
     for min_pts in min_pts_range:
-        model = DBSCAN(eps=candidate_epsilon, min_samples=min_pts, n_jobs=-1)
+        model = DBSCAN(eps=candidate_epsilon, min_samples=min_pts)
         labels = model.fit_predict(features)
+        print("il a fit ")
         if len(set(labels)) <= 1 or (len(set(labels)) == 2 and -1 in set(labels)):
             continue
         score = silhouette_score(features, labels)
@@ -219,7 +281,7 @@ def optimize_dbscan_scientifically(features, dim, output_dir):
     kdist_path = os.path.join(output_dir, "dbscan_k_distance.png")
     candidate_epsilon = find_candidate_epsilon(features, k, kdist_path)
     
-    min_pts_range = range(dim + 1, dim * 4 + 1)
+    min_pts_range = range(dim + 1, dim * 2 + 1) 
     best_min_pts, best_score, best_labels = optimize_min_pts(features, candidate_epsilon, min_pts_range)
     return {"eps": candidate_epsilon, "min_samples": best_min_pts}, best_score, best_labels
 
@@ -227,7 +289,7 @@ def optimize_dbscan_scientifically(features, dim, output_dir):
 # Optuna-Based Optimization Functions (for DBSCAN and HDBSCAN)
 # =============================================================================
 
-def optimize_dbscan_optuna(features, n_trials=5):
+def optimize_dbscan_optuna(features, n_trials=1):
     def objective(trial):
         min_eps = np.min(np.linalg.norm(features[:, None] - features, axis=2))
         max_eps = np.max(np.linalg.norm(features[:, None] - features, axis=2))
@@ -247,7 +309,7 @@ def optimize_dbscan_optuna(features, n_trials=5):
     best_labels = best_model.fit_predict(features)
     return best_params, study.best_value, best_labels, study.trials_dataframe()
 
-def optimize_hdbscan_optuna(features, n_trials=5):
+def optimize_hdbscan_optuna(features, n_trials=1):
     def objective(trial):
         n_samples = len(features)
         min_cluster_size_min = int(n_samples * 0.1)
@@ -276,8 +338,8 @@ def optimize_hdbscan_optuna(features, n_trials=5):
 # =============================================================================
 
 def run_kmeans_evaluation(features, output_dir, model_id, ground_truth=None):
-    print("\nRunning K-Means for n_clusters in range 2 to 11...")
-    k_range = range(2, 12)
+    print("\nRunning K-Means for n_clusters in range 2 to 3...")
+    k_range = range(2, 3)
     silhouette_scores, inertias = [], []
     
     for k in k_range:
@@ -289,8 +351,8 @@ def run_kmeans_evaluation(features, output_dir, model_id, ground_truth=None):
         print(f"K-Means with k={k}: Silhouette Score = {score:.4f}, Inertia = {kmeans.inertia_:.4f}")
     
     # Save elbow and silhouette score plots
-    save_elbow_plot(k_range, inertias, output_dir, model_id)
-    save_silhouette_plot(k_range, silhouette_scores, output_dir, model_id)
+    #save_elbow_plot(k_range, inertias, output_dir, model_id)
+    #save_silhouette_plot(k_range, silhouette_scores, output_dir, model_id)
     
     best_index = np.argmax(silhouette_scores)
     best_k = list(k_range)[best_index]
@@ -300,7 +362,7 @@ def run_kmeans_evaluation(features, output_dir, model_id, ground_truth=None):
     # Run K-Means with the best k and generate visualizations
     best_kmeans = KMeans(n_clusters=best_k, random_state=42)
     best_labels = best_kmeans.fit_predict(features)
-    save_kmeans_visualizations(features, best_labels, output_dir, model_id, best_k)
+    #save_kmeans_visualizations(features, best_labels, output_dir, model_id, best_k)
     
     # Evaluate clustering if ground truth is provided
     if ground_truth is not None:
@@ -377,25 +439,25 @@ def main():
     #umap_plot(features_standardized, labels_true, os.path.join(output_dir, f"{model_id}_umap_2D.png"), "UMAP Visualization", is_3d=False)
     
     # Run K-Means evaluation and visualization for best k
-    best_k, best_kmeans_labels = run_kmeans_evaluation(features_standardized, output_dir, model_id, ground_truth=labels_true)
+    #best_k, best_kmeans_labels = run_kmeans_evaluation(features_standardized, output_dir, model_id, ground_truth=labels_true)
     
     # DBSCAN Scientific Optimization
     dim = features_standardized.shape[1]
     print("\nOptimizing DBSCAN scientifically using the k-distance graph and min_pts scan...")
-    dbscan_params, dbscan_score, dbscan_labels = optimize_dbscan_scientifically(features_standardized, dim, output_dir)
-    if dbscan_params["min_samples"] is None:
-        print("Scientific DBSCAN optimization did not find a valid clustering configuration.")
-    else:
-        print(f"Scientific DBSCAN parameters: {dbscan_params}, Silhouette score: {dbscan_score:.4f}")
-        dbscan_results = {"eps": dbscan_params["eps"], "min_samples": dbscan_params["min_samples"], "silhouette": dbscan_score}
-        save_results_csv([dbscan_results], os.path.join(output_dir, "DBSCAN_scientific_results.csv"))
-        pca_plot(features_standardized, dbscan_labels, os.path.join(output_dir, f"{model_id}_DBSCAN_pca.png"), "PCA - DBSCAN Clusters", is_3d=False)
-        tsne_plot(features_standardized, dbscan_labels, os.path.join(output_dir, f"{model_id}_DBSCAN_tsne.png"), "t-SNE - DBSCAN Clusters", is_3d=False)
-        umap_plot(features_standardized, dbscan_labels, os.path.join(output_dir, f"{model_id}_DBSCAN_umap.png"), "UMAP - DBSCAN Clusters", is_3d=False)
+    #dbscan_params, dbscan_score, dbscan_labels = optimize_dbscan_scientifically(features_standardized, dim, output_dir)
+    #if dbscan_params["min_samples"] is None:
+    #    print("Scientific DBSCAN optimization did not find a valid clustering configuration.")
+    #else:
+    #    print(f"Scientific DBSCAN parameters: {dbscan_params}, Silhouette score: {dbscan_score:.4f}")
+    #    dbscan_results = {"eps": dbscan_params["eps"], "min_samples": dbscan_params["min_samples"], "silhouette": dbscan_score}
+    #    save_results_csv([dbscan_results], os.path.join(output_dir, "DBSCAN_scientific_results.csv"))
+    #    pca_plot(features_standardized, dbscan_labels, os.path.join(output_dir, f"{model_id}_DBSCAN_pca.png"), "PCA - DBSCAN Clusters", is_3d=False)
+    #    tsne_plot(features_standardized, dbscan_labels, os.path.join(output_dir, f"{model_id}_DBSCAN_tsne.png"), "t-SNE - DBSCAN Clusters", is_3d=False)
+    #    umap_plot(features_standardized, dbscan_labels, os.path.join(output_dir, f"{model_id}_DBSCAN_umap.png"), "UMAP - DBSCAN Clusters", is_3d=False)
     
     # Other Clustering Methods using Optuna (for DBSCAN and HDBSCAN)
     clustering_methods = {
-        "DBSCAN": optimize_dbscan_optuna,
+        #"DBSCAN": optimize_dbscan_optuna,
         "HDBSCAN": optimize_hdbscan_optuna
     }
     
@@ -416,6 +478,7 @@ def main():
         grid_csv_path = os.path.join(alg_dir, f"{model_id}_optuna_trials.csv")
         save_results_csv(trials_df, grid_csv_path)
         
+    
         pca_plot(features_standardized, best_labels, os.path.join(alg_dir, f"{model_id}_{alg_name}_pca.png"), f"PCA - {alg_name} Clusters", is_3d=False)
         tsne_plot(features_standardized, best_labels, os.path.join(alg_dir, f"{model_id}_{alg_name}_tsne.png"), f"t-SNE - {alg_name} Clusters", is_3d=False)
         umap_plot(features_standardized, best_labels, os.path.join(alg_dir, f"{model_id}_{alg_name}_umap.png"), f"UMAP - {alg_name} Clusters", is_3d=False)

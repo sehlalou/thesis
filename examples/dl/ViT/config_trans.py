@@ -5,7 +5,7 @@ PATCH_SIZE = 64
 DROPOUT_RATE = 0.45
 MLP_DIM = 128
 DATASET_PATH = "data/datasets/"
-LOG_DL_PATH = "/mnt/iridia/sehlalou/thesis/examples/dl/training_transformer"
+LOG_DL_PATH = "/mnt/iridia/sehlalou/thesis/examples/dl/ViT/saved_models"
 
 
 def get_dict():

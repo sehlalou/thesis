@@ -1,3 +1,5 @@
+DETECTION = False
+LOOK_A_HEAD = 2880000
 WINDOW_SIZE = 4096
 EPOCH = 20 # test with 50 for transformer based models
 PATIENCE = 5
@@ -9,13 +11,13 @@ DATASET_PATH = "/mnt/iridia/sehlalou/thesis/data/datasets"
 
 def get_dict():
     return {
+        "DETECTION": DETECTION,
+        "LOOK_A_HEAD": LOOK_A_HEAD,
         "WINDOW_SIZE": WINDOW_SIZE,
-        "TRAINING_STEP": TRAINING_STEP,
-        "TESTING_STEP": TESTING_STEP,
         "RANDOM_SEED": RANDOM_SEED,
         "EPOCH": EPOCH,
         "PATIENCE": PATIENCE,
         "BATCH_SIZE": BATCH_SIZE,
         "LEARNING_RATE": LEARNING_RATE,
-        "NUM_PROC_WORKERS": NUM_PROC_WORKERS_DATA
+        "NUM_PROC_WORKERS": NUM_PROC_WORKERS
     }

@@ -1,0 +1,40 @@
+,roc_auc,accuracy,sensitivity,specificity,f1_score, time
+0,0.95592022809544,0.9053995223905831,0.8991032137618349,0.9075383770377626,0.9033011036192446, 136 minutes and 14 seconds
+
+
+
+Epoch 1: train loss 0.1906, val loss 0.1818
+Epoch 1: train accuracy 0.9177, val accuracy 0.9476
+Epoch 1: train roc_auc 0.9751, val roc_auc 0.9751
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11497/11497 [05:27<00:00, 35.10it/s]
+Epoch 2: train loss 0.0782, val loss 0.1818
+Epoch 2: train accuracy 0.9685, val accuracy 0.9553
+Epoch 2: train roc_auc 0.9641, val roc_auc 0.9641
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11497/11497 [13:07<00:00, 14.59it/s]
+Epoch 3: train loss 0.0617, val loss 0.2060
+Epoch 3: train accuracy 0.9754, val accuracy 0.9466
+Epoch 3: train roc_auc 0.9532, val roc_auc 0.9532
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11497/11497 [21:06<00:00,  9.08it/s]
+Epoch 4: train loss 0.0530, val loss 0.2159
+Epoch 4: train accuracy 0.9791, val accuracy 0.9555
+Epoch 4: train roc_auc 0.9449, val roc_auc 0.9449
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11497/11497 [12:16<00:00, 15.61it/s]
+Epoch 5: train loss 0.0475, val loss 0.2275
+Epoch 5: train accuracy 0.9809, val accuracy 0.9404
+Epoch 5: train roc_auc 0.9578, val roc_auc 0.9578
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11497/11497 [12:11<00:00, 15.72it/s]
+Epoch 6: train loss 0.0435, val loss 0.2500
+Epoch 6: train accuracy 0.9822, val accuracy 0.9340
+Epoch 6: train roc_auc 0.9396, val roc_auc 0.9396
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11497/11497 [13:20<00:00, 14.36it/s]
+Epoch 7: train loss 0.0405, val loss 0.2380
+Epoch 7: train accuracy 0.9835, val accuracy 0.9491
+Epoch 7: train roc_auc 0.9531, val roc_auc 0.9531
+Early stopping at epoch 7
+Test loss 0.3985
+Test roc_auc 0.9559
+Test accuracy 0.9054
+Test sensitivity 0.8991
+Test specificity 0.9075
+Test f1_score 0.9033
+
