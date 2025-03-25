@@ -80,9 +80,21 @@ Deliver the chapter on unsupervised learning for AF detection and AF sub-types f
 - Sample 100 records of correctly AF,  misclassified AF, correctly NSR, misclassified NSR => DONE.
 - Prepare the meeting with Dr. Jean-Marie Grégoire => DONE. 
 
+- Evaluate rigorosly the performance of the models. Things to add:
+     - Show that there is class imbalance (class distribution, imbalance ratio, bart charts and histograms) => Done. 
+     -  K-Fold cross Validation (Stratified at the patient level like Cédric)
+     - Confidence intervals: bootstraping to report confidence intervals
+     - Precision-Recall curve, PR-AUC 
+     - Confusion Matrix analysis
+     - Balanced accuracy ((sensitivity + specifity) / 2)    
+     - Use BCA (weighted loss function)
+     - Expected Calibration Error (ECE)
+     - Cross-Dataset Evaluation (on the MIT-BIH AFDB)
+     - (resampling methods)
+     - Reliability Diagrams
+     - Computational Efficiency: Inference Speed (CPU vs. GPU) , Model Size & Memory Usage
+     - McNemar’s test – Compare ViT with vanilla Transformer.
+     - Test:Different learning rate and Different optimizers (Adam, SGD, RAdam).
 
 
-
-
-
-
+Parler à Cédric du fait que je n'utilise pas de cross-validation pour tuner les hyperparamètres. 

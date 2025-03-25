@@ -1,0 +1,59 @@
+,roc_auc,accuracy,sensitivity,specificity,f1_score
+0,0.9269654548624551,0.88027788107231,0.8322685571309425,0.8965664580244258,0.8632218411251116
+
+
+
+{'EMB_DIM': 256, 'NUM_HEADS': 4, 'NUM_LAYERS': 6, 'PATCH_SIZE': 64, 'DROPOUT_RATE': 0.45, 'MLP_DIM': 128}
+100%|███████████████████████████████████████████████████████████████████████████████████| 183986/183986 [1:55:40<00:00, 26.51it/s]
+Epoch 1: train loss 0.2250, val loss 0.2786
+Epoch 1: train accuracy 0.9030, val accuracy 0.9168
+Epoch 1: train roc_auc 0.9574, val roc_auc 0.9574
+100%|███████████████████████████████████████████████████████████████████████████████████| 183986/183986 [1:55:05<00:00, 26.64it/s]
+Epoch 2: train loss 0.1083, val loss 0.2558
+Epoch 2: train accuracy 0.9558, val accuracy 0.9195
+Epoch 2: train roc_auc 0.9530, val roc_auc 0.9530
+100%|███████████████████████████████████████████████████████████████████████████████████| 183986/183986 [1:59:46<00:00, 25.60it/s]
+Epoch 3: train loss 0.0842, val loss 0.3051
+Epoch 3: train accuracy 0.9663, val accuracy 0.8993
+Epoch 3: train roc_auc 0.9559, val roc_auc 0.9559
+100%|███████████████████████████████████████████████████████████████████████████████████| 183986/183986 [1:57:22<00:00, 26.13it/s]
+Epoch 4: train loss 0.0721, val loss 0.3368
+Epoch 4: train accuracy 0.9714, val accuracy 0.9143
+Epoch 4: train roc_auc 0.9653, val roc_auc 0.9653
+100%|███████████████████████████████████████████████████████████████████████████████████| 183986/183986 [1:54:12<00:00, 26.85it/s]
+Epoch 5: train loss 0.0652, val loss 0.4267
+Epoch 5: train accuracy 0.9744, val accuracy 0.8950
+Epoch 5: train roc_auc 0.9587, val roc_auc 0.9587
+100%|███████████████████████████████████████████████████████████████████████████████████| 183986/183986 [1:56:49<00:00, 26.25it/s]
+Epoch 6: train loss 0.0601, val loss 0.2522
+Epoch 6: train accuracy 0.9764, val accuracy 0.9293
+Epoch 6: train roc_auc 0.9711, val roc_auc 0.9711
+100%|███████████████████████████████████████████████████████████████████████████████████| 183986/183986 [1:52:35<00:00, 27.23it/s]
+Epoch 7: train loss 0.0565, val loss 0.3930
+Epoch 7: train accuracy 0.9775, val accuracy 0.8957
+Epoch 7: train roc_auc 0.9560, val roc_auc 0.9560
+100%|███████████████████████████████████████████████████████████████████████████████████| 183986/183986 [1:48:04<00:00, 28.37it/s]
+Epoch 8: train loss 0.0541, val loss 0.2811
+Epoch 8: train accuracy 0.9783, val accuracy 0.9261
+Epoch 8: train roc_auc 0.9670, val roc_auc 0.9670
+100%|███████████████████████████████████████████████████████████████████████████████████| 183986/183986 [1:31:03<00:00, 33.67it/s]
+Epoch 9: train loss 0.0518, val loss 0.4021
+Epoch 9: train accuracy 0.9792, val accuracy 0.9117
+Epoch 9: train roc_auc 0.9571, val roc_auc 0.9571
+100%|███████████████████████████████████████████████████████████████████████████████████| 183986/183986 [1:31:14<00:00, 33.61it/s]
+Epoch 10: train loss 0.0500, val loss 0.3471
+Epoch 10: train accuracy 0.9800, val accuracy 0.9141
+Epoch 10: train roc_auc 0.9650, val roc_auc 0.9650
+100%|███████████████████████████████████████████████████████████████████████████████████| 183986/183986 [1:46:08<00:00, 28.89it/s]
+Epoch 11: train loss 0.0486, val loss 0.2992
+Epoch 11: train accuracy 0.9804, val accuracy 0.9256
+Epoch 11: train roc_auc 0.9629, val roc_auc 0.9629
+Early stopping at epoch 11
+Test loss 0.5424
+Test roc_auc 0.9270
+Test accuracy 0.8803
+Test sensitivity 0.8323
+Test specificity 0.8966
+Test f1_score 0.8632
+Saving model to /mnt/iridia/sehlalou/thesis/examples/dl/ViT/saved_models/20250325-132632
+Total training time: 1515 minutes and 30 seconds

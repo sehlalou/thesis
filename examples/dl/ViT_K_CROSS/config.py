@@ -7,6 +7,7 @@ BATCH_SIZE = 32
 LEARNING_RATE = 0.0001
 NUM_PROC_WORKERS = 12
 RANDOM_SEED = 42
+K_FOLDS = 5
 DATASET_PATH = "/mnt/iridia/sehlalou/thesis/data/datasets"
 
 def get_dict():

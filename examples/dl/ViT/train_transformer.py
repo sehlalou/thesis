@@ -13,7 +13,7 @@ from sklearn.metrics import roc_auc_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 
-
+from preprocess import clean_signal
 import config as cfg
 import config_trans as hp 
 from model_transformer import VisionTransformer, ViTModelConfig, CNN_ViT_Hybrid
@@ -36,7 +36,10 @@ class DetectionDataset(Dataset):
         with h5py.File(dw.file, "r") as f:
             key = list(f.keys())[0]
             ecg_data = f[key][dw.start_index:dw.end_index, 0]
-        ecg_data = torch.tensor(ecg_data, dtype=torch.float32)
+
+        ecg_data = clean_signal(ecg_data)
+
+        ecg_data = torch.tensor(ecg_data.copy(), dtype=torch.float32)
         # Transpose to get shape (channels, length)
         #ecg_data = ecg_data.transpose(0, 1) # FOR double lead
         ecg_data = ecg_data.unsqueeze(0)
@@ -151,7 +154,11 @@ def train_model():
 
     # Save model and training details
     timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    folder = Path(hp.LOG_DL_PATH, f"ident_{timestamp}")
+    if cfg.DETECTION:
+        folder = Path(hp.LOG_DL_PATH, f"detect_{timestamp}") 
+    else:
+        folder = Path(hp.LOG_DL_PATH, f"ident_{timestamp}")
+
     print(f"Saving model to {folder.absolute()}")
     folder.mkdir(parents=True, exist_ok=True)
     torch.save(model.state_dict(), Path(folder, "model.pt"))
@@ -239,6 +246,8 @@ def create_train_val_test_split():
         print("Identification task")
 
     df = pd.read_csv(dataset_path)
+   
+
 
     patients = df["patient_id"].unique()
     train_val_patients, test_patients = train_test_split(patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
