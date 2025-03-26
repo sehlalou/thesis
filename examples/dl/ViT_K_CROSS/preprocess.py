@@ -35,5 +35,6 @@ def clean_signal(ecg_signal, fs=200):
     b, a = butter_lowpass(50, fs)
     ecg_signal = filtfilt(b, a, ecg_signal)
 
+    ecg_signal = (ecg_signal - np.mean(ecg_signal)) / np.std(ecg_signal)
     
     return ecg_signal

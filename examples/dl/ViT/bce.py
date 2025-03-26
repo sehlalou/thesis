@@ -1,7 +1,6 @@
 import datetime
 from pathlib import Path
 
-
 import time
 import numpy as np
 import h5py
@@ -30,7 +29,7 @@ class DetectionDataset(Dataset):
 
     def __len__(self):
         return len(self.df)
-    
+
     def __getitem__(self, idx):
         dw = self.df.iloc[idx]
         with h5py.File(dw.file, "r") as f:
@@ -40,12 +39,10 @@ class DetectionDataset(Dataset):
         ecg_data = clean_signal(ecg_data)
 
         ecg_data = torch.tensor(ecg_data.copy(), dtype=torch.float32)
-        # Transpose to get shape (channels, length)
-        #ecg_data = ecg_data.transpose(0, 1) # FOR double lead
         ecg_data = ecg_data.unsqueeze(0)
-        label = torch.tensor(dw.label, dtype=torch.long)
+        # Change label to float for BCE loss
+        label = torch.tensor(dw.label, dtype=torch.float32)
         return ecg_data, label
-
 
 
 def train_model():
@@ -57,23 +54,23 @@ def train_model():
     print(f"Using device: {device}")
 
     print(cfg.get_dict())
-
     print(hp.get_dict())
-    # Create a configuration for the transformer model
+    
+    # Update the model configuration to output 1 value per sample for binary classification
     config = ViTModelConfig(
         input_size=cfg.WINDOW_SIZE,
-        patch_size=hp.PATCH_SIZE,      # e.g., number of samples per patch
-        emb_dim=hp.EMB_DIM,            # embedding dimension
-        num_layers=hp.NUM_LAYERS,      # number of transformer encoder blocks
-        num_heads=hp.NUM_HEADS,        # number of attention heads
-        mlp_dim=hp.MLP_DIM,            # hidden dimension in MLP blocks
-        num_classes=2,
+        patch_size=hp.PATCH_SIZE,
+        emb_dim=hp.EMB_DIM,
+        num_layers=hp.NUM_LAYERS,
+        num_heads=hp.NUM_HEADS,
+        mlp_dim=hp.MLP_DIM,
+        num_classes=1,                # Changed from 2 to 1
         dropout_rate=hp.DROPOUT_RATE
     )
     model = VisionTransformer(config)
     model = model.to(device)
     optimizer = configure_optimizers(model)
-    criterion = nn.CrossEntropyLoss() 
+    criterion = nn.BCEWithLogitsLoss()  # Use BCEWithLogitsLoss
 
     min_val_loss = float('inf')
     min_val_loss_epoch = 0
@@ -87,40 +84,32 @@ def train_model():
         list_y_pred = []
         for batch_idx, (x, y) in enumerate(tqdm(train_dataset)):
             x = x.to(device)
-            y = y.to(device)
+            y = y.to(device).unsqueeze(1)  # Ensure shape is (batch, 1)
             optimizer.zero_grad()
-            y_pred = model(x)  # Expected shape: (batch, 2)
+            y_pred = model(x)  # Expected shape: (batch, 1)
             loss = criterion(y_pred, y)
             
             train_losses.append(loss.item())
-            list_y_true.extend(y.tolist())
-            list_y_pred.extend(y_pred.tolist())
-    
+            list_y_true.extend(y.cpu().tolist())
+            # Save raw predictions for later thresholding
+            list_y_pred.extend(y_pred.cpu().tolist())
 
             loss.backward()
             optimizer.step()
 
-        total = len(list_y_true)
-        list_y_pred_round = np.round(list_y_pred)
-        
-        list_y_pred_labels = np.argmax(list_y_pred_round, axis=1)  # Convert one-hot/multi-class to class index
-        correct = np.sum(np.array(list_y_true) == list_y_pred_labels)
-        train_accuracy = correct / total
 
-        
         train_loss = np.mean(train_losses)
         val_loss = estimate_loss(model, device, val_dataset, criterion)
+        train_metrics = estimate_metrics(model, train_dataset, device)
         metrics = estimate_metrics(model, val_dataset, device)
         print(f"Epoch {epoch + 1}: train loss {train_loss:.4f}, val loss {val_loss:.4f}")
-        print(f"Epoch {epoch + 1}: train accuracy {train_accuracy:.4f}, val accuracy {metrics['accuracy']:.4f}")
-        print(f"Epoch {epoch + 1}: train roc_auc {metrics['roc_auc']:.4f}, val roc_auc {metrics['roc_auc']:.4f}")
+        print(f"Epoch {epoch + 1}: train accuracy {train_metrics['accuracy']:.4f}, val accuracy {metrics['accuracy']:.4f}")
+        print(f"Epoch {epoch + 1}: train roc_auc {train_metrics['roc_auc']:.4f}, val roc_auc {metrics['roc_auc']:.4f}")
 
-         # Save epoch metrics to the list
         epoch_metrics.append({
             "epoch": epoch + 1,
             "train_loss": train_loss,
             "val_loss": val_loss,
-            "train_accuracy": train_accuracy,
             "val_accuracy": metrics["accuracy"],
             "val_roc_auc": metrics["roc_auc"]
         })
@@ -138,8 +127,6 @@ def train_model():
             model.load_state_dict(best_model)
             break
         
-    
-
     test_loss = estimate_loss(model, device, test_dataset, criterion)
     metrics = estimate_metrics(model, test_dataset, device)
     print(f"Test loss {test_loss:.4f}")
@@ -152,7 +139,6 @@ def train_model():
     total_training_time = time.time() - start_time
     metrics["training_time"] = total_training_time
 
-    # Save model and training details
     timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     if cfg.DETECTION:
         folder = Path(hp.LOG_DL_PATH, f"detect_{timestamp}") 
@@ -167,10 +153,6 @@ def train_model():
     df_hp.to_csv(Path(folder, "hyperparameters.csv"))
     df_metrics = pd.DataFrame(metrics, index=[0])
     df_metrics.to_csv(Path(folder, "metrics.csv"))
-    
-    
-
-    # Save per-epoch metrics for training and validation
     df_epoch_metrics = pd.DataFrame(epoch_metrics)
     df_epoch_metrics.to_csv(Path(folder, "epoch_metrics.csv"), index=False)
 
@@ -183,7 +165,7 @@ def estimate_loss(model, device, dataset, criterion):
     losses = []
     for batch_idx, (x, y) in enumerate(dataset):
         x = x.to(device)
-        y = y.to(device).long()
+        y = y.to(device).unsqueeze(1)  # Ensure shape is (batch, 1)
         y_pred = model(x)
         loss = criterion(y_pred, y)
         losses.append(loss.item())
@@ -194,32 +176,35 @@ def estimate_loss(model, device, dataset, criterion):
 def estimate_metrics(model, dataset, device, threshold=0.5):
     model.eval()
     list_y_true = []
-    list_y_pred = []
-    list_y_pred_prob = []  # probability for positive class (class index 1)
+    list_y_pred_prob = []  # probability for positive class
     for batch_idx, (x, y) in enumerate(dataset):
         x = x.to(device)
-        y = y.to(device).long()
+        y = y.to(device).unsqueeze(1)
         list_y_true.extend(y.cpu().numpy())
         y_pred = model(x)
-        preds = torch.argmax(y_pred, dim=1)
-        list_y_pred.extend(preds.cpu().numpy())
-        # For ROC AUC, we take the probability of class 1
-        prob_class1 = y_pred[:, 1].cpu().numpy()
-        list_y_pred_prob.extend(prob_class1)
+        # Apply sigmoid to get probabilities
+        probs = torch.sigmoid(y_pred)
+        list_y_pred_prob.extend(probs.cpu().numpy())
 
+    # Calculate ROC AUC using the probability of the positive class
     roc_auc = roc_auc_score(list_y_true, list_y_pred_prob)
-    cm = confusion_matrix(list_y_true, list_y_pred)
+    # Convert probabilities to binary predictions
+    y_pred_labels = (np.array(list_y_pred_prob) > threshold).astype(int)
+    y_true = np.array(list_y_true).astype(int)
+    cm = confusion_matrix(y_true, y_pred_labels)
     accuracy = (cm[0, 0] + cm[1, 1]) / np.sum(cm)
     sensitivity = cm[1, 1] / (cm[1, 1] + cm[1, 0]) if (cm[1, 1] + cm[1, 0]) > 0 else 0
     specificity = cm[0, 0] / (cm[0, 0] + cm[0, 1]) if (cm[0, 0] + cm[0, 1]) > 0 else 0
     f1_score = 2 * (sensitivity * specificity) / (sensitivity + specificity) if (sensitivity + specificity) > 0 else 0
 
+    # Optionally, you can compute training metrics separately if needed.
     return {
         "roc_auc": roc_auc,
         "accuracy": accuracy,
         "sensitivity": sensitivity,
         "specificity": specificity,
         "f1_score": f1_score
+       
     }
 
 
@@ -246,9 +231,7 @@ def create_train_val_test_split():
         print("Identification task")
 
     df = pd.read_csv(dataset_path)
-   
-
-
+  
     patients = df["patient_id"].unique()
     train_val_patients, test_patients = train_test_split(patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
     train_patients, val_patients = train_test_split(train_val_patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
@@ -280,8 +263,6 @@ def create_train_val_test_split():
     return train_dataset_loader, val_dataset_loader, test_dataset_loader, [train_patients, val_patients, test_patients]
 
 
-
-
 def print_elapsed_time(start_time):
     elapsed_time = time.time() - start_time
     elapsed_minutes = elapsed_time // 60
@@ -289,9 +270,5 @@ def print_elapsed_time(start_time):
     print(f"Total training time: {int(elapsed_minutes)} minutes and {int(elapsed_seconds)} seconds")
 
 
-
-
 if __name__ == "__main__":
     train_model()
-
-
