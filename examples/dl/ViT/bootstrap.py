@@ -122,9 +122,9 @@ def bootstrap_confidence_intervals(model, test_loader, device, n_bootstrap=1000,
     Returns:
       Dictionary with metrics and their (lower, upper) CI bounds.
     """
-    # Convert DataLoader into a list for bootstrapping
-    data = list(test_loader)
-    n_samples = len(data)
+    # Get the underlying dataset and its length
+    dataset = test_loader.dataset
+    n_samples = len(dataset)
     
     # Store each metric over bootstrap iterations
     metrics_list = {
@@ -138,9 +138,15 @@ def bootstrap_confidence_intervals(model, test_loader, device, n_bootstrap=1000,
     for _ in tqdm(range(n_bootstrap), desc="Bootstrapping"):
         # Sample with replacement indices for the bootstrap sample
         indices = np.random.choice(n_samples, n_samples, replace=True)
-        bootstrap_samples = [data[idx] for idx in indices]
-        # Create a DataLoader for the bootstrap sample
-        bootstrap_loader = DataLoader(bootstrap_samples, batch_size=cfg.BATCH_SIZE)
+        bootstrap_subset = torch.utils.data.Subset(dataset, indices)
+        # Create a DataLoader for the bootstrap subset
+        bootstrap_loader = torch.utils.data.DataLoader(
+            bootstrap_subset,
+            batch_size=cfg.BATCH_SIZE,
+            shuffle=False,
+            num_workers=cfg.NUM_PROC_WORKERS,
+            pin_memory=True
+        )
         metric = estimate_metrics(model, bootstrap_loader, device)
         for key in metrics_list.keys():
             metrics_list[key].append(metric[key])
@@ -154,6 +160,7 @@ def bootstrap_confidence_intervals(model, test_loader, device, n_bootstrap=1000,
         upper = np.percentile(values, upper_percentile)
         ci_dict[key] = (lower, upper)
     return ci_dict
+
 
 # -------------------------------
 # Main bootstrapping routine

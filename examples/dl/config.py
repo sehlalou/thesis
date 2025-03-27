@@ -9,8 +9,9 @@ LEARNING_RATE = 0.0001
 NUM_PROC_WORKERS_DATA = 12
 
 # For identification (Lookahead)
-PRE_AF_WINDOW = 2880000 # 4 hours  
+#PRE_AF_WINDOW = 2880000 # 4 hours  
 #PRE_AF_WINDOW = 8640000 # 12h
+PRE_AF_WINDOW = 3600 # 30 min
 
 
 def get_dict():
