@@ -11,10 +11,9 @@ from sklearn.metrics import roc_auc_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 
-from preprocess import clean_signal
+from spectrogram import preprocess_ecg_to_spectrogram, clean_signal, preprocess_ecg_to_wavelet_spectrogram
 import config as cfg
-import config_trans as hp 
-from model_transformer import VisionTransformer, ViTModelConfig 
+from model import VisionTransformerSpectrogram, ViTSpecModelConfig 
 
 
 class DetectionDataset(Dataset):
@@ -30,11 +29,15 @@ class DetectionDataset(Dataset):
             key = list(f.keys())[0]
             ecg_data = f[key][dw.start_index:dw.end_index, 0]
 
-        ecg_data = clean_signal(ecg_data)
-        ecg_data = torch.tensor(ecg_data.copy(), dtype=torch.float32)
-        ecg_data = ecg_data.unsqueeze(0)
+        ecg_data = np.array(ecg_data)
+        ecg_data = clean_signal(ecg_data, fs=cfg.SAMPLING_RATE)  # Clean ECG
+        if cfg.USE_WAVELET:
+            spec_img, _, _ = preprocess_ecg_to_wavelet_spectrogram(ecg_data, fs=cfg.SAMPLING_RATE,output_shape=cfg.RESOLUTION_SPEC)
+        else:
+            spec_img, _, _ = preprocess_ecg_to_spectrogram(ecg_data, fs=cfg.SAMPLING_RATE, nperseg= cfg.NPERSEG, noverlap= cfg.NOVERLAP, output_shape=cfg.RESOLUTION_SPEC)
+        spec_tensor = torch.tensor(spec_img, dtype=torch.float32)
         label = torch.tensor(dw.label, dtype=torch.long)
-        return ecg_data, label
+        return spec_tensor, label
 
 # -------------------------------
 # Metric estimation function (same as training)
@@ -84,13 +87,9 @@ def get_device():
 
 def load_test_dataset():
     # Determine dataset path based on task type
-    if cfg.DETECTION:
-        dataset_path = Path(hp.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
-        print("Detection task")
-    else:
-        dataset_path = Path(hp.DATASET_PATH, f"dataset_identification_ecg_{cfg.WINDOW_SIZE}_{cfg.LOOK_A_HEAD}.csv")
-        print("Identification task")
-        
+    
+    dataset_path = Path(cfg.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
+   
     df = pd.read_csv(dataset_path)
     
     # Split patients and extract test set (20% of patients)
@@ -103,12 +102,12 @@ def load_test_dataset():
         test_dataset,
         batch_size=cfg.BATCH_SIZE,
         shuffle=False,
-        num_workers=cfg.NUM_PROC_WORKERS,
+        num_workers=cfg.NUM_PROC_WORKERS_DATA,
         pin_memory=True
     )
     return test_loader
 
-def bootstrap_confidence_intervals(model, test_loader, device, n_bootstrap=500, ci=95):
+def bootstrap_confidence_intervals(model, test_loader, device, n_bootstrap=1000, ci=95):
     """
     Compute confidence intervals for performance metrics using bootstrapping.
     
@@ -144,7 +143,7 @@ def bootstrap_confidence_intervals(model, test_loader, device, n_bootstrap=500, 
             bootstrap_subset,
             batch_size=cfg.BATCH_SIZE,
             shuffle=False,
-            num_workers=cfg.NUM_PROC_WORKERS,
+            num_workers=cfg.NUM_PROC_WORKERS_DATA,
             pin_memory=True
         )
         metric = estimate_metrics(model, bootstrap_loader, device)
@@ -169,22 +168,22 @@ def main():
     device = get_device()
     print(f"Using device: {device}")
     
-    # Re-create the model architecture using the same configuration as in training
-    config = ViTModelConfig(
-        input_size=4096,
-        patch_size=64,
-        emb_dim=256,
-        num_layers=6,
-        num_heads=4,
-        mlp_dim=128,
+     # Configure Vision Transformer
+    vit_config = ViTSpecModelConfig(
+        input_size=cfg.RESOLUTION_SPEC,     
+        patch_size=cfg.PATCH_SIZE,       
+        emb_dim=cfg.EMB_DIM,
+        num_layers=cfg.NUM_LAYERS,
+        num_heads=cfg.NUM_HEADS,
+        mlp_dim=cfg.MLP_DIM,
         num_classes=2,
-        dropout_rate=0.45
+        dropout_rate=cfg.DROPOUT_RATE
     )
-    model = VisionTransformer(config)
-    model = model.to(device)
+    model = VisionTransformerSpectrogram(vit_config).to(device)
+
     
     # Load the saved model weights (update the path as needed)
-    model_path = Path("/mnt/iridia/sehlalou/thesis/examples/dl/ViT/saved_models/best_one_leads/model.pt")
+    model_path = Path("/mnt/iridia/sehlalou/thesis/examples/dl/ViT_spec/saved_models/raw_specto/model.pt")
     if not model_path.exists():
         raise FileNotFoundError(f"Model file not found: {model_path.absolute()}")
     model.load_state_dict(torch.load(model_path, map_location=device))

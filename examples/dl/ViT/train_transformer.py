@@ -71,6 +71,10 @@ def train_model():
         dropout_rate=hp.DROPOUT_RATE
     )
     model = VisionTransformer(config)
+
+    print("Vision Transformer Model:")
+    count_parameters(model)
+
     model = model.to(device)
     optimizer = configure_optimizers(model)
     criterion = nn.CrossEntropyLoss() 
@@ -288,7 +292,12 @@ def print_elapsed_time(start_time):
     elapsed_seconds = elapsed_time % 60
     print(f"Total training time: {int(elapsed_minutes)} minutes and {int(elapsed_seconds)} seconds")
 
-
+def count_parameters(model):
+    total_params = sum(p.numel() for p in model.parameters())
+    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    
+    print(f"Total Parameters: {total_params:,}")
+    print(f"Trainable Parameters: {trainable_params:,}")
 
 
 if __name__ == "__main__":

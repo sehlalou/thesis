@@ -1,0 +1,68 @@
+,roc_auc,accuracy,sensitivity,specificity,f1_score,training_time
+0,0.9208732335733588,0.8711013275885653,0.7434611444796558,0.914366391204054,0.8201044668955169,9798 minutes and 17 seconds
+
+
+Loading data
+Using device: cuda
+{'WINDOW_SIZE': 1024, 'EMB_DIM': 128, 'NUM_LAYERS': 6, 'NUM_HEADS': 4, 'MLP_DIM': 128, 'DROPOUT_RATE': 0.45, 'RANDOM_SEED': 42, 'EPOCH': 20, 'PATIENCE': 5, 'BATCH_SIZE': 8, 'LEARNING_RATE': 0.0001, 'NUM_PROC_WORKERS': 12}
+100%|████████████████████████████████████████████████████████████████████████| 736036/736036 [9:07:08<00:00, 22.42it/s]
+Epoch 1: train loss 0.3611, val loss 2.1173
+Epoch 1: train accuracy 0.8294, val accuracy 0.4775
+Epoch 1: train roc_auc 0.5885, val roc_auc 0.5885
+100%|████████████████████████████████████████████████████████████████████████| 736036/736036 [6:04:03<00:00, 33.70it/s]
+Epoch 2: train loss 0.2818, val loss 1.1526
+Epoch 2: train accuracy 0.8664, val accuracy 0.6944
+Epoch 2: train roc_auc 0.6856, val roc_auc 0.6856
+100%|███████████████████████████████████████████████████████████████████████| 736036/736036 [10:13:09<00:00, 20.01it/s]
+Epoch 3: train loss 0.2303, val loss 0.5122
+Epoch 3: train accuracy 0.8935, val accuracy 0.8772
+Epoch 3: train roc_auc 0.8672, val roc_auc 0.8672
+100%|███████████████████████████████████████████████████████████████████████████████████| 736036/736036 [9:51:09<00:00, 20.75it/s]
+Epoch 4: train loss 0.1733, val loss 0.5416
+Epoch 4: train accuracy 0.9220, val accuracy 0.8875
+Epoch 4: train roc_auc 0.9034, val roc_auc 0.9034
+100%|██████████████████████████████████████████████████████████████████████████████████| 736036/736036 [10:43:14<00:00, 19.07it/s]
+Epoch 5: train loss 0.1336, val loss 0.5154
+Epoch 5: train accuracy 0.9409, val accuracy 0.9049
+Epoch 5: train roc_auc 0.8994, val roc_auc 0.8994
+100%|██████████████████████████████████████████████████████████████████████████████████| 736036/736036 [11:49:53<00:00, 17.28it/s]
+Epoch 6: train loss 0.1136, val loss 0.4978
+Epoch 6: train accuracy 0.9502, val accuracy 0.8872
+Epoch 6: train roc_auc 0.9015, val roc_auc 0.9015
+100%|██████████████████████████████████████████████████████████████████████████████████| 736036/736036 [12:10:31<00:00, 16.79it/s]
+Epoch 7: train loss 0.1018, val loss 0.4515
+Epoch 7: train accuracy 0.9556, val accuracy 0.9098
+Epoch 7: train roc_auc 0.9095, val roc_auc 0.9095
+100%|██████████████████████████████████████████████████████████████████████████████████| 736036/736036 [12:31:12<00:00, 16.33it/s]
+Epoch 8: train loss 0.0952, val loss 0.4087
+Epoch 8: train accuracy 0.9587, val accuracy 0.9271
+Epoch 8: train roc_auc 0.9141, val roc_auc 0.9141
+100%|██████████████████████████████████████████████████████████████████████████████████| 736036/736036 [11:42:42<00:00, 17.46it/s]
+Epoch 9: train loss 0.0911, val loss 0.4703
+Epoch 9: train accuracy 0.9606, val accuracy 0.9062
+Epoch 9: train roc_auc 0.9184, val roc_auc 0.9184
+100%|██████████████████████████████████████████████████████████████████████████████████| 736036/736036 [11:23:09<00:00, 17.96it/s]
+Epoch 10: train loss 0.0885, val loss 0.4344
+Epoch 10: train accuracy 0.9618, val accuracy 0.9171
+Epoch 10: train roc_auc 0.9400, val roc_auc 0.9400
+100%|██████████████████████████████████████████████████████████████████████████████████| 736036/736036 [11:13:45<00:00, 18.21it/s]
+Epoch 11: train loss 0.0867, val loss 0.5296
+Epoch 11: train accuracy 0.9626, val accuracy 0.8989
+Epoch 11: train roc_auc 0.9108, val roc_auc 0.9108
+100%|██████████████████████████████████████████████████████████████████████████████████| 736036/736036 [10:36:56<00:00, 19.26it/s]
+Epoch 12: train loss 0.0851, val loss 0.5620
+Epoch 12: train accuracy 0.9633, val accuracy 0.8863
+Epoch 12: train roc_auc 0.9171, val roc_auc 0.9171
+100%|██████████████████████████████████████████████████████████████████████████████████| 736036/736036 [10:32:23<00:00, 19.40it/s]
+Epoch 13: train loss 0.0836, val loss 0.4712
+Epoch 13: train accuracy 0.9640, val accuracy 0.9068
+Epoch 13: train roc_auc 0.9492, val roc_auc 0.9492
+Early stopping at epoch 13
+Test loss 0.7861
+Test roc_auc 0.9209
+Test accuracy 0.8711
+Test sensitivity 0.7435
+Test specificity 0.9144
+Test f1_score 0.8201
+Saving model to /mnt/iridia/sehlalou/thesis/examples/dl/transformer/saved_models/20250401-190401
+Total training time: 9798 minutes and 17 seconds

@@ -14,7 +14,6 @@ sys.path.append("/mnt/iridia/sehlalou/thesis/iridia_af")
 import hyperparameters as hp
 from record import create_record
 
-
 def create_dataset_csv():
     metadata_df = pd.read_csv(hp.METADATA_PATH)
     list_windows = []

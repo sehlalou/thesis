@@ -12,3 +12,7 @@ examples/dl/clustering/saved_models/20250319-004932_cnn_autoencoder_kmeans/extra
 *.pt
 *.npz
 examples/dl/clustering/saved_models/
+FA chronique/
+data-v2/
+examples/dl/ViT/__pycache__/
+examples/dl/ViT_spec/__pycache__/

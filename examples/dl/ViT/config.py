@@ -1,7 +1,9 @@
-DETECTION = False
-#LOOK_A_HEAD = 2880000
+DETECTION = True
+LOOK_A_HEAD = 2880000
 LOOK_A_HEAD = 3600
-WINDOW_SIZE = 2048
+#WINDOW_SIZE = 2048
+
+WINDOW_SIZE = 640
 EPOCH = 20 # test with 50 for transformer based models
 PATIENCE = 5
 BATCH_SIZE = 32
@@ -9,6 +11,7 @@ LEARNING_RATE = 0.0001
 NUM_PROC_WORKERS = 12
 RANDOM_SEED = 42
 DATASET_PATH = "/mnt/iridia/sehlalou/thesis/data/datasets"
+LOG_DL_PATH = "/mnt/iridia/sehlalou/thesis/examples/dl/ViT/saved_models"
 
 def get_dict():
     return {
