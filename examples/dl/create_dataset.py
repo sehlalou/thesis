@@ -39,6 +39,35 @@ def create_dataset_csv():
     print(f"Saved dataset to {Path(hp.DATASET_PATH, f'dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv')}")
 
 
+
+def create_AF_dataset_csv():
+    metadata_df = pd.read_csv(hp.METADATA_PATH)
+    list_windows = []
+    for record_id in tqdm(metadata_df["record_id"].unique()):
+        record = create_record(record_id, metadata_df, hp.RECORDS_PATH)
+        record.load_ecg()
+        for day_index in range(record.metadata.record_n_files):
+            len_day = record.ecg[day_index].shape[0]
+            for i in range(0, len_day - cfg.WINDOW_SIZE, cfg.TRAINING_STEP):
+                # Calculate label: 1 if any AF activity is present in the window, 0 otherwise.
+                label = 1 if np.sum(record.ecg_labels[day_index][i:i + cfg.WINDOW_SIZE]) > 0 else 0
+                # Only keep windows with AF segments (label == 1)
+                if label == 1:
+                    detection_window = {
+                        "patient_id": record.metadata.patient_id,
+                        "file": record.ecg_files[day_index],
+                        "start_index": i,
+                        "end_index": i + cfg.WINDOW_SIZE,
+                        "label": label
+                    }
+                    list_windows.append(detection_window)
+
+    new_df = pd.DataFrame(list_windows)
+    new_df_path = Path(hp.DATASET_PATH, f"dataset_af_ecg_{cfg.WINDOW_SIZE}.csv")
+    new_df.to_csv(new_df_path, index=False)
+    print(f"Saved dataset to {new_df_path}")
+
+
 class DetectionDataset(Dataset):
     def __init__(self, df):
         self.df = df
@@ -59,4 +88,5 @@ class DetectionDataset(Dataset):
 
 
 if __name__ == "__main__":
-    create_dataset_csv()
+    #create_dataset_csv()
+    create_AF_dataset_csv()

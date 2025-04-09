@@ -72,9 +72,12 @@ def train_model():
     )
     model = VisionTransformer(config)
 
+
+
     print("Vision Transformer Model:")
     count_parameters(model)
-
+    print(model)
+    
     model = model.to(device)
     optimizer = configure_optimizers(model)
     criterion = nn.CrossEntropyLoss() 

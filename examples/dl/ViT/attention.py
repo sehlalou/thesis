@@ -52,7 +52,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = VisionTransformer(config).to(device)
 
 model.load_state_dict(torch.load(
-   "/mnt/iridia/sehlalou/thesis/examples/dl/training_transformer/trial_0_20250316-063940/model.pt",
+   "/mnt/iridia/sehlalou/thesis/examples/dl/ViT/saved_models/best_one_leads/model.pt",
     map_location=device
 ))
 model.eval()
@@ -110,7 +110,7 @@ def random_sample(records, n=100):
         return random.sample(records, n)
 
 
-max_samples = 100  # Desired number of samples per category
+max_samples = 20  # Desired number of samples per category
 
 # Iterate over the validation dataset and collect samples
 sampled_records = {
@@ -169,14 +169,19 @@ output_folders = {
 for folder in output_folders.values():
     os.makedirs(folder, exist_ok=True)
 
+
 def plot_attention(x_sample, title, filename):
     model.eval()
     with torch.no_grad():
         _ = model(x_sample)
+    # Extract attention weights from the first encoder block and average over all heads.
     attn_weights = model.encoder_layers[0].mha.attn_weights
-    attn_cls_to_patches = attn_weights[0, 0, 1:]
+    # The attention weights shape is assumed to be [batch_size, num_heads, num_tokens]
+    # Average over heads for the CLS token (first token) attention to all patches (excluding the CLS itself)
+    attn_cls_to_patches = np.mean(attn_weights[0, :, 1:], axis=0)
 
     ecg_signal = x_sample[0, 0, :].cpu().numpy()
+    # Apply square root to enhance visual contrast
     attn_cls_to_patches = np.power(attn_cls_to_patches, 0.5)
     vmin, vmax = attn_cls_to_patches.min(), attn_cls_to_patches.max()
     norm = mcolors.Normalize(vmin=vmin, vmax=vmax)

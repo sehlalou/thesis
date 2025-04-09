@@ -3,7 +3,7 @@ LOOK_A_HEAD = 2880000
 LOOK_A_HEAD = 3600
 #WINDOW_SIZE = 2048
 
-WINDOW_SIZE = 640
+WINDOW_SIZE = 4096
 EPOCH = 20 # test with 50 for transformer based models
 PATIENCE = 5
 BATCH_SIZE = 32

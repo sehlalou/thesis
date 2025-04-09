@@ -1,0 +1,2 @@
+,WINDOW_SIZE,EMB_DIM,NUM_HEADS,NUM_LAYERS,PATCH_SIZE,DROPOUT_RATE,MLP_DIM,EPOCH,PATIENCE,BATCH_SIZE,LEARNING_RATE,NUM_PROC_WORKERS,RANDOM_SEED,DATASET_PATH,LOG_DL_PATH
+0,640,256,4,6,64,0.45,128,20,5,32,0.0001,12,42,/mnt/iridia/sehlalou/thesis/data-v2/dataset.csv,/mnt/iridia/sehlalou/thesis/examples/dl/identification/saved_models

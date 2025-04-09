@@ -1,8 +1,8 @@
-EMB_DIM = 256
-NUM_HEADS = 4
-NUM_LAYERS = 6
-PATCH_SIZE = 64
-DROPOUT_RATE = 0.45
+EMB_DIM = 16
+NUM_HEADS = 2
+NUM_LAYERS = 2
+PATCH_SIZE = 32
+DROPOUT_RATE = 0.1
 MLP_DIM = 128
 DATASET_PATH = "data/datasets/"
 LOG_DL_PATH = "/mnt/iridia/sehlalou/thesis/examples/dl/ViT_K_CROSS/saved_models"

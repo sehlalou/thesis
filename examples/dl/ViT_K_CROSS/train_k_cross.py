@@ -396,7 +396,7 @@ def train_model_cv_and_final():
         "test_sensitivity": test_metrics['sensitivity'],
         "test_specificity": test_metrics['specificity']
     }
-    pd.DataFrame([all_results]).to_csv(Path(hp.LOG_DL_PATH, "final_results.csv"), index=False)
+    pd.DataFrame([all_results]).to_csv(Path(hp.LOG_DL_PATH, "final_results_study_vit.csv"), index=False)
 
 
 if __name__ == "__main__":

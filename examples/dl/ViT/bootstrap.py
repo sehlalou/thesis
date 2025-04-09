@@ -171,20 +171,20 @@ def main():
     
     # Re-create the model architecture using the same configuration as in training
     config = ViTModelConfig(
-        input_size=4096,
-        patch_size=64,
-        emb_dim=256,
-        num_layers=6,
-        num_heads=4,
+        input_size=640,
+        patch_size=32,
+        emb_dim=16,
+        num_layers=2,
+        num_heads=2,
         mlp_dim=128,
         num_classes=2,
-        dropout_rate=0.45
+        dropout_rate=0.1
     )
     model = VisionTransformer(config)
     model = model.to(device)
     
     # Load the saved model weights (update the path as needed)
-    model_path = Path("/mnt/iridia/sehlalou/thesis/examples/dl/ViT/saved_models/best_one_leads/model.pt")
+    model_path = Path("/mnt/iridia/sehlalou/thesis/examples/dl/ViT/saved_models/study_vit/model.pt")
     if not model_path.exists():
         raise FileNotFoundError(f"Model file not found: {model_path.absolute()}")
     model.load_state_dict(torch.load(model_path, map_location=device))
@@ -195,9 +195,10 @@ def main():
     
     # Perform bootstrapping to compute confidence intervals
     print("Performing bootstrapping to compute confidence intervals for performance metrics...")
-    ci_results = bootstrap_confidence_intervals(model, test_loader, device, n_bootstrap=500, ci=95)
+    ci_results = bootstrap_confidence_intervals(model, test_loader, device, n_bootstrap=5, ci=95)
     
     print("\n95% Confidence Intervals for Performance Metrics:")
+    print("study_vit/model.pt")
     for metric, (lower, upper) in ci_results.items():
         print(f"{metric}: {lower:.4f} - {upper:.4f}")
     

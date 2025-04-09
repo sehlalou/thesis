@@ -31,10 +31,16 @@ class DetectionDataset(Dataset):
                 key = list(f.keys())[0]
                 ecg_data = f[key][:]
             ecg_data = np.array(ecg_data)
+            # Iterate with a step of half the window size
             for i in range(0, len(ecg_data) - cfg.WINDOW_SIZE + 1, cfg.WINDOW_SIZE // 2):
                 window = ecg_data[i:i + cfg.WINDOW_SIZE]
-                self.windows.append(window)
-                self.labels.append(label)
+                # Ensure window has exactly cfg.WINDOW_SIZE samples
+                if len(window) == cfg.WINDOW_SIZE:
+                    self.windows.append(window)
+                    self.labels.append(label)
+                else:
+                    # Optionally, log or handle windows with unexpected sizes
+                    pass
         
         self.windows = np.array(self.windows).reshape(-1, 1, cfg.WINDOW_SIZE)
         self.labels = np.array(self.labels)

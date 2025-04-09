@@ -1,6 +1,6 @@
 DETECTION = True
 LOOK_A_HEAD = 2880000
-WINDOW_SIZE = 4096
+WINDOW_SIZE = 640
 EPOCH = 20 # test with 50 for transformer based models
 PATIENCE = 5
 BATCH_SIZE = 32

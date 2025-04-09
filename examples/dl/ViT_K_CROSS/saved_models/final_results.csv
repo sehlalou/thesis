@@ -1,2 +1,27 @@
 cv_accuracy_mean,cv_accuracy_std,cv_roc_auc_mean,cv_roc_auc_std,cv_sensitivity_mean,cv_sensitivity_std,cv_specificity_mean,cv_specificity_std,test_loss,test_accuracy,test_roc_auc,test_sensitivity,test_specificity
 0.8515721344164039,0.03951703222161682,0.9385016132168443,0.0229455777130888,0.9321036467048313,0.044907097292252146,0.826525716911511,0.06523586186312676,0.4968852840575081,0.9069123761874176,0.9650821850673514,0.9381484570475396,0.8963146158983124
+
+
+
+
+DETECTION = True
+LOOK_A_HEAD = 2880000
+WINDOW_SIZE = 4096
+EPOCH = 20 # test with 50 for transformer based models
+PATIENCE = 5
+BATCH_SIZE = 32
+LEARNING_RATE = 0.0001
+NUM_PROC_WORKERS = 12
+RANDOM_SEED = 42
+K_FOLDS = 5
+DATASET_PATH = "/mnt/iridia/sehlalou/thesis/data/datasets"
+EMB_DIM = 256
+NUM_HEADS = 4
+NUM_LAYERS = 6
+PATCH_SIZE = 64
+DROPOUT_RATE = 0.45
+MLP_DIM = 128
+DATASET_PATH = "data/datasets/"
+LOG_DL_PATH = "/mnt/iridia/sehlalou/thesis/examples/dl/ViT_K_CROSS/saved_models"
+
+5082 minutes et 0 secondes

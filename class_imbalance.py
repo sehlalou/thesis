@@ -44,7 +44,7 @@ def analyze_class_imbalance(file_path, target_column):
     plt.savefig("class_distribution_640.png")
 
 # Example Usage
-analyze_class_imbalance("/mnt/iridia/sehlalou/thesis/data/datasets/dataset_detection_ecg_8192.csv", "label")
+analyze_class_imbalance("/mnt/iridia/sehlalou/thesis/data/datasets/dataset_detection_ecg_640.csv", "label")
 
 
 
