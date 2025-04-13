@@ -1,6 +1,6 @@
 from scipy.signal import spectrogram, butter, iirnotch, filtfilt
+from skimage.transform import resize
 import numpy as np
-
 
 def butter_highpass(cutoff, fs, order=3):
     nyq = 0.5 * fs
@@ -18,7 +18,6 @@ def notch_filter(freq, fs, quality_factor=30):
     w0 = freq / (fs / 2)
     b, a = iirnotch(w0, quality_factor)
     return b, a
-
 
 
 def clean_signal(ecg_signal, fs=200):

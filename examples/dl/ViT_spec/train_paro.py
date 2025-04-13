@@ -1,132 +1,109 @@
+import numpy as np
+import pandas as pd
+import h5py
+import time
 import datetime
 from pathlib import Path
-import time
-import numpy as np
-import h5py
-import pandas as pd
+from tqdm import tqdm
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score, confusion_matrix
+
+
+import dataclasses
 import torch
 import torch.nn as nn
-from torch.utils.data import Dataset
-from sklearn.metrics import roc_auc_score, confusion_matrix
-from sklearn.model_selection import train_test_split
-from tqdm import tqdm
-
-from preprocess import clean_signal
+import torch.optim as optim
+from torch.utils.data import Dataset, DataLoader
+from model import ViTSpecModelConfig, VisionTransformerSpectrogram
+from spectrogram import preprocess_ecg_to_spectrogram, clean_signal, preprocess_ecg_to_wavelet_spectrogram
 import config as cfg
-from model_transformer import VisionTransformer, ViTModelConfig, CNN_ViT_Hybrid
 
-# Set random seed and allow TF32 when available
-torch.manual_seed(cfg.RANDOM_SEED)
-torch.backends.cuda.matmul.allow_tf32 = True
-torch.backends.cudnn.allow_tf32 = True
-
-
-# Import the ISHNE Holter class
-from ishneholterlib import Holter
-
-
-def read_ishne(file_path):
-    """
-    Function to read an ISHNE 1.0 formatted ECG file using the Holter class from ishneholterlib.
-    """
-    # Create a Holter object and load the header and ECG data
-    holter = Holter(file_path)
-    holter.load_header()  # Load header info
-    holter.load_data()    # Load the ECG signal data
-
-    # Access ECG data for the first lead
-    ecg_signal = holter.lead[0].data
-    return np.array(ecg_signal)
-
-
-class DetectionDataset(Dataset):
+class DetectionSpectrogramDataset(Dataset):
     def __init__(self, df):
         self.df = df
 
     def __len__(self):
         return len(self.df)
-    
+
     def __getitem__(self, idx):
-        dw = self.df.iloc[idx]
-        file_path = dw.file  # Make sure this is what you expect.
-        patient_id = dw.patient_id
-        # Log or print the file_path for debugging when it does not contain expected extensions.
-        if not (file_path.endswith(".h5") or file_path.endswith(".ecg")):
-            # You might want to log this issue before raising an error.
-            print(f"Unexpected file format encountered: {file_path} and {patient_id}")
-            raise ValueError(f"Unsupported file format for file: {file_path} and patient: {patient_id}")
         
-        # Load ECG data based on file extension
-        if file_path.endswith(".h5"):
-            with h5py.File(file_path, "r") as f:
+        dw = self.df.iloc[idx]
+        if dw.file.endswith(".h5"):
+            with h5py.File(dw.file, "r") as f:
                 key = list(f.keys())[0]
                 dataset = f[key]
                 if dataset.ndim == 1:
                     ecg_data = dataset[dw.start_index:dw.end_index]
                 else:
                     ecg_data = dataset[dw.start_index:dw.end_index, 0]
-        elif file_path.endswith(".ecg"):
-            ecg_signal = read_ishne(file_path)
+        elif dw.file.endswith(".ecg"):
+            ecg_signal = read_ishne(dw.file)  # Use the read_ishne function for .ecg files
             ecg_data = ecg_signal[dw.start_index:dw.end_index]
-        
-        # Preprocess ECG data
-        ecg_data = clean_signal(ecg_data)
-        ecg_data = torch.tensor(ecg_data.copy(), dtype=torch.float32)
-        ecg_data = ecg_data.unsqueeze(0)
-        label = torch.tensor(int(dw.label), dtype=torch.long)  # Cast label to int to avoid deprecation warnings
 
-        return ecg_data, label
+        ecg_data = np.array(ecg_data)
+        ecg_data = clean_signal(ecg_data, fs=cfg.SAMPLING_RATE)  # Clean ECG
+        if cfg.USE_WAVELET:
+            spec_img, _, _ = preprocess_ecg_to_wavelet_spectrogram(ecg_data, fs=cfg.SAMPLING_RATE,output_shape=cfg.RESOLUTION_SPEC)
+        else:
+            spec_img, _, _ = preprocess_ecg_to_spectrogram(ecg_data, fs=cfg.SAMPLING_RATE, nperseg= cfg.NPERSEG, noverlap= cfg.NOVERLAP, output_shape=cfg.RESOLUTION_SPEC)
+        spec_tensor = torch.tensor(spec_img, dtype=torch.float32)
+        label = torch.tensor(dw.label, dtype=torch.long)
+        return spec_tensor, label
 
 
 
+
+def print_elapsed_time(start_time):
+    elapsed_time = time.time() - start_time
+    elapsed_minutes = elapsed_time // 60
+    elapsed_seconds = elapsed_time % 60
+    print(f"Total training time: {int(elapsed_minutes)} minutes and {int(elapsed_seconds)} seconds")
 
 
 def train_model():
     start_time = time.time()  # Start timer
-    print("Loading data")
-    train_dataset, val_dataset, test_dataset, list_patients = create_train_val_test_split()
+    print("Loading data...")
+    train_dataset_loader, val_dataset, test_dataset_loader, list_patients = create_train_val_test_split()
 
     device = get_device()
     print(f"Using device: {device}")
 
-    # Vision Transformer model config
-    config = ViTModelConfig(
-        input_size=cfg.WINDOW_SIZE,
-        patch_size=cfg.PATCH_SIZE,  # e.g., number of samples per patch
-        emb_dim=cfg.EMB_DIM,        # embedding dimension
-        num_layers=cfg.NUM_LAYERS,  # number of transformer encoder blocks
-        num_heads=cfg.NUM_HEADS,    # number of attention heads
-        mlp_dim=cfg.MLP_DIM,        # hidden dimension in MLP blocks
-        num_classes=2,             # Binary classification (paroxysmal AF vs permanent AF)
+    # Configure Vision Transformer
+    vit_config = ViTSpecModelConfig(
+        input_size=cfg.RESOLUTION_SPEC,     
+        patch_size=cfg.PATCH_SIZE,       
+        emb_dim=cfg.EMB_DIM,
+        num_layers=cfg.NUM_LAYERS,
+        num_heads=cfg.NUM_HEADS,
+        mlp_dim=cfg.MLP_DIM,
+        num_classes=2,
         dropout_rate=cfg.DROPOUT_RATE
     )
-    model = VisionTransformer(config)
+    model = VisionTransformerSpectrogram(vit_config).to(device)
 
-    print("Vision Transformer Model:")
-    
- 
-    
-    model = model.to(device)
     optimizer = configure_optimizers(model)
-    criterion = nn.CrossEntropyLoss() 
+    criterion = nn.CrossEntropyLoss()
 
     min_val_loss = float('inf')
     min_val_loss_epoch = 0
     best_model = None
 
     epoch_metrics = []
+
     for epoch in range(cfg.EPOCH):
         model.train()
         train_losses = []
         list_y_true = []
         list_y_pred = []
-        for batch_idx, (x, y) in enumerate(tqdm(train_dataset)):
-            x = x.to(device)
-            y = y.to(device)
+
+        for batch_idx, (x, y) in enumerate(tqdm(train_dataset_loader)):
+            x = x.to(device)  # shape (batch, 1, H, W)
+            y = y.to(device)  # shape (batch,)
+
             optimizer.zero_grad()
-            y_pred = model(x)  # Expected shape: (batch, 2)
-            loss = criterion(y_pred, y)
-            
+            y_pred = model(x)   # shape (batch,) => probabilities
+            loss = criterion(y_pred, y)  
+
             train_losses.append(loss.item())
             list_y_true.extend(y.tolist())
             list_y_pred.extend(y_pred.tolist())
@@ -136,18 +113,20 @@ def train_model():
 
         total = len(list_y_true)
         list_y_pred_round = np.round(list_y_pred)
-        list_y_pred_labels = np.argmax(list_y_pred_round, axis=1)  # Convert to class index
+        list_y_pred_labels = np.argmax(list_y_pred_round, axis=1)
         correct = np.sum(np.array(list_y_true) == list_y_pred_labels)
         train_accuracy = correct / total
 
         train_loss = np.mean(train_losses)
         val_loss = estimate_loss(model, device, val_dataset, criterion)
         metrics = estimate_metrics(model, val_dataset, device)
+        
+
         print(f"Epoch {epoch + 1}: train loss {train_loss:.4f}, val loss {val_loss:.4f}")
         print(f"Epoch {epoch + 1}: train accuracy {train_accuracy:.4f}, val accuracy {metrics['accuracy']:.4f}")
         print(f"Epoch {epoch + 1}: train roc_auc {metrics['roc_auc']:.4f}, val roc_auc {metrics['roc_auc']:.4f}")
 
-        # Save epoch metrics
+         # Save epoch metrics to the list
         epoch_metrics.append({
             "epoch": epoch + 1,
             "train_loss": train_loss,
@@ -166,39 +145,47 @@ def train_model():
             min_val_loss_epoch += 1
 
         if min_val_loss_epoch >= cfg.PATIENCE:
-            print(f"Early stopping at epoch {epoch + 1}")
+            print(f"Early stopping at epoch {epoch+1}")
             model.load_state_dict(best_model)
             break
-        
-    test_loss = estimate_loss(model, device, test_dataset, criterion)
-    metrics = estimate_metrics(model, test_dataset, device)
-    print(f"Test loss {test_loss:.4f}")
-    print(f"Test roc_auc {metrics['roc_auc']:.4f}")
-    print(f"Test accuracy {metrics['accuracy']:.4f}")
-    print(f"Test sensitivity {metrics['sensitivity']:.4f}")
-    print(f"Test specificity {metrics['specificity']:.4f}")
-    print(f"Test f1_score {metrics['f1_score']:.4f}")
+
+    # Evaluate on test set
+    test_loss = estimate_loss(model, device, test_dataset_loader, criterion)
+    metrics = estimate_metrics(model, test_dataset_loader, device)
+    print(f"Test loss: {test_loss:.4f}")
+    print(f"Test roc_auc: {metrics['roc_auc']:.4f}")
+    print(f"Test accuracy: {metrics['accuracy']:.4f}")
+    print(f"Test sensitivity: {metrics['sensitivity']:.4f}")
+    print(f"Test specificity: {metrics['specificity']:.4f}")
+    print(f"Test f1_score: {metrics['f1_score']:.4f}")
+
 
     total_training_time = time.time() - start_time
     metrics["training_time"] = total_training_time
 
     # Save model and training details
     timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    folder = Path(cfg.LOG_DL_PATH, f"paro_{timestamp}") 
+    folder = Path(cfg.LOG_DL_PATH, f"{timestamp}")
     print(f"Saving model to {folder.absolute()}")
     folder.mkdir(parents=True, exist_ok=True)
     torch.save(model.state_dict(), Path(folder, "model.pt"))
     pd.DataFrame(list_patients).to_csv(Path(folder, "list_patients.csv"))
-    df_hp = pd.DataFrame(cfg.get_dict(), index=[0])
+
+    config_dict = cfg.get_dict()
+    for key, value in config_dict.items():
+        if isinstance(value, (tuple, list, np.ndarray)):
+            config_dict[key] = str(value)  # Convert tuple/list to string
+
+    df_hp = pd.DataFrame(config_dict, index=[0])
     df_hp.to_csv(Path(folder, "hyperparameters.csv"))
     df_metrics = pd.DataFrame(metrics, index=[0])
     df_metrics.to_csv(Path(folder, "metrics.csv"))
-
-    # Save per-epoch metrics
+    
+    # Save per-epoch metrics for training and validation
     df_epoch_metrics = pd.DataFrame(epoch_metrics)
     df_epoch_metrics.to_csv(Path(folder, "epoch_metrics.csv"), index=False)
 
-    print_elapsed_time(start_time)      
+    print_elapsed_time(start_time)
 
 
 @torch.no_grad()
@@ -261,56 +248,44 @@ def configure_optimizers(model):
     return optimizer
 
 
+
 def create_train_val_test_split():
     dataset_path = Path(cfg.DATASET_PATH, f"dataset_af_combined_ecg_{cfg.WINDOW_SIZE}.csv")
-    print("AF classification task")
-
     df = pd.read_csv(dataset_path)
-
     patients = df["patient_id"].unique()
+
     train_val_patients, test_patients = train_test_split(patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
     train_patients, val_patients = train_test_split(train_val_patients, test_size=0.2, random_state=cfg.RANDOM_SEED)
 
     train_df = df[df["patient_id"].isin(train_patients)]
-    train_dataset = DetectionDataset(train_df)
+    train_dataset = DetectionSpectrogramDataset(train_df)
     train_dataset_loader = torch.utils.data.DataLoader(train_dataset,
                                                        batch_size=cfg.BATCH_SIZE,
                                                        shuffle=True,
-                                                       num_workers=cfg.NUM_PROC_WORKERS,
+                                                       num_workers=cfg.NUM_PROC_WORKERS_DATA,
                                                        pin_memory=True)
 
     val_df = df[df["patient_id"].isin(val_patients)]
-    val_dataset = DetectionDataset(val_df)
+    val_dataset = DetectionSpectrogramDataset(val_df)
     val_dataset_loader = torch.utils.data.DataLoader(val_dataset,
                                                      batch_size=cfg.BATCH_SIZE,
                                                      shuffle=False,
-                                                     num_workers=cfg.NUM_PROC_WORKERS,
+                                                     num_workers=cfg.NUM_PROC_WORKERS_DATA,
                                                      pin_memory=True)
 
     test_df = df[df["patient_id"].isin(test_patients)]
-    test_dataset = DetectionDataset(test_df)
+    test_dataset = DetectionSpectrogramDataset(test_df)
     test_dataset_loader = torch.utils.data.DataLoader(test_dataset,
                                                       batch_size=cfg.BATCH_SIZE,
                                                       shuffle=False,
-                                                      num_workers=cfg.NUM_PROC_WORKERS,
+                                                      num_workers=cfg.NUM_PROC_WORKERS_DATA,
                                                       pin_memory=True)
 
     return train_dataset_loader, val_dataset_loader, test_dataset_loader, [train_patients, val_patients, test_patients]
 
 
-def print_elapsed_time(start_time):
-    elapsed_time = time.time() - start_time
-    elapsed_minutes = elapsed_time // 60
-    elapsed_seconds = elapsed_time % 60
-    print(f"Total training time: {int(elapsed_minutes)} minutes and {int(elapsed_seconds)} seconds")
-
-def count_parameters(model):
-    total_params = sum(p.numel() for p in model.parameters())
-    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    
-    print(f"Total Parameters: {total_params:,}")
-    print(f"Trainable Parameters: {trainable_params:,}")
-
-
 if __name__ == "__main__":
+    torch.manual_seed(cfg.RANDOM_SEED)
+    torch.backends.cuda.matmul.allow_tf32 = True
+    torch.backends.cudnn.allow_tf32 = True
     train_model()

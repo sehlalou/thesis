@@ -1,2 +1,11 @@
 ,roc_auc,accuracy,sensitivity,specificity,f1_score,training_time
 0,0.966524791452554,0.9229382880903283,0.8712427022518766,0.9404775379461001,0.9045372164941022,27913.29963827133
+
+Best with preprocess + STANDARDI:
+--- Évaluation sur le Test Set ---
+Test Loss: 0.4969
+Test Accuracy: 0.9069
+Test ROC AUC: 0.9651
+Test Sensitivity: 0.9381
+Test Specificity: 0.8963
+Temps total d'entraînement : 5417 minutes et 5 secondes

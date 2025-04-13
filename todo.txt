@@ -96,7 +96,4 @@ Deliver the chapter on unsupervised learning for AF detection and AF sub-types f
      - Reliability Diagrams
      - Computational Efficiency: Inference Speed (CPU vs. GPU) , Model Size & Memory Usage
      - McNemar’s test – Compare ViT with vanilla Transformer.
-     - Test:Different learning rate and Different optimizers (Adam, SGD, RAdam).
-
-
-Parler à Cédric du fait que je n'utilise pas de cross-validation pour tuner les hyperparamètres. 
+     

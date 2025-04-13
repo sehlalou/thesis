@@ -8,11 +8,14 @@ BATCH_SIZE = 8
 LEARNING_RATE = 0.0001
 NUM_PROC_WORKERS_DATA = 12
 
-# For identification (Lookahead)
+# Forecast (Lookahead)
+#PRE_AF_WINDOW = 4320000 # 6 hours
 #PRE_AF_WINDOW = 2880000 # 4 hours  
-#PRE_AF_WINDOW = 8640000 # 12h
-PRE_AF_WINDOW = 3600 # 30 min
-
+#PRE_AF_WINDOW = 1440000 # 2 hours
+#PRE_AF_WINDOW = 720000 # 1 hour
+#PRE_AF_WINDOW = 360000 # 30 min
+#PRE_AF_WINDOW = 180000 # 15 min
+PRE_AF_WINDOW = 60000 # 5 min
 
 def get_dict():
     return {

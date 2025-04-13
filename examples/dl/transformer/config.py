@@ -1,4 +1,4 @@
-WINDOW_SIZE = 640
+WINDOW_SIZE = 8192
 EMB_DIM = 16
 NUM_LAYERS = 2
 NUM_HEADS = 2
@@ -6,8 +6,8 @@ MLP_DIM = 128
 DROPOUT_RATE = 0.1
 RANDOM_SEED = 42
 EPOCH = 20
-PATIENCE = 5
-BATCH_SIZE = 4
+PATIENCE = 3
+BATCH_SIZE = 1
 LEARNING_RATE = 0.0001
 NUM_PROC_WORKERS_DATA = 12
 LOG_DL_PATH = "/mnt/iridia/sehlalou/thesis/examples/dl/transformer/saved_models"
