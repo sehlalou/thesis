@@ -2,22 +2,82 @@ import datetime
 from pathlib import Path
 
 import numpy as np
+import h5py
 import pandas as pd
 import torch
 import torch.nn as nn
 from sklearn.metrics import roc_auc_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
-
+from torch.utils.data import Dataset
+from preprocess import clean_signal
 import config as cfg
-import iridia_af.hyperparameters as hp
-from create_dataset import DetectionDataset
 from model import CNNModel, CNNModelConfig
+
+# Import the ISHNE Holter class
+from ishneholterlib import Holter
+
 
 torch.manual_seed(cfg.RANDOM_SEED)
 torch.backends.cuda.matmul.allow_tf32 = True  # allow tf32 on matmul
 torch.backends.cudnn.allow_tf32 = True  # allow tf32 on cudnn
 
+
+
+
+
+
+def read_ishne(file_path):
+    """
+    Function to read an ISHNE 1.0 formatted ECG file using the Holter class from ishneholterlib.
+    """
+    # Create a Holter object and load the header and ECG data
+    holter = Holter(file_path)
+    holter.load_header()  # Load header info
+    holter.load_data()    # Load the ECG signal data
+
+    # Access ECG data for the first lead
+    ecg_signal = holter.lead[0].data
+    return np.array(ecg_signal)
+
+
+class DetectionDataset(Dataset):
+    def __init__(self, df):
+        self.df = df
+
+    def __len__(self):
+        return len(self.df)
+    
+    def __getitem__(self, idx):
+        dw = self.df.iloc[idx]
+        file_path = dw.file  # Make sure this is what you expect.
+        patient_id = dw.patient_id
+        # Log or print the file_path for debugging when it does not contain expected extensions.
+        if not (file_path.endswith(".h5") or file_path.endswith(".ecg")):
+            # You might want to log this issue before raising an error.
+            print(f"Unexpected file format encountered: {file_path} and {patient_id}")
+            raise ValueError(f"Unsupported file format for file: {file_path} and patient: {patient_id}")
+        
+        # Load ECG data based on file extension
+        if file_path.endswith(".h5"):
+            with h5py.File(file_path, "r") as f:
+                key = list(f.keys())[0]
+                dataset = f[key]
+                if dataset.ndim == 1:
+                    ecg_data = dataset[dw.start_index:dw.end_index]
+                else:
+                    ecg_data = dataset[dw.start_index:dw.end_index, 0]
+        elif file_path.endswith(".ecg"):
+            ecg_signal = read_ishne(file_path)
+            ecg_data = ecg_signal[dw.start_index:dw.end_index]
+        
+        # Preprocess ECG data
+        ecg_data = clean_signal(ecg_data)
+        ecg_data = torch.tensor(ecg_data.copy(), dtype=torch.float32)
+        ecg_data = ecg_data.unsqueeze(0)
+        label = torch.tensor(int(dw.label), dtype=torch.float32)  # Cast label to int to avoid deprecation warnings
+
+        return ecg_data, label
 
 
 
@@ -54,7 +114,7 @@ def train_model():
             y = y.to(device)
             optimizer.zero_grad()
             y_pred = model(x)
-            loss = criterion(y_pred, y)
+            loss = criterion(y_pred, y.unsqueeze(1))
 
             train_losses.append(loss.item())
             list_y_true.extend(y.tolist())
@@ -100,7 +160,7 @@ def train_model():
 
     # save model
     timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    folder = Path(hp.LOG_DL_PATH, f"{timestamp}")
+    folder = Path(cfg.LOG_DL_PATH, f"{timestamp}")
     print(f"Saving model to {folder.absolute()}")
     folder.mkdir(parents=True, exist_ok=True)
     torch.save(model.state_dict(), Path(folder, "model.pt"))
@@ -121,11 +181,8 @@ def estimate_loss(model, device, dataset, criterion):
         x = x.to(device)
         y = y.to(device)
         y_pred = model(x)
-        loss = criterion(y, y_pred)
+        loss = criterion(y_pred, y.unsqueeze(1))
         losses.append(loss.item())
-
-        # if batch_idx > 10:
-        #     break
 
     return np.mean(losses)
 
@@ -173,10 +230,10 @@ def configure_optimizers(model):
 
 
 def create_train_val_test_split():
-    dataset_path = Path(hp.DATASET_PATH, f"dataset_detection_ecg_{cfg.WINDOW_SIZE}.csv")
+    dataset_path = Path(cfg.DATASET_PATH, f"dataset_af_combined_ecg_{cfg.WINDOW_SIZE}.csv")
     df = pd.read_csv(dataset_path)
     # crop to the first 20000 rows
-    df = df[:20000]
+    #df = df[:20000]
     patients = df["patient_id"].unique()
 
     train_val_patients, test_patients = train_test_split(patients, test_size=0.2, random_state=cfg.RANDOM_SEED)

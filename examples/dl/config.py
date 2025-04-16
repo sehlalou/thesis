@@ -1,10 +1,10 @@
-WINDOW_SIZE = 4096
+WINDOW_SIZE = 640
 TRAINING_STEP = WINDOW_SIZE // 2
 TESTING_STEP = WINDOW_SIZE
 RANDOM_SEED = 42
 EPOCH = 20 # test with 50 for transformer based models
 PATIENCE = 5
-BATCH_SIZE = 8
+BATCH_SIZE = 32
 LEARNING_RATE = 0.0001
 NUM_PROC_WORKERS_DATA = 12
 
@@ -16,6 +16,10 @@ NUM_PROC_WORKERS_DATA = 12
 #PRE_AF_WINDOW = 360000 # 30 min
 #PRE_AF_WINDOW = 180000 # 15 min
 PRE_AF_WINDOW = 60000 # 5 min
+
+
+DATASET_PATH = "/mnt/iridia/sehlalou/thesis/data/datasets"
+LOG_DL_PATH = "/mnt/iridia/sehlalou/thesis/examples/dl/ViT/saved_models"
 
 def get_dict():
     return {

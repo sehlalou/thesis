@@ -1,0 +1,21 @@
+,roc_auc,accuracy,sensitivity,specificity,f1_score,training_time
+0,0.5282345347384296,0.7713132010549072,0.08905086632802171,0.9038497931817567,0.1621282176466235,26172.868245363235
+
+
+
+Early stopping at epoch 6
+Test loss 0.7385
+Test roc_auc 0.5282
+Test accuracy 0.7713
+Test sensitivity 0.0891
+Test specificity 0.9038
+Test f1_score 0.1621
+95% Confidence Intervals (Lower, Upper):
+ROC AUC: (0.5283252366740461, 0.5302419292818368)
+Accuracy: (0.7695890728814135, 0.772286047380276)
+Sensitivity: (0.08841425431296322, 0.09090217405625128)
+Specificity: (0.9027499796927344, 0.9045802512704353)
+F1 Score: (0.1610667874414944, 0.16517389365288432)
+Time required to compute confidence intervals: 0.6306 seconds
+Saving model to /mnt/iridia/sehlalou/thesis/examples/dl/ViT/saved_models/forecast_20250414-060615
+Total training time: 436 minutes and 13 seconds

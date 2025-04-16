@@ -1,0 +1,19 @@
+,roc_auc,accuracy,sensitivity,specificity,f1_score,training_time
+0,0.48897298437975967,0.9501946824525461,0.0033305074482257477,0.996610088992585,0.006638829018806025,25998.33110690117
+
+
+Early stopping at epoch 6
+Test loss 0.2340
+Test roc_auc 0.4890
+Test accuracy 0.9502
+Test sensitivity 0.0033
+Test specificity 0.9966
+Test f1_score 0.0066
+95% Confidence Intervals (Lower, Upper):
+ROC AUC: (0.4849343995399325, 0.49120462001789306)
+Accuracy: (0.9497586277150846, 0.9499801921923282)
+Sensitivity: (0.003317082415577884, 0.0039254749557151225)
+Specificity: (0.9963943027544787, 0.9966557959999369)
+F1 Score: (0.006612156585061069, 0.007820128550761602)
+Time required to compute confidence intervals: 0.6056 seconds
+
